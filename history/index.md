@@ -34,65 +34,85 @@ Click **Why?** to expand a one-paragraph note for each trade.*
 
 <small>*Stats updated manually for now; can be automated later.*</small>
 
----
-<!-- === ROI Calculator & Comparison ============================== -->
+<!-- ––– ROI Calculator & S&P Comparison ––– -->
 <hr>
-<h2>If you’d put <input id="startAmt" type="number" value="100" min="1" style="width:6rem"> $ into TPC…</h2>
-<div id="roiChart"></div>
+<h2>
+  If you’d put
+  <input id="startAmt" type="number" value="100" min="1" step="1" style="width:6rem">
+  $ into TPC …
+  <button id="runBtn">Run</button>
+</h2>
+
+<div id="roiChart" style="height:450px"></div>
 
 <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
 <script>
 (async ()=>{
-  const startInput = document.getElementById('startAmt');
+  /* —— fetch closed-trade data —— */
   const hist = await fetch('/data/history.json').then(r=>r.json());
+  if(!hist.length){ return; }       // safety
 
-  // sort oldest->newest for compounding
+  // oldest → newest for proper compounding
   hist.sort((a,b)=> new Date(a.date) - new Date(b.date));
 
-  // helper to build the two curves
-  function buildSeries(initial){
-    const tpcX = [], tpcY = [];
-    let bal = initial, lastDate = new Date(hist[0].date);
+  /* ——— helpers ——— */
+  const monthlyFactor = Math.pow(1.07, 1/12);   // 7 % p.a.
 
+  function buildCurves(start){
+    // TPC curve
+    const tpcX=[], tpcY=[];   let bal=start;
     hist.forEach(tr=>{
-      const d = new Date(tr.date);
-      // add passive points between trades (for smooth plot)
-      tpcX.push(d); tpcY.push(bal *= (1 + tr.plPc/100));
-      lastDate = d;
+      bal *= 1 + tr.plPc/100;
+      tpcX.push(new Date(tr.date));
+      tpcY.push(bal);
     });
 
-    // S&P curve: monthly 0.64 % from first trade to last trade
-    const spxX = [], spxY = [];
-    let spBal = initial, cur = new Date(hist[0].date);
-    while (cur <= lastDate){
-      spxX.push(new Date(cur)); spxY.push(spBal);
-      spBal *= 1.0064;                 // ≈ 8 % p.a.
+    // S&P curve
+    const spxX=[], spxY=[];
+    let spBal=start;
+    let cur  = new Date(hist[0].date);
+    const end = new Date(hist[hist.length-1].date);
+
+    while(cur <= end){
+      spxX.push(new Date(cur));
+      spxY.push(spBal);
+      spBal *= monthlyFactor;
       cur.setMonth(cur.getMonth()+1);
     }
     return {tpcX,tpcY,spxX,spxY};
   }
 
+  /* ——— draw chart ——— */
+  const input  = document.getElementById('startAmt');
+  const btn    = document.getElementById('runBtn');
+
   function draw(){
-    const initial = parseFloat(startInput.value||100);
-    const {tpcX,tpcY,spxX,spxY} = buildSeries(initial);
+    const start = parseFloat(input.value)||100;
+    const {tpcX,tpcY,spxX,spxY} = buildCurves(start);
 
     Plotly.newPlot('roiChart',[
       {x:tpcX,y:tpcY,type:'scatter',mode:'lines+markers',
-       name:`TPC realised P/L`,line:{dash:'solid'}},
+       name:`TPC realised P/L`},
       {x:spxX,y:spxY,type:'scatter',mode:'lines',
-       name:`S&P (8 % p.a.)`,line:{dash:'dot'}}
+       name:`S&P (7 % p.a.)`, line:{dash:'dot'}}
     ],{
-      paper_bgcolor:'#0d1117',plot_bgcolor:'#0d1117',
-      font:{color:'#c9d1d9'},margin:{t:20},legend:{x:0,y:1},
+      paper_bgcolor:'#0d1117',
+      plot_bgcolor :'#0d1117',
+      font:{color:'#c9d1d9'},
+      margin:{t:20},
+      legend:{x:0,y:1},
       yaxis:{title:'Portfolio value ($)'}
     },{responsive:true});
   }
 
-  // initial draw + live update on amount change
-  draw();  startInput.addEventListener('input',draw);
+  /* initial render + listeners */
+  draw();
+  btn.addEventListener('click',draw);
+  input.addEventListener('keypress',e=>{ if(e.key==='Enter') draw(); });
 })();
 </script>
-<!-- ============================================================= -->
+<!-- ––––––––––––––––––––––––––––––––––––––– -->
+
 
 ---
 
