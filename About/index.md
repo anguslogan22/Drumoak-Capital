@@ -13,12 +13,12 @@
 
 ## Founder  
 
-Hi — I’m **Angus Logan**, second-year B.Com student at **McGill University** (Finance × Statistics).  
+Hi — I’m **Angus Logan**, second-year B.Com student at **McGill University** Majoring in Finance and Minoring in Statistics.  
 When I’m not on the varsity soccer pitch I’m:
 
 * **Associate Director, Corporate Relations – McGill Ventures**  
 * **Co-Founder / Co-President – McGill Athletes in Business**  
-* Scripting factor tests, reading 10-Ks, and tinkering with risk dashboards.
+
 
 ---
 
