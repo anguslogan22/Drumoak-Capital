@@ -1,3 +1,40 @@
+<!-- ─── Shared TPC navigation bar ─────────────────────────────── -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+/* colour tokens (same as landing page) */
+:root{
+  --bg:#0d1117; --txt:#c9d1d9; --accent:#4db5ff;
+}
+
+/* make sure every sub-page inherits font + bg */
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);margin:0}
+
+/* nav bar */
+.tpc-nav{
+  background:rgba(13,17,23,.75);
+  backdrop-filter:blur(4px);
+  padding:.75rem 1.5rem;
+}
+.tpc-nav ul{list-style:none;display:flex;gap:1.5rem;align-items:center;margin:0}
+.tpc-nav a{color:var(--txt);text-decoration:none;font-weight:600}
+.tpc-nav a:hover{color:var(--accent)}
+.tpc-nav strong{font-size:1.15rem}
+</style>
+
+<nav class="tpc-nav">
+  <ul>
+    <li><strong>Thistle&nbsp;Point&nbsp;Capital</strong></li>
+    <li><a href="https://anguslogan22.github.io/thistlepointcapital.github.io/About/">About</a></li>
+    <li><a href="https://anguslogan22.github.io/thistlepointcapital.github.io/portfolio/">Portfolio</a></li>
+    <li><a href="https://anguslogan22.github.io/thistlepointcapital.github.io/history/">History</a></li>
+    <li><a href="https://anguslogan22.github.io/thistlepointcapital.github.io/CV/">CV</a></li>
+  </ul>
+</nav>
+<!-- ────────────────────────────────────────────────────────────── -->
+
+
 # About Thistle Point Capital&nbsp;🚀  
 
 <div align="center">
