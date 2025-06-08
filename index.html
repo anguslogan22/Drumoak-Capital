@@ -4,14 +4,10 @@
   <meta charset="utf-8">
   <title>Thistle Point Capital</title>
 
-  <!-- 1  Make every relative link point into the repo root -->
-  <base href="/thistlepointcapital.github.io/">
-
-  <!-- 2  Font -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-  <!-- 3  Styles -->
   <style>
     :root {
       --bg: #0d1117;
@@ -22,22 +18,59 @@
     * { box-sizing:border-box; margin:0; padding:0; }
     body {
       font-family:'Inter',sans-serif;
-      background: var(--bg) url('assets/Thistle.jpg') no-repeat center / cover fixed;
+      background: var(--bg) url('/assets/Thistle.jpg') no-repeat center / cover fixed;
       color:var(--txt);
       min-height:100vh;
       display:flex; flex-direction:column;
     }
-    /* navigation */
-    nav{background:rgba(13,17,23,.75);backdrop-filter:blur(4px);padding:.75rem 1.5rem;}
+    nav {background:rgba(13,17,23,.75);backdrop-filter:blur(4px);padding:.75rem 1.5rem;}
     nav ul{list-style:none;display:flex;gap:1.5rem;align-items:center;}
     nav a{color:var(--txt);text-decoration:none;font-weight:600;}
     nav a:hover{color:var(--accent);}
     nav strong{font-size:1.1rem;}
 
-    /* hero */
     main{flex:1;display:grid;place-items:center;padding:2rem;}
     .hero{background:rgba(22,27,34,.85);border-radius:12px;padding:2rem 2.5rem;
           max-width:800px;width:100%;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.4);
-          display:grid;gap:1.5rem;position:relative;}
+          display:grid;gap:1.5rem;}
     .hero h1{font-size:2.1rem;letter-spacing:-.02em;}
-    .hero p{line-height:1.45;margin-bottom:.5rem;}
+    .hero p{line-height:1.45;}
+    .btn-row{display:flex;justify-content:center;gap:1rem;margin-top:.5rem;flex-wrap:wrap;}
+    .btn{background:var(--accent);color:#002842;font-weight:600;
+         padding:.55rem 1.25rem;border-radius:8px;text-decoration:none;
+         transition:transform .15s;}
+    .btn:hover{transform:translateY(-2px);}
+    footer{text-align:center;padding:1rem;font-size:.8rem;opacity:.7;}
+  </style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><strong>Thistle&nbsp;Point&nbsp;Capital</strong></li>
+    <li><a href="/About/">About</a></li>
+    <li><a href="/portfolio/">Portfolio</a></li>
+    <li><a href="/history/">History</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section class="hero">
+    <h1>Welcome to Thistle&nbsp;Point&nbsp;Capital</h1>
+    <p>
+      I’m <strong>Angus Logan</strong> — second-year Finance student at McGill, Stats minor, varsity soccer player, and markets obsessive.<br>
+      This site is my public research notebook: live positions, back-tests, and no-nonsense post-mortems.
+    </p>
+
+    <div class="btn-row">
+      <a class="btn" href="/portfolio/">View Portfolio</a>
+      <a class="btn" href="/history/">Trade History</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Angus Logan. Educational only — not investment advice.
+</footer>
+</body>
+</html>
