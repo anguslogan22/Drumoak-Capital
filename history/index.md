@@ -1,23 +1,16 @@
-<!-- ─── Shared TPC navigation bar ─────────────────────────────── -->
+<!-- ▼ Thistle Point Capital shared header ──────────────────────── -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-/* colour tokens (same as landing page) */
-:root{
-  --bg:#0d1117; --txt:#c9d1d9; --accent:#4db5ff;
-}
-
-/* make sure every sub-page inherits font + bg */
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);margin:0}
-
-/* nav bar */
+:root{ --bg:#0d1117; --txt:#c9d1d9; --accent:#4db5ff; }
+body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);}
 .tpc-nav{
   background:rgba(13,17,23,.75);
   backdrop-filter:blur(4px);
   padding:.75rem 1.5rem;
 }
-.tpc-nav ul{list-style:none;display:flex;gap:1.5rem;align-items:center;margin:0}
+.tpc-nav ul{list-style:none;margin:0;display:flex;gap:1.5rem;align-items:center}
 .tpc-nav a{color:var(--txt);text-decoration:none;font-weight:600}
 .tpc-nav a:hover{color:var(--accent)}
 .tpc-nav strong{font-size:1.15rem}
@@ -32,7 +25,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);margin
     <li><a href="https://anguslogan22.github.io/thistlepointcapital.github.io/CV/">CV</a></li>
   </ul>
 </nav>
-<!-- ────────────────────────────────────────────────────────────── -->
+<!-- ▲ header ends ──────────────────────────────────────────────── -->
 
 
 # Trade History  
