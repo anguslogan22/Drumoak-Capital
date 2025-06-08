@@ -26,6 +26,7 @@ majoring in **Finance**, minoring in **Statistics**.
 
 * 📧 **Email:** <angus.logan123@gmail.com>  
 * 💼 **LinkedIn:** <https://www.linkedin.com/in/angus-logan/>
+* 📄 **CV (PDF):** [Download](/Angus_Logan_TPC_Resume.pdf)
 
 ---
 
