@@ -1,50 +1,60 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Thistle Point Capital</title>
+<meta charset="utf-8">
+<title>Thistle Point Capital</title>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<!-- Typeface -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg: #0d1117;
-      --card: #161b22;
-      --txt: #c9d1d9;
-      --accent: #4db5ff;
-    }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body {
-      font-family:'Inter',sans-serif;
-      background: var(--bg) url('/assets/Thistle.jpg') no-repeat center / cover fixed;
-      color:var(--txt);
-      min-height:100vh;
-      display:flex; flex-direction:column;
-    }
-    nav {background:rgba(13,17,23,.75);backdrop-filter:blur(4px);padding:.75rem 1.5rem;}
-    nav ul{list-style:none;display:flex;gap:1.5rem;align-items:center;}
-    nav a{color:var(--txt);text-decoration:none;font-weight:600;}
-    nav a:hover{color:var(--accent);}
-    nav strong{font-size:1.1rem;}
+<!-- Styles -->
+<style>
+:root{
+  --bg:#0d1117; --card:#161b22; --txt:#c9d1d9; --accent:#4db5ff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);               /* solid dark – no thistle image */
+  color:var(--txt);min-height:100vh;
+  display:flex;flex-direction:column;
+}
 
-    main{flex:1;display:grid;place-items:center;padding:2rem;}
-    .hero{background:rgba(22,27,34,.85);border-radius:12px;padding:2rem 2.5rem;
-          max-width:800px;width:100%;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.4);
-          display:grid;gap:1.5rem;}
-    .hero h1{font-size:2.1rem;letter-spacing:-.02em;}
-    .hero p{line-height:1.45;}
-    .btn-row{display:flex;justify-content:center;gap:1rem;margin-top:.5rem;flex-wrap:wrap;}
-    .btn{background:var(--accent);color:#002842;font-weight:600;
-         padding:.55rem 1.25rem;border-radius:8px;text-decoration:none;
-         transition:transform .15s;}
-    .btn:hover{transform:translateY(-2px);}
-    footer{text-align:center;padding:1rem;font-size:.8rem;opacity:.7;}
-  </style>
+/* nav */
+nav{background:rgba(13,17,23,.75);backdrop-filter:blur(4px);padding:.75rem 1.5rem}
+nav ul{list-style:none;display:flex;gap:1.5rem;align-items:center}
+nav a{color:var(--txt);text-decoration:none;font-weight:600}
+nav a:hover{color:var(--accent)}
+nav strong{font-size:1.15rem}
+
+/* ticker carousel */
+#tickerWrap{
+  background:#0d1117;border-top:1px solid #222;border-bottom:1px solid #222;
+  overflow:hidden;white-space:nowrap;font-variant-numeric:tabular-nums;
+}
+.ticker{display:inline-block;padding:.5rem 1.25rem;font-weight:600}
+.up{color:#3fb950}.down{color:#f85149}
+
+/* hero */
+main{flex:1;display:grid;place-items:center;padding:2rem}
+.hero{
+  background:rgba(22,27,34,.88);border-radius:12px;padding:2.25rem 2.75rem;
+  max-width:900px;width:100%;text-align:center;box-shadow:0 4px 22px rgba(0,0,0,.45);
+  display:grid;gap:1.5rem;
+}
+.hero h1{font-size:2.3rem;letter-spacing:-.025em}
+.hero p{line-height:1.5}
+.btn-row{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:.5rem}
+.btn{background:var(--accent);color:#002842;font-weight:600;padding:.55rem 1.35rem;
+     border-radius:8px;text-decoration:none;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+
+footer{text-align:center;padding:1rem;font-size:.75rem;opacity:.7}
+</style>
 </head>
-<body>
 
+<body>
 <nav>
   <ul>
     <li><strong>Thistle&nbsp;Point&nbsp;Capital</strong></li>
@@ -54,12 +64,20 @@
   </ul>
 </nav>
 
+<!-- live prices -->
+<div id="tickerWrap">Loading live prices…</div>
+
 <main>
   <section class="hero">
-    <h1>Welcome to Thistle&nbsp;Point&nbsp;Capital</h1>
+    <h1>Welcome to Thistle Point Capital</h1>
+
     <p>
-      I’m <strong>Angus Logan</strong> — second-year Finance student at McGill, Stats minor, varsity soccer player, and markets obsessive.<br>
-      This site is my public research notebook: live positions, back-tests, and no-nonsense post-mortems.
+      Thistle Point Capital is a <strong>personal trading lab</strong> run by Angus Logan.<br>
+      I publish my positions, post-mortems and data-driven notes in real time—no paywalls, no marketing deck, just the numbers.
+    </p>
+    <p>
+      The mandate is simple: <em>protect drawdown, compound intelligently, and write about every mistake</em>.  
+      If you find the research useful, bookmark the portfolio and check back—updates happen as trades close.
     </p>
 
     <div class="btn-row">
@@ -69,8 +87,43 @@
   </section>
 </main>
 
-<footer>
-  &copy; 2025 Angus Logan. Educational only — not investment advice.
-</footer>
+<footer>&copy; 2025 Angus Logan. Educational only — not investment advice.</footer>
+
+<!-- ===== JavaScript: live-price carousel ======================== -->
+<script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+<script>
+(async ()=>{
+  /* 1 | get tickers from positions.json */
+  const pos = await fetch('/data/positions.json').then(r=>r.json()).catch(()=>[]);
+  if(!pos.length){ document.getElementById('tickerWrap').textContent=''; return; }
+
+  /* 2 | fetch quotes from Stooq (free, no key) */
+  const tickers = pos.map(p=>p.ticker.toLowerCase()+'.us');
+  const url = 'https://stooq.com/q/l/?s='+tickers.join(',')+'&f=sd2t2ohlcv&h&e=json';
+  const json = await fetch(url).then(r=>r.json()).catch(()=>null);
+  if(!json || !json.data){ return; }
+
+  /* 3 | build the scrolling line */
+  const wrap = document.getElementById('tickerWrap');
+  wrap.innerHTML='';
+  json.data.forEach(q=>{
+    const span=document.createElement('span');
+    const pct=parseFloat(q.change);
+    span.className='ticker '+(pct>=0?'up':'down');
+    span.textContent=`${q.symbol.toUpperCase()}  ${q.close}  (${pct>0?'+':''}${pct}%)`;
+    wrap.appendChild(span);
+  });
+
+  /* 4 | simple marquee effect */
+  const totalWidth = wrap.scrollWidth;
+  let x=0;
+  function scroll(){
+    x = (x>=totalWidth) ? 0 : x+1;
+    wrap.scrollLeft = x;
+    requestAnimationFrame(scroll);
+  }
+  scroll();
+})();
+</script>
 </body>
 </html>
