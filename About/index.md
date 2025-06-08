@@ -1,129 +1,45 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Thistle Point Capital</title>
+# About Thistle Point Capital  
 
-<!-- Typeface -->
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<div align="center">
+  <img src="/assets/profile.jpg" alt="Angus Logan" width="200"
+       style="border:4px solid #4db5ff; border-radius:50%; margin-top:10px">
+</div>
 
-<!-- Styles -->
-<style>
-:root{
-  --bg:#0d1117; --card:#161b22; --txt:#c9d1d9; --accent:#4db5ff;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:'Inter',sans-serif;
-  background:var(--bg);               /* solid dark – no thistle image */
-  color:var(--txt);min-height:100vh;
-  display:flex;flex-direction:column;
-}
+---
 
-/* nav */
-nav{background:rgba(13,17,23,.75);backdrop-filter:blur(4px);padding:.75rem 1.5rem}
-nav ul{list-style:none;display:flex;gap:1.5rem;align-items:center}
-nav a{color:var(--txt);text-decoration:none;font-weight:600}
-nav a:hover{color:var(--accent)}
-nav strong{font-size:1.15rem}
+## Who’s behind the screen?  
 
-/* ticker carousel */
-#tickerWrap{
-  background:#0d1117;border-top:1px solid #222;border-bottom:1px solid #222;
-  overflow:hidden;white-space:nowrap;font-variant-numeric:tabular-nums;
-}
-.ticker{display:inline-block;padding:.5rem 1.25rem;font-weight:600}
-.up{color:#3fb950}.down{color:#f85149}
+Hi — I’m **Angus Logan**, a second-year B.Com student at **McGill University** majoring in **Finance** and minoring in **Statistics**.  
+When I’m not on the varsity soccer pitch, I’m knee-deep in price data, coding back-tests, or helping run:
 
-/* hero */
-main{flex:1;display:grid;place-items:center;padding:2rem}
-.hero{
-  background:rgba(22,27,34,.88);border-radius:12px;padding:2.25rem 2.75rem;
-  max-width:900px;width:100%;text-align:center;box-shadow:0 4px 22px rgba(0,0,0,.45);
-  display:grid;gap:1.5rem;
-}
-.hero h1{font-size:2.3rem;letter-spacing:-.025em}
-.hero p{line-height:1.5}
-.btn-row{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:.5rem}
-.btn{background:var(--accent);color:#002842;font-weight:600;padding:.55rem 1.35rem;
-     border-radius:8px;text-decoration:none;transition:transform .15s}
-.btn:hover{transform:translateY(-2px)}
+* **Associate Director, Corporate Relations – McGill Ventures**  
+* **Co-Founder / Co-President – McGill Athletes in Business**
 
-footer{text-align:center;padding:1rem;font-size:.75rem;opacity:.7}
-</style>
-</head>
+Thistle Point Capital (TPC) is my public trading notebook: live positions, algorithms that don’t hide their warts, and brutally honest post-mortems.
 
-<body>
-<nav>
-  <ul>
-    <li><strong>Thistle&nbsp;Point&nbsp;Capital</strong></li>
-    <li><a href="/About/">About</a></li>
-    <li><a href="/portfolio/">Portfolio</a></li>
-    <li><a href="/history/">History</a></li>
-  </ul>
-</nav>
+---
 
-<!-- live prices -->
-<div id="tickerWrap">Loading live prices…</div>
+## Quick links  
 
-<main>
-  <section class="hero">
-    <h1>Welcome to Thistle Point Capital</h1>
+| &nbsp; | Link |
+|---|---|
+| 📄 **CV (PDF)** | [Download](/Angus_Logan_CV.pdf) |
+| 💼 **LinkedIn** | <https://www.linkedin.com/in/angus-logan/> |
+| ✉️ **Email** | <angus.logan123@gmail.com> |
 
-    <p>
-      Thistle Point Capital is a <strong>personal trading lab</strong> run by Angus Logan.<br>
-      I publish my positions, post-mortems and data-driven notes in real time—no paywalls, no marketing deck, just the numbers.
-    </p>
-    <p>
-      The mandate is simple: <em>protect drawdown, compound intelligently, and write about every mistake</em>.  
-      If you find the research useful, bookmark the portfolio and check back—updates happen as trades close.
-    </p>
+---
 
-    <div class="btn-row">
-      <a class="btn" href="/portfolio/">View Portfolio</a>
-      <a class="btn" href="/history/">Trade History</a>
-    </div>
-  </section>
-</main>
+## What you’ll find on this site  
 
-<footer>&copy; 2025 Angus Logan. Educational only — not investment advice.</footer>
+| Section | Why visit? |
+|---------|------------|
+| **[Portfolio](/portfolio/)** | Current holdings, live weights, risk notes. |
+| **[History](/history/)** | Closed trades, win-rate stats, expandable rationale for every exit. |
+| **Algo Lab** *(coming soon)* | Python notebooks + back-test results. |
+| **Resources** *(coming soon)* | Books, podcasts, raw data APIs I actually use. |
 
-<!-- ===== JavaScript: live-price carousel ======================== -->
-<script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
-<script>
-(async ()=>{
-  /* 1 | get tickers from positions.json */
-  const pos = await fetch('/data/positions.json').then(r=>r.json()).catch(()=>[]);
-  if(!pos.length){ document.getElementById('tickerWrap').textContent=''; return; }
+---
 
-  /* 2 | fetch quotes from Stooq (free, no key) */
-  const tickers = pos.map(p=>p.ticker.toLowerCase()+'.us');
-  const url = 'https://stooq.com/q/l/?s='+tickers.join(',')+'&f=sd2t2ohlcv&h&e=json';
-  const json = await fetch(url).then(r=>r.json()).catch(()=>null);
-  if(!json || !json.data){ return; }
-
-  /* 3 | build the scrolling line */
-  const wrap = document.getElementById('tickerWrap');
-  wrap.innerHTML='';
-  json.data.forEach(q=>{
-    const span=document.createElement('span');
-    const pct=parseFloat(q.change);
-    span.className='ticker '+(pct>=0?'up':'down');
-    span.textContent=`${q.symbol.toUpperCase()}  ${q.close}  (${pct>0?'+':''}${pct}%)`;
-    wrap.appendChild(span);
-  });
-
-  /* 4 | simple marquee effect */
-  const totalWidth = wrap.scrollWidth;
-  let x=0;
-  function scroll(){
-    x = (x>=totalWidth) ? 0 : x+1;
-    wrap.scrollLeft = x;
-    requestAnimationFrame(scroll);
-  }
-  scroll();
-})();
-</script>
-</body>
-</html>
+> **Disclaimer**  
+> All content is for educational purposes only and reflects my personal research.  
+> Nothing here is investment advice, solicitation, or a recommendation of any security.
