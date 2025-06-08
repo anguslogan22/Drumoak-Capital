@@ -1,37 +1,45 @@
-# 👋 About Thistle Point Capital  
+# About Thistle Point Capital  
 
-> *“Personal research & learning portfolio — **not** investment advice.”*
-
----
-
-## Who am I?
-**Angus Logan** — second-year B.Com student at **McGill University**,  
-majoring in **Finance**, minoring in **Statistics**.  
-*Varsity Men’s Soccer* • Associate Director (Corporate Relations) @ **McGill Ventures** • Co-Founder/Co-President of **McGill Athletes in Business**.
+<div align="center">
+  <img src="/assets/profile.jpg" alt="Angus Logan" width="200"
+       style="border:4px solid #4db5ff; border-radius:50%; margin-top:10px">
+</div>
 
 ---
 
-## What this site will become  
+## Who’s behind the screen?  
 
-| Section | Purpose |
-|---------|---------|
-| **Portfolio** | Live view of the positions I’m tracking (tickers & % moves, only % gains or losses). |
-| **Blog** | Short write-ups on market themes, trade rationales, and post-mortems. |
-| **Algo Lab** | Back-tests & Python notebooks powering any signals I experiment with. |
-| **CV** | One-page PDF résumé for recruiters & coffee-chat hosts. |
+Hi — I’m **Angus Logan**, a second-year B.Com student at **McGill University** majoring in **Finance** and minoring in **Statistics**.  
+When I’m not on the varsity soccer pitch, I’m knee-deep in price data, coding back-tests, or helping run:
 
----
+* **Associate Director, Corporate Relations – McGill Ventures**  
+* **Co-Founder / Co-President – McGill Athletes in Business**
 
-## Connect with me  
-
-* 📧 **Email:** <angus.logan123@gmail.com>  
-* 💼 **LinkedIn:** <https://www.linkedin.com/in/angus-logan/>
-* 📄 **CV (PDF):** [Download](/Angus_Logan_TPC_Resume.pdf)
+Thistle Point Capital (TPC) is my public trading notebook: live positions, algorithms that don’t hide their warts, and brutally honest post-mortems.
 
 ---
 
-## Disclaimer  
+## Quick links  
 
-> **Educational only.** The content here reflects my personal research and does **not** constitute investment advice, solicitation, or recommendation of any security.  
-> I do **not** manage external capital.
+| &nbsp; | Link |
+|---|---|
+| 📄 **CV (PDF)** | [Download](/Angus_Logan_CV.pdf) |
+| 💼 **LinkedIn** | <https://www.linkedin.com/in/angus-logan/> |
+| ✉️ **Email** | <angus.logan123@gmail.com> |
 
+---
+
+## What you’ll find on this site  
+
+| Section | Why visit? |
+|---------|------------|
+| **[Portfolio](/portfolio/)** | Current holdings, live weights, risk notes. |
+| **[History](/history/)** | Closed trades, win-rate stats, expandable rationale for every exit. |
+| **Algo Lab** *(coming soon)* | Python notebooks + back-test results. |
+| **Resources** *(coming soon)* | Books, podcasts, raw data APIs I actually use. |
+
+---
+
+> **Disclaimer**  
+> All content is for educational purposes only and reflects my personal research.  
+> Nothing here is investment advice, solicitation, or a recommendation of any security.
