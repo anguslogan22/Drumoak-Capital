@@ -1,0 +1,88 @@
+<!-- portfolio/index.html  – updated with real tickers and weights -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Portfolio | Thistle Point Capital</title>
+
+  <!-- Plotly CDN -->
+  <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" defer></script>
+
+  <style>
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;margin:0;padding:2rem;background:#0d1117;color:#c9d1d9}
+    h1{margin-top:0}
+    #chart{max-width:700px;margin:0 auto}
+    table{width:100%;border-collapse:collapse;margin-top:2rem}
+    th,td{padding:.5rem .75rem;border-bottom:1px solid #30363d}
+    th{text-align:left;background:#161b22}
+    tr:hover{background:#21262d}
+    a{color:#58a6ff;text-decoration:none}
+  </style>
+</head>
+<body>
+  <h1>Portfolio Snapshot</h1>
+  <p>This pie chart shows the **percentage weight** of each holding in my learning portfolio.  
+     Click a slice (or a row) to jump to that holding’s detail page.</p>
+
+  <div id="chart"></div>
+
+  <table id="holdings">
+    <thead><tr><th>Ticker</th><th>Name</th><th>Weight&nbsp;(%)</th></tr></thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    /* === 1 | Portfolio data ==================================== */
+    const data = [
+      { ticker:'EL',   name:'Estée Lauder Cos.', weight:50 },
+      { ticker:'AMD',  name:'Advanced Micro Devices', weight:30 },
+      { ticker:'LULU', name:'Lululemon Athletica',    weight:7  },
+      { ticker:'DOCU', name:'DocuSign Inc.',          weight:7  },
+      { ticker:'TSLA', name:'Tesla Inc.',             weight:6  }
+    ];
+    /* =========================================================== */
+
+    const labels  = data.map(d => d.ticker);
+    const weights = data.map(d => d.weight);
+
+    const plotData = [{
+      type:'pie',
+      labels:labels,
+      values:weights,
+      hole:0.4,
+      textinfo:'label+percent',
+      hovertemplate:'%{label}: %{percent}<extra></extra>'
+    }];
+
+    const layout = {
+      paper_bgcolor:'#0d1117',
+      plot_bgcolor:'#0d1117',
+      font:{color:'#c9d1d9'},
+      showlegend:false
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+      Plotly.newPlot('chart', plotData, layout, {responsive:true});
+
+      /* click-through to detail pages */
+      document.getElementById('chart').on('plotly_click', ev => {
+        const t = ev.points[0].label;
+        window.location = `/thistlepointcapital.github.io/portfolio/${t}/`;
+      });
+
+      /* build the table */
+      const tbody = document.querySelector('#holdings tbody');
+      data.forEach(d=>{
+        const tr=document.createElement('tr');
+        tr.innerHTML=`<td><a href="/thistlepointcapital.github.io/portfolio/${d.ticker}/">${d.ticker}</a></td>
+                      <td>${d.name}</td><td>${d.weight}</td>`;
+        tbody.appendChild(tr);
+      });
+    });
+  </script>
+
+  <p style="margin-top:2rem;font-size:.9rem">
+    <em>Disclaimer:</em> Educational purposes only — not investment advice.
+  </p>
+</body>
+</html>
