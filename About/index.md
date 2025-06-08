@@ -89,47 +89,46 @@ When I’m not on the varsity soccer pitch I’m:
 2. **Hypothesis → Data → Trade.** Every position has a written thesis before capital is committed.  
 3. **Post-mortem culture.** Winners and losers get the same autopsy—bias hides in silence.  
 
----
-## The Returns 
+<!-- Returns ------------------------------------------------------ -->
+## The Returns
 <hr>
 
 <h2 align="center">2025 Market Benchmarks vs&nbsp;TPC</h2>
 <div id="benchChart" style="height:420px"></div>
 
-<!-- Plotly CDN -->
 <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
 <script>
-/* ─── 1 | edit these numbers whenever rates/returns change ───────── */
+/* edit these numbers whenever rates/returns change */
 const dataPoints = [
   { name:'Canada Overnight',   value:5.00 },
   { name:'UK Base Rate',       value:5.25 },
   { name:'US Fed Funds',       value:5.50 },
   { name:'S&P 500&nbsp;YTD',   value:12.3 },
   { name:'FTSE&nbsp;100&nbsp;YTD', value:2.1 },
-  { name:'TPC Avg Return',     value:19.2 }   // update from your stats block
+  { name:'TPC Avg Return',     value:19.2 }
 ];
-/* ─────────────────────────────────────────────────────────────────── */
 
+/* vertical bars → x = names, y = numbers */
 const x = dataPoints.map(d => d.name);
 const y = dataPoints.map(d => d.value);
-const colors = dataPoints.map(d => d.name.includes('TPC') ? '#4db5ff' : '#8b949e');
+const colors = dataPoints.map(d =>
+  d.name.includes('TPC') ? '#4db5ff' : '#8b949e'
+);
 
 Plotly.newPlot('benchChart', [{
   type:'bar',
-  x:y,
-  y:x,
-  orientation:'h',
+  x:x,
+  y:y,
   marker:{color:colors},
-  hovertemplate:'%{x:.2f}%<extra></extra>'
+  hovertemplate:'%{y:.2f}%<extra></extra>'
 }], {
   paper_bgcolor:'#0d1117',
   plot_bgcolor :'#0d1117',
   font:{color:'#c9d1d9'},
-  margin:{l:120,r:20,t:10,b:40},
-  xaxis:{title:'% Return / Rate'},
+  margin:{l:50,r:20,t:10,b:80},
+  yaxis:{title:'% Return / Rate'},
 }, {responsive:true});
 </script>
-
 
 ---
 
