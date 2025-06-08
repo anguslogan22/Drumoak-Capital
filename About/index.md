@@ -2,90 +2,59 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>About | Thistle Point Capital</title>
+<title>Thistle Point Capital</title>
 
 <!-- Typeface -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
+<!-- Styles -->
 <style>
 :root{
-  --bg:#0d1117;    /* page background */
-  --card:#161b22;  /* info panel */
-  --txt:#c9d1d9;   /* body text */
-  --accent:#4db5ff;/* buttons / borders */
+  --bg:#0d1117; --card:#161b22; --txt:#c9d1d9; --accent:#4db5ff;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:'Inter',sans-serif;
-  background:var(--bg);
-  color:var(--txt);
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
+  background:var(--bg);               /* solid dark – no thistle image */
+  color:var(--txt);min-height:100vh;
+  display:flex;flex-direction:column;
 }
 
-/* ─── navigation (same as home) ─────────────────────────────── */
-nav{
-  background:rgba(13,17,23,.75);
-  backdrop-filter:blur(4px);
-  padding:.75rem 1.5rem;
-}
+/* nav */
+nav{background:rgba(13,17,23,.75);backdrop-filter:blur(4px);padding:.75rem 1.5rem}
 nav ul{list-style:none;display:flex;gap:1.5rem;align-items:center}
 nav a{color:var(--txt);text-decoration:none;font-weight:600}
 nav a:hover{color:var(--accent)}
 nav strong{font-size:1.15rem}
 
-/* ─── main bio card ─────────────────────────────────────────── */
-main{flex:1;display:grid;place-items:center;padding:3rem 1rem}
-.card{
-  background:var(--card);
-  border-radius:14px;
-  box-shadow:0 6px 24px rgba(0,0,0,.45);
-  padding:2.75rem 3rem;
-  display:flex;
-  gap:2.5rem;
-  max-width:950px;
-  width:100%;
-  flex-wrap:wrap;
+/* ticker carousel */
+#tickerWrap{
+  background:#0d1117;border-top:1px solid #222;border-bottom:1px solid #222;
+  overflow:hidden;white-space:nowrap;font-variant-numeric:tabular-nums;
 }
-.headshot{
-  flex:0 0 220px;
-  height:220px;
-  border-radius:50%;
-  border:5px solid var(--accent);
-  object-fit:cover;
+.ticker{display:inline-block;padding:.5rem 1.25rem;font-weight:600}
+.up{color:#3fb950}.down{color:#f85149}
+
+/* hero */
+main{flex:1;display:grid;place-items:center;padding:2rem}
+.hero{
+  background:rgba(22,27,34,.88);border-radius:12px;padding:2.25rem 2.75rem;
+  max-width:900px;width:100%;text-align:center;box-shadow:0 4px 22px rgba(0,0,0,.45);
+  display:grid;gap:1.5rem;
 }
-.content{flex:1 1 320px;display:flex;flex-direction:column;gap:1.35rem}
-h1{font-size:2rem;font-weight:600;letter-spacing:-.02em}
-h2{font-size:1.25rem;margin-top:1rem;margin-bottom:.25rem}
-p{line-height:1.55}
-table{width:100%;border-collapse:collapse}
-td{padding:.35rem .5rem;vertical-align:top}
-td:first-child{font-weight:600;white-space:nowrap}
-a.btn{
-  display:inline-block;
-  background:var(--accent);
-  color:#002842;
-  padding:.55rem 1.25rem;
-  border-radius:8px;
-  font-weight:600;
-  text-decoration:none;
-  transition:transform .15s;
-  box-shadow:0 2px 6px rgba(0,0,0,.4);
-}
-a.btn:hover{transform:translateY(-2px)}
-hr{border:none;border-top:1px solid #30363d;margin:1.5rem 0}
-small{font-size:.8rem;opacity:.75}
-@media(max-width:640px){
-  .headshot{flex:0 0 140px;height:140px}
-}
+.hero h1{font-size:2.3rem;letter-spacing:-.025em}
+.hero p{line-height:1.5}
+.btn-row{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:.5rem}
+.btn{background:var(--accent);color:#002842;font-weight:600;padding:.55rem 1.35rem;
+     border-radius:8px;text-decoration:none;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+
+footer{text-align:center;padding:1rem;font-size:.75rem;opacity:.7}
 </style>
 </head>
 
 <body>
-
-<!-- nav -->
 <nav>
   <ul>
     <li><strong>Thistle&nbsp;Point&nbsp;Capital</strong></li>
@@ -95,55 +64,66 @@ small{font-size:.8rem;opacity:.75}
   </ul>
 </nav>
 
-<!-- bio card -->
+<!-- live prices -->
+<div id="tickerWrap">Loading live prices…</div>
+
 <main>
-  <section class="card">
+  <section class="hero">
+    <h1>Welcome to Thistle Point Capital</h1>
 
-    <img src="/assets/profile.jpg" alt="Angus Logan" class="headshot"
-         onerror="this.style.display='none'">
+    <p>
+      Thistle Point Capital is a <strong>personal trading lab</strong> run by Angus Logan.<br>
+      I publish my positions, post-mortems and data-driven notes in real time—no paywalls, no marketing deck, just the numbers.
+    </p>
+    <p>
+      The mandate is simple: <em>protect drawdown, compound intelligently, and write about every mistake</em>.  
+      If you find the research useful, bookmark the portfolio and check back—updates happen as trades close.
+    </p>
 
-    <div class="content">
-      <h1>Angus Logan</h1>
-
-      <p>
-        Second-year Finance major &amp; Statistics minor at <strong>McGill University</strong>;
-        varsity men’s soccer midfielder; and the analyst, coder, and risk-manager behind
-        <strong>Thistle&nbsp;Point&nbsp;Capital</strong>.
-      </p>
-
-      <p>
-        I currently serve as Associate Director &ndash; Corporate Relations at <em>McGill Ventures</em>
-        and Co-Founder / Co-President of <em>McGill Athletes in Business</em>.
-        This site is my open notebook&mdash;every position, back-test, and post-mortem lives in public.
-      </p>
-
-      <!-- links -->
-      <h2>Contact &amp; Documents</h2>
-      <table>
-        <tr><td>CV&nbsp;(PDF)</td><td><a href="/Angus_Logan_CV.pdf" class="btn">Download</a></td></tr>
-        <tr><td>LinkedIn</td><td><a href="https://www.linkedin.com/in/angus-logan/" target="_blank">
-                                   linkedin.com/in/angus-logan</a></td></tr>
-        <tr><td>Email</td><td><a href="mailto:angus.logan123@gmail.com">angus.logan123@gmail.com</a></td></tr>
-      </table>
-
-      <!-- site map -->
-      <hr>
-      <h2>Site Map</h2>
-      <table>
-        <tr><td>Portfolio</td><td>Live positions, weights, risk notes</td></tr>
-        <tr><td>History</td><td>Closed trades, win-rate stats, rationales</td></tr>
-        <tr><td>Algo Lab</td><td>Python notebooks &amp; back-tests (coming soon)</td></tr>
-        <tr><td>Resources</td><td>Books, data APIs, reading list (coming soon)</td></tr>
-      </table>
-
-      <hr>
-      <small>
-        Disclaimer: Educational purposes only. Nothing here constitutes investment advice,
-        solicitation, or recommendation. I do not manage external capital.
-      </small>
+    <div class="btn-row">
+      <a class="btn" href="/portfolio/">View Portfolio</a>
+      <a class="btn" href="/history/">Trade History</a>
     </div>
   </section>
 </main>
 
+<footer>&copy; 2025 Angus Logan. Educational only — not investment advice.</footer>
+
+<!-- ===== JavaScript: live-price carousel ======================== -->
+<script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+<script>
+(async ()=>{
+  /* 1 | get tickers from positions.json */
+  const pos = await fetch('/data/positions.json').then(r=>r.json()).catch(()=>[]);
+  if(!pos.length){ document.getElementById('tickerWrap').textContent=''; return; }
+
+  /* 2 | fetch quotes from Stooq (free, no key) */
+  const tickers = pos.map(p=>p.ticker.toLowerCase()+'.us');
+  const url = 'https://stooq.com/q/l/?s='+tickers.join(',')+'&f=sd2t2ohlcv&h&e=json';
+  const json = await fetch(url).then(r=>r.json()).catch(()=>null);
+  if(!json || !json.data){ return; }
+
+  /* 3 | build the scrolling line */
+  const wrap = document.getElementById('tickerWrap');
+  wrap.innerHTML='';
+  json.data.forEach(q=>{
+    const span=document.createElement('span');
+    const pct=parseFloat(q.change);
+    span.className='ticker '+(pct>=0?'up':'down');
+    span.textContent=`${q.symbol.toUpperCase()}  ${q.close}  (${pct>0?'+':''}${pct}%)`;
+    wrap.appendChild(span);
+  });
+
+  /* 4 | simple marquee effect */
+  const totalWidth = wrap.scrollWidth;
+  let x=0;
+  function scroll(){
+    x = (x>=totalWidth) ? 0 : x+1;
+    wrap.scrollLeft = x;
+    requestAnimationFrame(scroll);
+  }
+  scroll();
+})();
+</script>
 </body>
 </html>
