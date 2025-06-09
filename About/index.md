@@ -1,4 +1,4 @@
-<!-- ▼ Thistle Point Capital shared header ──────────────────────── -->
+<!-- ▼ Drumoak Capitalshared header ──────────────────────── -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
@@ -29,7 +29,7 @@ body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--tx
 
 
 
-# About Thistle Point Capital&nbsp;🚀  
+# About Drumoak Capital&nbsp;🚀  
 
 <div align="center">
   <img src="/assets/profile.jpg"
@@ -53,7 +53,7 @@ When I’m not on the varsity soccer pitch I’m:
 
 ---
 
-## What is TPC?  
+## What is Drumoak Capital?  
 
 | &nbsp; | Description |
 |-------|-------------|
@@ -128,4 +128,4 @@ Plotly.newPlot('benchChart', [{
 
 > **Disclaimer**  
 > Educational content only. Nothing here constitutes investment advice, solicitation, or recommendation.  
-> Thistle Point Capital manages *personal* funds exclusively.
+> Drumoak Capital manages *personal* funds exclusively.
