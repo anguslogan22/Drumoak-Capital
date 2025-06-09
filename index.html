@@ -13,6 +13,8 @@
   --bg:#0d1117;      /* page background */
   --card:#161b22;    /* hero panel */
   --txt:#c9d1d9;     /* body text */
+  --muted:#555;      /* muted notes */
+  --line:#30363d;    /* borders */
   --accent:#4db5ff;  /* buttons / hover */
   --shadow:0 6px 24px rgba(0,0,0,.45);
 }
@@ -66,6 +68,48 @@ main{flex:1;display:grid;place-items:center;padding:2.5rem 1rem}
 }
 .btn:hover{transform:translateY(-2px)}
 
+/* ── market snapshot ───────────────────────────────────────────── */
+#market-snapshot {
+  background: var(--card);
+  margin: 2rem 1rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+#market-snapshot h2 {
+  margin-top: 0;
+  color: var(--txt);
+}
+#market-snapshot p {
+  color: var(--muted);
+  margin-bottom: 1rem;
+  font-size: .95rem;
+}
+#market-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: inherit;
+}
+#market-table th,
+#market-table td {
+  padding: .5rem;
+  border-bottom: 1px solid var(--line);
+}
+#market-table th {
+  text-align: left;
+  color: var(--txt);
+}
+#market-table td {
+  color: var(--txt);
+}
+#market-table td:last-child {
+  text-align: right;
+}
+#market-table span {
+  font-weight: 600;
+}
+
+/* ── footer ───────────────────────────────────────────────────── */
 footer{text-align:center;padding:1rem;font-size:.8rem;opacity:.7}
 </style>
 </head>
@@ -86,7 +130,6 @@ footer{text-align:center;padding:1rem;font-size:.8rem;opacity:.7}
 <main>
   <section class="hero">
     <h1>Welcome to Drumoak Capital</h1>
-
     <p>
       Drumoak Capital is a <strong>personal trading lab</strong> run by Angus Logan.<br>
       I publish my positions, post-mortems and data-driven notes in real time&mdash;no paywalls, no marketing deck, just the numbers.
@@ -95,7 +138,6 @@ footer{text-align:center;padding:1rem;font-size:.8rem;opacity:.7}
       The mandate is simple: <em>protect drawdown, compound intelligently, and write about every mistake</em>.<br>
       If you find the research useful, bookmark the portfolio and check back&mdash;updates happen as trades close.
     </p>
-
     <div class="btn-row">
       <a class="btn" href="https://anguslogan22.github.io/Drumoak-Capital/portfolio/">View&nbsp;Portfolio</a>
       <a class="btn" href="https://anguslogan22.github.io/Drumoak-Capital/history/">Trade&nbsp;History</a>
@@ -103,6 +145,61 @@ footer{text-align:center;padding:1rem;font-size:.8rem;opacity:.7}
   </section>
 </main>
 
+<!-- ── Live Market Snapshot ─────────────────────────────────────── -->
+<section id="market-snapshot">
+  <h2>Market Snapshot</h2>
+  <p>Today’s P&amp;L (% change) for major indices, commodities &amp; ETFs.</p>
+  <table id="market-table">
+    <thead>
+      <tr>
+        <th>Ticker</th>
+        <th>Name</th>
+        <th>Today’s P&amp;L</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- injected via JS -->
+    </tbody>
+  </table>
+</section>
+
 <footer>&copy; 2025 Angus Logan. Educational only&nbsp;&mdash; not investment advice.</footer>
+
+<script>
+  (function(){
+    const apiKey = 'YOUR_API_KEY'; 
+    const symbols = [
+      { sym:'SPY',   name:'S&P 500 ETF'       },
+      { sym:'^FTSE', name:'FTSE 100 Index'    },
+      { sym:'GC=F',  name:'Gold (COMEX)'      },
+      { sym:'CL=F',  name:'Crude Oil (WTI)'   },
+      { sym:'^IXIC', name:'NASDAQ Composite'  }
+    ];
+
+    const syms = symbols.map(s=>s.sym).join(',');
+    const url  = `https://financialmodelingprep.com/api/v3/quote/${syms}?apikey=${apiKey}`;
+
+    fetch(url)
+      .then(r => r.json())
+      .then(data => {
+        const tbody = document.querySelector('#market-table tbody');
+        data.forEach(q => {
+          const info = symbols.find(s=>s.sym===q.symbol) || {};
+          const chg  = q.changesPercentage || 0;
+          const pct  = (typeof chg==='string' ? parseFloat(chg) : chg).toFixed(2) + '%';
+          const color = chg >= 0 ? 'var(--accent)' : '#e55353';
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${q.symbol}</td>
+            <td>${info.name}</td>
+            <td><span style="color:${color}">${pct}</span></td>
+          `;
+          tbody.appendChild(row);
+        });
+      })
+      .catch(err => console.error('Market snapshot error:', err));
+  })();
+</script>
+
 </body>
 </html>
