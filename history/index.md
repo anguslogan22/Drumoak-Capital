@@ -24,14 +24,28 @@ th,td{padding:.45rem .6rem;border-bottom:1px solid var(--line);text-align:left}
 th{background:var(--bg)}
 
 /* NEW ─ details/summary fix */
-details{display:block;white-space:pre-line}
-details summary{
-  cursor:pointer;
-  font-weight:600;
-  text-decoration:underline;
-  list-style:none;          /* hide default arrow in Chrome */
+details {
+  display: block;
+  white-space: normal; /* allow full wrapping */
 }
-details[open] summary{margin-bottom:.4rem}
+
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: underline;
+  list-style: none;          /* hide default arrow in Chrome */
+}
+
+details[open] summary {
+  margin-bottom: 0.4rem;
+}
+
+/* small print */
+small {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
 
 /* small print */
 small{color:var(--muted);font-size:.8rem}
