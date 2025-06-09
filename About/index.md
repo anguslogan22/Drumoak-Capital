@@ -108,7 +108,7 @@ When I’m not on the varsity soccer pitch I’m:
 ## The Returns
 <hr>
 
-<h2 align="center">2025 Market Benchmarks vs&nbsp;TPC</h2>
+<h2 align="center">2025 Market Benchmarks vs&nbsp;DC</h2>
 <div id="benchChart" style="height:420px"></div>
 
 <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
@@ -118,7 +118,7 @@ const dataPoints = [
   { name:'Canada Overnight',   value:5.00 },
   { name:'UK Base Rate',       value:5.25 },
   { name:'US Fed Funds',       value:5.50 },
-  { name:'S&P 500&nbsp;YTD',   value:12.3 },
+  { name:'S&P 500&nbsp;YTD',   value:8.0 },
   { name:'FTSE&nbsp;100&nbsp;YTD', value:2.1 },
   { name:'TPC Avg Return',     value:19.2 }
 ];
@@ -127,7 +127,7 @@ const dataPoints = [
 const x = dataPoints.map(d => d.name);
 const y = dataPoints.map(d => d.value);
 const colors = dataPoints.map(d =>
-  d.name.includes('TPC') ? '#4db5ff' : '#8b949e'
+  d.name.includes('DC') ? '#4db5ff' : '#8b949e'
 );
 
 Plotly.newPlot('benchChart', [{
