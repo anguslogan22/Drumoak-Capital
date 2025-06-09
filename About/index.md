@@ -19,10 +19,10 @@ body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--tx
 <nav class="tpc-nav">
   <ul>
     <li><strong>Thistle&nbsp;Point&nbsp;Capital</strong></li>
-    <li><a href="https://anguslogan22.github.io/thistlepointcapital.github.io/About/">About</a></li>
-    <li><a href="https://anguslogan22.github.io/thistlepointcapital.github.io/portfolio/">Portfolio</a></li>
-    <li><a href="https://anguslogan22.github.io/thistlepointcapital.github.io/history/">History</a></li>
-    <li><a href="https://anguslogan22.github.io/thistlepointcapital.github.io/CV/">CV</a></li>
+    <li><a href="https://anguslogan22.github.io/Drumoak-Capital/About/">About</a></li>
+    <li><a href="https://anguslogan22.github.io/Drumoak-Capital/portfolio/">Portfolio</a></li>
+    <li><a href="https://anguslogan22.github.io/Drumoak-Capital/history/">History</a></li>
+    <li><a href="https://anguslogan22.github.io/Drumoak-Capital/CV/">CV</a></li>
   </ul>
 </nav>
 <!-- ▲ header ends ──────────────────────────────────────────────── -->
