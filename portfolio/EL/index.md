@@ -4,17 +4,18 @@
   <meta charset="utf-8">
   <title>EL | Drumoak Capital</title>
 
+  <!-- Inter font -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg:     #fff;                             /* page background */
-      --card:   #fff;                             /* card background */
-      --txt:    #000;                             /* primary text */
-      --muted:  #555;                             /* secondary text */
-      --line:   #ddd;                             /* borders / dividers */
-      --shadow: 0 6px 24px rgba(0,0,0,.15);        /* soft shadow */
+      --bg:     #fff;                            /* page background */
+      --card:   #fff;                            /* card background */
+      --txt:    #000;                            /* primary text */
+      --muted:  #555;                            /* secondary text */
+      --line:   #ddd;                            /* borders/dividers */
+      --shadow: 0 6px 24px rgba(0,0,0,.15);       /* soft shadow */
     }
 
     * {
@@ -31,18 +32,17 @@
       flex-direction: column;
     }
 
-    /* nav ------------------------------------------------------------------- */
+    /* nav */
     nav {
       background: var(--bg);
-      padding: .75rem 1.5rem;
       border-bottom: 1px solid var(--line);
+      padding: .75rem 1.5rem;
     }
     nav ul {
       list-style: none;
       display: flex;
       gap: 1.4rem;
       align-items: center;
-      margin: 0;
     }
     nav a {
       color: var(--txt);
@@ -56,7 +56,7 @@
       font-size: 1.1rem;
     }
 
-    /* layout ---------------------------------------------------------------- */
+    /* layout */
     main {
       flex: 1;
       display: grid;
@@ -79,7 +79,7 @@
       color: var(--txt);
     }
 
-    /* table ----------------------------------------------------------------- */
+    /* table */
     table {
       width: 100%;
       border-collapse: collapse;
@@ -137,14 +137,14 @@
         <tbody>
           <tr>
             <td>1</td>
-            <td>20 May 2025 · 3 : 34 pm</td>
+            <td>20 May 2025 · 3:34 pm</td>
             <td>4.46025</td>
             <td id="e1">--</td>
             <td id="pl1">--</td>
           </tr>
           <tr>
             <td>2</td>
-            <td>21 May 2025 · 6 : 26 pm</td>
+            <td>21 May 2025 · 6:26 pm</td>
             <td>2.29893</td>
             <td id="e2">--</td>
             <td id="pl2">--</td>
@@ -155,16 +155,15 @@
       <h2>Thesis</h2>
       <p>
         Walking past the beauty counter this spring felt surreal:
-        a blue-chip house like Estée Lauder was priced like a broken biotech…
-        <em>(full thesis unchanged)</em>
+        a blue-chip house like Estée Lauder was priced like a broken biotech stock, this was a fantastic buying opportunity for such a cheap beast of a company. In spite of Jim Cramer calling the stock "horrendious", I think it is a great buy and diversifies the portfolio nicely. 
       </p>
 
       <h2>Risk / Exit Plan</h2>
       <ul>
-        <li>China headwinds: two quarters &lt; 5 % sales growth → trim 50 %</li>
+        <li>China headwinds: two quarters &lt; 5% sales growth → trim 50%</li>
         <li>Management shuffle: surprise CEO/CFO exit → re-evaluate</li>
         <li>Thesis creep: if I pitch “Hims &amp; Hers is the new EL” → halve</li>
-        <li>Hard stop: −25 % on blended entry</li>
+        <li>Hard stop: −25% on blended entry</li>
       </ul>
 
       <small>
@@ -173,41 +172,45 @@
     </section>
   </main>
 
-  <!-- Live-price & dynamic P/L --------------------------------------------- -->
+  <!-- Live price & dynamic P/L via FinancialModelingPrep -->
   <script>
-    /* constants from your notes */
-    const units1 = 4.46025, units2 = 2.29893;
-    const avgEntry = 66.57;
-    const lot2Pct  = 23.77;   // lot #2 is +23.77 %
-    const lev      = 5;
+    /* constants */
+    const units1   = 4.46025,
+          units2   = 2.29893,
+          avgEntry = 66.57,
+          lev      = 5;
 
     (async () => {
-      const url  = 'https://stooq.com/q/l/?s=el.us&f=sd2t2ohlcv&h&e=json';
-      const data = await fetch(url).then(r=>r.json()).catch(()=>null);
-      if (!data || !data.data) return;
+      // replace YOUR_API_KEY with your FinancialModelingPrep key
+      const apiKey = 'YOUR_API_KEY';
+      const url    = `https://financialmodelingprep.com/api/v3/quote/EL?apikey=${apiKey}`;
 
-      const live = parseFloat(data.data[0].close);
+      const resp = await fetch(url).catch(()=>null);
+      const json = resp ? await resp.json().catch(()=>null) : null;
+      if (!json || !json.length) {
+        console.error('Failed to fetch EL quote');
+        return;
+      }
+
+      const live = parseFloat(json[0].price);
       document.getElementById('liveP').textContent = live.toFixed(2);
 
-      /* derive entry price for lot2 then lot1 */
-      const entry2 = live / (1 + lot2Pct/100);
-      const entry1 = (avgEntry * (units1 + units2)
-                      - units2 * entry2) / units1;
+      // derive entry prices
+      const entry2 = live / (1 + 23.77/100);
+      const entry1 = (avgEntry*(units1+units2) - units2*entry2) / units1;
 
-      /* overall P/L */
+      // overall leveraged P/L
       const overall = ((live - avgEntry)/avgEntry*100*lev).toFixed(2);
-      document.getElementById('totPL').textContent =
-        (overall>=0?'+':'') + overall + ' %';
+      document.getElementById('totPL').textContent = (overall>=0? '+' : '') + overall + ' %';
 
-      /* fill table */
-      function upd(entry, units, cellE, cellPL) {
+      // update each lot row
+      function upd(entry, cellE, cellPL) {
         document.getElementById(cellE).textContent = entry.toFixed(2);
         const pct = ((live - entry)/entry*100*lev).toFixed(2);
-        document.getElementById(cellPL).textContent =
-          (pct>=0?'+':'') + pct + ' %';
+        document.getElementById(cellPL).textContent = (pct>=0? '+' : '') + pct + ' %';
       }
-      upd(entry1, units1, 'e1', 'pl1');
-      upd(entry2, units2, 'e2', 'pl2');
+      upd(entry1, 'e1', 'pl1');
+      upd(entry2, 'e2', 'pl2');
     })();
   </script>
 </body>
