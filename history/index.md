@@ -51,17 +51,19 @@ body {
 
 /* tables */
 table {
-  width:100%;
-  border-collapse:collapse;
-  margin-top:.6rem;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: .6rem;
 }
 th, td {
-  padding:.45rem .6rem;
-  border-bottom:1px solid var(--line);
-  text-align:left;
+  padding: .45rem .6rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
 }
 th {
-  background:var(--bg);
+  background: var(--bg);     /* same as page */
+  font-weight: 600;          /* bold */
+  color: var(--txt);         /* black text */
 }
 
 /* NEW ─ details/summary fix */
@@ -83,15 +85,9 @@ details[open] summary {
 /* small print */
 small {
   color: var(--muted);
-  font-size: 0.8rem;
-}
-
-/* small print */
-small {
-  color: var(--muted);
   font-size: .8rem;
 }
-</style>
+
 
 <nav class="tpc-nav">
   <ul>
