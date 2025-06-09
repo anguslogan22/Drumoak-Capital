@@ -1,4 +1,4 @@
-<!-- ▼ Drumoak Capitalshared header ──────────────────────── -->
+<!-- ▼ Drumoak Capital shared header ──────────────────────── -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
