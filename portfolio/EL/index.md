@@ -1,3 +1,4 @@
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -51,9 +52,7 @@
     nav a:hover {
       text-decoration: underline;
     }
-    nav strong {
-      font-size: 1.1rem;
-    }
+    nav strong { /* no longer used */ }
 
     /* layout */
     main {
@@ -102,7 +101,6 @@
 <body>
   <nav>
     <ul>
-      <li><strong>Drumoak&nbsp;Capital</strong></li>
       <li><a href="/Drumoak-Capital/">Home</a></li>
       <li><a href="/Drumoak-Capital/About/">About</a></li>
       <li><a href="/Drumoak-Capital/portfolio/">Portfolio</a></li>
@@ -154,7 +152,7 @@
       <h2>Thesis</h2>
       <p>
         Walking past the beauty counter this spring felt surreal:
-        a blue-chip house like Estée Lauder was priced like a broken biotech stock, this was a fantastic buying opportunity for such a cheap beast of a company. In spite of Jim Cramer calling the stock "horrendious", I think it is a great buy and diversifies the portfolio nicely. 
+        a blue-chip house like Estée Lauder was priced like a broken biotech stock, this was a fantastic buying opportunity for such a cheap beast of a company. In spite of Jim Cramer calling the stock "horrendous", I think it is a great buy and diversifies the portfolio nicely.
       </p>
 
       <h2>Risk / Exit Plan</h2>
