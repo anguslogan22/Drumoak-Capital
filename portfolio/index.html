@@ -18,11 +18,11 @@ body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--tx
 
 <nav class="tpc-nav">
   <ul>
-    <li><strong>Thistle&nbsp;Point&nbsp;Capital</strong></li>
-    <li><a href="https://anguslogan22.github.io/thistlepointcapital.github.io/About/">About</a></li>
-    <li><a href="https://anguslogan22.github.io/thistlepointcapital.github.io/portfolio/">Portfolio</a></li>
-    <li><a href="https://anguslogan22.github.io/thistlepointcapital.github.io/history/">History</a></li>
-    <li><a href="https://anguslogan22.github.io/thistlepointcapital.github.io/CV/">CV</a></li>
+    <li><strong>Drumoak&nbsp;Capital</strong></li>
+    <li><a href="https://anguslogan22.github.io/Drumoak-Capital/About/">About</a></li>
+    <li><a href="https://anguslogan22.github.io/Drumoak-Capital/portfolio/">Portfolio</a></li>
+    <li><a href="https://anguslogan22.github.io/Drumoak-Capital/history/">History</a></li>
+    <li><a href="https://anguslogan22.github.io/Drumoak-Capital/CV/">CV</a></li>
   </ul>
 </nav>
 <!-- ▲ header ends ──────────────────────────────────────────────── -->
@@ -32,7 +32,7 @@ body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--tx
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Portfolio | Thistle Point Capital</title>
+  <title>Portfolio | Drumoak Capital</title>
 
   <!-- Plotly CDN -->
   <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" defer></script>
@@ -96,14 +96,14 @@ body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--tx
       /* click-through to detail pages */
       document.getElementById('chart').on('plotly_click', ev => {
         const t = ev.points[0].label;
-        window.location = `/thistlepointcapital.github.io/portfolio/${t}/`;
+        window.location = `/Drumoak-Capital/portfolio/${t}/`;
       });
 
       /* build the table */
       const tbody = document.querySelector('#holdings tbody');
       data.forEach(d=>{
         const tr=document.createElement('tr');
-        tr.innerHTML=`<td><a href="/thistlepointcapital.github.io/portfolio/${d.ticker}/">${d.ticker}</a></td>
+        tr.innerHTML=`<td><a href="/Drumoak-Capital/portfolio/${d.ticker}/">${d.ticker}</a></td>
                       <td>${d.name}</td><td>${d.weight}</td>`;
         tbody.appendChild(tr);
       });
