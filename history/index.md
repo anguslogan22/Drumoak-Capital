@@ -4,10 +4,7 @@
 
 <style>
 :root{
-  --bg:#fff;          /* page background = white */
-  --txt:#000;         /* primary text    = black */
-  --muted:#555;       /* subtle grey notes */
-  --line:#000;        /* table / nav border lines */
+  --bg:#fff; --txt:#000; --muted:#555; --line:#000;
   font-family:'Inter',sans-serif;
 }
 
@@ -15,11 +12,7 @@
 body{background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column}
 
 /* nav */
-.tpc-nav{
-  background:var(--bg);
-  border-bottom:1px solid var(--line);
-  padding:.75rem 1.5rem;
-}
+.tpc-nav{background:var(--bg);border-bottom:1px solid var(--line);padding:.75rem 1.5rem}
 .tpc-nav ul{list-style:none;margin:0;display:flex;gap:1.5rem;align-items:center}
 .tpc-nav a{color:var(--txt);text-decoration:none;font-weight:600}
 .tpc-nav a:hover{text-decoration:underline}
@@ -27,19 +20,23 @@ body{background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-di
 
 /* tables */
 table{width:100%;border-collapse:collapse;margin-top:.6rem}
-th,td{
-  padding:.45rem .6rem;
-  border-bottom:1px solid var(--line);
-  text-align:left;
-}
-th{background:var(--bg);}
+th,td{padding:.45rem .6rem;border-bottom:1px solid var(--line);text-align:left}
+th{background:var(--bg)}
 
-/* details disclosure */
-details{white-space:pre-line}
+/* NEW ─ details/summary fix */
+details{display:block;white-space:pre-line}
+details summary{
+  cursor:pointer;
+  font-weight:600;
+  text-decoration:underline;
+  list-style:none;          /* hide default arrow in Chrome */
+}
+details[open] summary{margin-bottom:.4rem}
 
 /* small print */
 small{color:var(--muted);font-size:.8rem}
 </style>
+
 
 
 <nav class="tpc-nav">
@@ -123,5 +120,15 @@ Click **Why?** to expand a one-paragraph note for each trade.*
   document.getElementById('statBest').textContent   = fmt(Math.max(...pl));
   document.getElementById('statWorst').textContent  = fmt(Math.min(...pl));
 })();
+
+/* ---------- auto-add <summary> “Details” to every disclosure ----- */
+document.querySelectorAll('#historyTable details').forEach(det=>{
+  if(!det.querySelector('summary')){
+    const s=document.createElement('summary');
+    s.textContent='Details';
+    det.prepend(s);
+  }
+});
 </script>
+
 
