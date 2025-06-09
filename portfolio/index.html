@@ -3,17 +3,40 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-:root{ --bg:#0d1117; --txt:#c9d1d9; --accent:#4db5ff; }
-body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);}
-.tpc-nav{
-  background:rgba(13,17,23,.75);
-  backdrop-filter:blur(4px);
-  padding:.75rem 1.5rem;
+:root {
+  --bg: #fff;
+  --txt: #000;
+  --accent: #4db5ff;
 }
-.tpc-nav ul{list-style:none;margin:0;display:flex;gap:1.5rem;align-items:center}
-.tpc-nav a{color:var(--txt);text-decoration:none;font-weight:600}
-.tpc-nav a:hover{color:var(--accent)}
-.tpc-nav strong{font-size:1.15rem}
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--txt);
+}
+.tpc-nav {
+  background: var(--bg);
+  border-bottom: 1px solid var(--accent);
+  padding: .75rem 1.5rem;
+}
+.tpc-nav ul {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.tpc-nav a {
+  color: var(--txt);
+  text-decoration: none;
+  font-weight: 600;
+}
+.tpc-nav a:hover {
+  color: var(--accent);
+}
+.tpc-nav strong {
+  font-size: 1.15rem;
+}
 </style>
 
 <nav class="tpc-nav">
@@ -25,9 +48,9 @@ body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--tx
     <li><a href="https://anguslogan22.github.io/Drumoak-Capital/CV/">CV</a></li>
   </ul>
 </nav>
-<!-- ▲ header ends ──────────────────────────────────────────────── -->
+<!-- ▲ header ends ──────────────────────────────────────────── -->
 
-<!-- portfolio/index.html  – updated with real tickers and weights -->
+<!-- portfolio/index.html -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -38,32 +61,77 @@ body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--tx
   <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" defer></script>
 
   <style>
-    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;margin:0;padding:2rem;background:#0d1117;color:#c9d1d9}
-    h1{margin-top:0}
-    #chart{max-width:700px;margin:0 auto}
-    table{width:100%;border-collapse:collapse;margin-top:2rem}
-    th,td{padding:.5rem .75rem;border-bottom:1px solid #30363d}
-    th{text-align:left;background:#161b22}
-    tr:hover{background:#21262d}
-    a{color:#58a6ff;text-decoration:none}
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+                   Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #fff;
+      color: #000;
+    }
+    h1 {
+      margin-top: 0;
+    }
+    #chart {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+    th, td {
+      padding: .5rem .75rem;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background: #f9f9f9;
+    }
+    tr:hover {
+      background: #f0f0f0;
+    }
+    /* make rows clickable */
+    #holdings tbody tr {
+      cursor: pointer;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    p, em {
+      color: #333;
+    }
   </style>
 </head>
 <body>
   <h1>Portfolio Snapshot</h1>
-  <p>This pie chart shows the **percentage weight** of each holding in my learning portfolio.  
-     Click a slice (or a row) to jump to that holding’s detail page.</p>
+  <p>
+    This pie chart shows the <strong>percentage weight</strong> of each holding in my learning portfolio.<br>
+    Click a slice (or a row) to jump to that holding’s detail page.
+  </p>
 
   <div id="chart"></div>
 
   <table id="holdings">
-    <thead><tr><th>Ticker</th><th>Name</th><th>Weight&nbsp;(%)</th></tr></thead>
+    <thead>
+      <tr>
+        <th>Ticker</th>
+        <th>Name</th>
+        <th>Weight&nbsp;(%)</th>
+      </tr>
+    </thead>
     <tbody></tbody>
   </table>
 
   <script>
     /* === 1 | Portfolio data ==================================== */
     const data = [
-      { ticker:'EL',   name:'Estée Lauder Cos.', weight:50 },
+      { ticker:'EL',   name:'Estée Lauder Cos.',      weight:50 },
       { ticker:'AMD',  name:'Advanced Micro Devices', weight:30 },
       { ticker:'LULU', name:'Lululemon Athletica',    weight:7  },
       { ticker:'DOCU', name:'DocuSign Inc.',          weight:7  },
@@ -75,36 +143,42 @@ body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--tx
     const weights = data.map(d => d.weight);
 
     const plotData = [{
-      type:'pie',
-      labels:labels,
-      values:weights,
-      hole:0.4,
-      textinfo:'label+percent',
-      hovertemplate:'%{label}: %{percent}<extra></extra>'
+      type: 'pie',
+      labels,
+      values: weights,
+      hole: 0.4,
+      textinfo: 'label+percent',
+      hovertemplate: '%{label}: %{percent}<extra></extra>'
     }];
 
     const layout = {
-      paper_bgcolor:'#0d1117',
-      plot_bgcolor:'#0d1117',
-      font:{color:'#c9d1d9'},
-      showlegend:false
+      paper_bgcolor: '#fff',
+      plot_bgcolor:  '#fff',
+      font:          { color: '#000' },
+      showlegend:   false
     };
 
     window.addEventListener('DOMContentLoaded', () => {
-      Plotly.newPlot('chart', plotData, layout, {responsive:true});
+      Plotly.newPlot('chart', plotData, layout, { responsive: true });
 
-      /* click-through to detail pages */
+      /* click-through to detail pages via chart slices */
       document.getElementById('chart').on('plotly_click', ev => {
         const t = ev.points[0].label;
         window.location = `/Drumoak-Capital/portfolio/${t}/`;
       });
 
-      /* build the table */
+      /* build the table & clickable rows */
       const tbody = document.querySelector('#holdings tbody');
-      data.forEach(d=>{
-        const tr=document.createElement('tr');
-        tr.innerHTML=`<td><a href="/Drumoak-Capital/portfolio/${d.ticker}/">${d.ticker}</a></td>
-                      <td>${d.name}</td><td>${d.weight}</td>`;
+      data.forEach(d => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><a href="/Drumoak-Capital/portfolio/${d.ticker}/">${d.ticker}</a></td>
+          <td>${d.name}</td>
+          <td>${d.weight}</td>
+        `;
+        tr.addEventListener('click', () => {
+          window.location = `/Drumoak-Capital/portfolio/${d.ticker}/`;
+        });
         tbody.appendChild(tr);
       });
     });
@@ -113,5 +187,58 @@ body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--tx
   <p style="margin-top:2rem;font-size:.9rem">
     <em>Disclaimer:</em> Educational purposes only — not investment advice.
   </p>
+
+  <!-- New: Live Portfolio Details Table -->
+  <h2>Portfolio Details</h2>
+  <table id="detailsTable">
+    <thead>
+      <tr>
+        <th>Ticker</th>
+        <th>Company</th>
+        <th>Weight&nbsp;(%)</th>
+        <th>Industry</th>
+        <th>Risk Rating</th>
+        <th>Daily PnL&nbsp;(%)</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    // You'll need your own FinancialModelingPrep API key:
+    const apiKey = 'YOUR_API_KEY';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const dtBody = document.querySelector('#detailsTable tbody');
+
+      data.forEach(d => {
+        fetch(`https://financialmodelingprep.com/api/v3/profile/${d.ticker}?apikey=${apiKey}`)
+          .then(res => res.json())
+          .then(arr => {
+            const p = arr[0] || {};
+            const industry    = p.industry       || 'N/A';
+            const changes     = p.changesPercentage || '0%';  // e.g. "1.23%"
+            const dailyPnL    = parseFloat(changes.replace('%','')) || 0;
+            const beta        = parseFloat(p.beta)             || 1;
+            let risk;
+            if (beta < 0.8)      risk = 'Low';
+            else if (beta <= 1.2) risk = 'Medium';
+            else                  risk = 'High';
+
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td>${d.ticker}</td>
+              <td>${p.companyName || d.name}</td>
+              <td>${d.weight}</td>
+              <td>${industry}</td>
+              <td>${risk}</td>
+              <td>${dailyPnL.toFixed(2)}%</td>
+            `;
+            dtBody.appendChild(tr);
+          })
+          .catch(err => console.error(`Error loading ${d.ticker}:`, err));
+      });
+    });
+  </script>
 </body>
 </html>
