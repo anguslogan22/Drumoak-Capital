@@ -2,128 +2,107 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Thistle Point Capital</title>
+<title>Drumoak Capital</title>
 
-<!-- Typeface -->
+<!-- Inter font -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-<!-- Styles -->
 <style>
 :root{
-  --bg:#0d1117; --card:#161b22; --txt:#c9d1d9; --accent:#4db5ff;
+  --bg:#0d1117;      /* page background */
+  --card:#161b22;    /* hero panel */
+  --txt:#c9d1d9;     /* body text */
+  --accent:#4db5ff;  /* buttons / hover */
+  --shadow:0 6px 24px rgba(0,0,0,.45);
 }
+
 *{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:'Inter',sans-serif;
-  background:var(--bg);               /* solid dark – no thistle image */
-  color:var(--txt);min-height:100vh;
-  display:flex;flex-direction:column;
+  background:var(--bg);
+  color:var(--txt);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
 }
 
-/* nav */
-nav{background:rgba(13,17,23,.75);backdrop-filter:blur(4px);padding:.75rem 1.5rem}
+/* ── navigation bar ────────────────────────────────────────────── */
+nav{
+  background:rgba(13,17,23,.78);
+  backdrop-filter:blur(4px);
+  padding:.75rem 1.5rem;
+}
 nav ul{list-style:none;display:flex;gap:1.5rem;align-items:center}
 nav a{color:var(--txt);text-decoration:none;font-weight:600}
 nav a:hover{color:var(--accent)}
 nav strong{font-size:1.15rem}
 
-/* ticker carousel */
-#tickerWrap{
-  background:#0d1117;border-top:1px solid #222;border-bottom:1px solid #222;
-  overflow:hidden;white-space:nowrap;font-variant-numeric:tabular-nums;
-}
-.ticker{display:inline-block;padding:.5rem 1.25rem;font-weight:600}
-.up{color:#3fb950}.down{color:#f85149}
-
-/* hero */
-main{flex:1;display:grid;place-items:center;padding:2rem}
+/* ── hero section ──────────────────────────────────────────────── */
+main{flex:1;display:grid;place-items:center;padding:2.5rem 1rem}
 .hero{
-  background:rgba(22,27,34,.88);border-radius:12px;padding:2.25rem 2.75rem;
-  max-width:900px;width:100%;text-align:center;box-shadow:0 4px 22px rgba(0,0,0,.45);
-  display:grid;gap:1.5rem;
+  background:var(--card);
+  border-radius:12px;
+  box-shadow:var(--shadow);
+  padding:2.5rem 3rem;
+  max-width:900px;
+  width:100%;
+  text-align:center;
+  display:grid;
+  gap:1.5rem;
 }
-.hero h1{font-size:2.3rem;letter-spacing:-.025em}
-.hero p{line-height:1.5}
+.hero h1{font-size:2.35rem;letter-spacing:-.025em}
+.hero p{line-height:1.55}
 .btn-row{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:.5rem}
-.btn{background:var(--accent);color:#002842;font-weight:600;padding:.55rem 1.35rem;
-     border-radius:8px;text-decoration:none;transition:transform .15s}
+.btn{
+  background:var(--accent);
+  color:#002842;
+  font-weight:600;
+  padding:.55rem 1.35rem;
+  border-radius:8px;
+  text-decoration:none;
+  transition:transform .15s;
+  box-shadow:0 2px 6px rgba(0,0,0,.4);
+}
 .btn:hover{transform:translateY(-2px)}
 
-footer{text-align:center;padding:1rem;font-size:.75rem;opacity:.7}
+footer{text-align:center;padding:1rem;font-size:.8rem;opacity:.7}
 </style>
 </head>
 
 <body>
+
+<!-- navigation -->
 <nav>
   <ul>
     <li><strong>Thistle&nbsp;Point&nbsp;Capital</strong></li>
     <li><a href="https://anguslogan22.github.io/thistlepointcapital.github.io/About/">About</a></li>
     <li><a href="https://anguslogan22.github.io/thistlepointcapital.github.io/portfolio/">Portfolio</a></li>
     <li><a href="https://anguslogan22.github.io/thistlepointcapital.github.io/history/">History</a></li>
+    <li><a href="https://anguslogan22.github.io/thistlepointcapital.github.io/algolab/">Algo&nbsp;Lab</a></li>
   </ul>
 </nav>
 
-<!-- live prices -->
-<div id="tickerWrap">Loading live prices…</div>
-
 <main>
   <section class="hero">
-    <h1>Welcome to Thistle Point Capital</h1>
+    <h1>Welcome to Drumoak Capital</h1>
 
     <p>
-      Thistle Point Capital is a <strong>personal trading lab</strong> run by Angus Logan.<br>
-      I publish my positions, post-mortems and data-driven notes in real time—no paywalls, no marketing deck, just the numbers.
+      Drumoak Capital is a <strong>personal trading lab</strong> run by Angus Logan.<br>
+      I publish my positions, post-mortems and data-driven notes in real time&mdash;no paywalls, no marketing deck, just the numbers.
     </p>
     <p>
-      The mandate is simple: <em>protect drawdown, compound intelligently, and write about every mistake</em>.  
-      If you find the research useful, bookmark the portfolio and check back—updates happen as trades close.
+      The mandate is simple: <em>protect drawdown, compound intelligently, and write about every mistake</em>.<br>
+      If you find the research useful, bookmark the portfolio and check back&mdash;updates happen as trades close.
     </p>
 
     <div class="btn-row">
-      <a class="btn" href="https://anguslogan22.github.io/thistlepointcapital.github.io/portfolio/">View Portfolio</a>
-      <a class="btn" href="https://anguslogan22.github.io/thistlepointcapital.github.io/history/">Trade History</a>
+      <a class="btn" href="https://anguslogan22.github.io/thistlepointcapital.github.io/portfolio/">View&nbsp;Portfolio</a>
+      <a class="btn" href="https://anguslogan22.github.io/thistlepointcapital.github.io/history/">Trade&nbsp;History</a>
     </div>
   </section>
 </main>
 
-<footer>&copy; 2025 Angus Logan. Educational only — not investment advice.</footer>
-
-<!-- ===== JavaScript: live-price carousel ======================== -->
-<script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
-<script>
-(async ()=>{
-  /* 1 | get tickers from positions.json */
-  const pos = await fetch('/data/positions.json').then(r=>r.json()).catch(()=>[]);
-  if(!pos.length){ document.getElementById('tickerWrap').textContent=''; return; }
-
-  /* 2 | fetch quotes from Stooq (free, no key) */
-  const tickers = pos.map(p=>p.ticker.toLowerCase()+'.us');
-  const url = 'https://stooq.com/q/l/?s='+tickers.join(',')+'&f=sd2t2ohlcv&h&e=json';
-  const json = await fetch(url).then(r=>r.json()).catch(()=>null);
-  if(!json || !json.data){ return; }
-
-  /* 3 | build the scrolling line */
-  const wrap = document.getElementById('tickerWrap');
-  wrap.innerHTML='';
-  json.data.forEach(q=>{
-    const span=document.createElement('span');
-    const pct=parseFloat(q.change);
-    span.className='ticker '+(pct>=0?'up':'down');
-    span.textContent=`${q.symbol.toUpperCase()}  ${q.close}  (${pct>0?'+':''}${pct}%)`;
-    wrap.appendChild(span);
-  });
-
-  /* 4 | simple marquee effect */
-  const totalWidth = wrap.scrollWidth;
-  let x=0;
-  function scroll(){
-    x = (x>=totalWidth) ? 0 : x+1;
-    wrap.scrollLeft = x;
-    requestAnimationFrame(scroll);
-  }
-  scroll();
-})();
-</script>
+<footer>&copy; 2025 Angus Logan. Educational only&nbsp;&mdash; not investment advice.</footer>
 </body>
 </html>
