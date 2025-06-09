@@ -4,8 +4,8 @@
 
 <style>
 :root{
-  --bg:#fff; --txt:#000; --muted:#555; --line:#000;
-  font-family:'Inter',sans-serif;
+--bg:#fff; --txt:#000; --muted:#555; --line:#000;
+font-family:'Inter',sans-serif;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -24,51 +24,50 @@ th,td{padding:.45rem .6rem;border-bottom:1px solid var(--line);text-align:left}
 th{background:var(--bg)}
 
 /* NEW ─ details/summary fix */
+details{display:block;white-space:pre-line}
+details summary{
+  cursor:pointer;
+  font-weight:600;
+  text-decoration:underline;
+  list-style:none;          /* hide default arrow in Chrome */
 details {
   display: block;
-  white-space: normal;    /* wrap text normally */
-  overflow: visible;      /* let it grow */
+  white-space: normal; /* allow full wrapping */
 }
+details[open] summary{margin-bottom:.4rem}
 
 details summary {
   cursor: pointer;
   font-weight: 600;
   text-decoration: underline;
-  list-style: none;
+  list-style: none;          /* hide default arrow in Chrome */
 }
 
 details[open] summary {
-  margin-bottom: .4rem;
-}
-
-/* <details> toggle rules */
-details > *:not(summary) {
-  display: none;
-}
-
-details[open] > *:not(summary) {
-  display: block;
-  white-space: normal;
+  margin-bottom: 0.4rem;
 }
 
 /* small print */
 small {
   color: var(--muted);
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 
+/* small print */
+small{color:var(--muted);font-size:.8rem}
+</style>
 
 
 
 <nav class="tpc-nav">
-  <ul>
-    <li><strong>Drumoak&nbsp;Capital</strong></li>
-    <li><a href="/Drumoak-Capital/About/">About</a></li>
-    <li><a href="/Drumoak-Capital/portfolio/">Portfolio</a></li>
-    <li><a href="/Drumoak-Capital/history/">History</a></li>
-    <li><a href="/Drumoak-Capital/CV/">CV</a></li>
-  </ul>
+<ul>
+<li><strong>Drumoak&nbsp;Capital</strong></li>
+<li><a href="/Drumoak-Capital/About/">About</a></li>
+<li><a href="/Drumoak-Capital/portfolio/">Portfolio</a></li>
+<li><a href="/Drumoak-Capital/history/">History</a></li>
+<li><a href="/Drumoak-Capital/CV/">CV</a></li>
+</ul>
 </nav>
 <!-- ▲ header ends ─────────────────────────────────────────────── -->
 
@@ -120,37 +119,36 @@ Click **Why?** to expand a one-paragraph note for each trade.*
 <script>
 /* ---------- auto-compute stats from history table ---------------- */
 (function(){
-  const rows = [...document.querySelectorAll('#historyTable tbody tr')];
-  const pl = rows.map(r=>{
-    let txt = r.children[4].textContent.trim();
-    txt = txt.replace(/[+%]/g,'').replace('−','-');   // handle unicode minus
-    return parseFloat(txt);
-  });
+const rows = [...document.querySelectorAll('#historyTable tbody tr')];
+const pl = rows.map(r=>{
+let txt = r.children[4].textContent.trim();
+txt = txt.replace(/[+%]/g,'').replace('−','-');   // handle unicode minus
+return parseFloat(txt);
+});
 
-  const trades = pl.length;
-  const wins = pl.filter(x=>x>0);
-  const losses = pl.filter(x=>x<0);
+const trades = pl.length;
+const wins = pl.filter(x=>x>0);
+const losses = pl.filter(x=>x<0);
 
-  const sum = arr => arr.reduce((a,b)=>a+b,0);
-  const fmt = n => (n>0?'+':'')+n.toFixed(1)+' %';
+const sum = arr => arr.reduce((a,b)=>a+b,0);
+const fmt = n => (n>0?'+':'')+n.toFixed(1)+' %';
 
-  document.getElementById('statTrades').textContent = trades;
-  document.getElementById('statWin').textContent    = (wins.length/trades*100).toFixed(1)+' %';
-  document.getElementById('statAvg').textContent    = fmt(sum(pl)/trades);
-  document.getElementById('statAvgWin').textContent = wins.length? fmt(sum(wins)/wins.length):'–';
-  document.getElementById('statAvgLose').textContent= losses.length? fmt(sum(losses)/losses.length):'–';
-  document.getElementById('statBest').textContent   = fmt(Math.max(...pl));
-  document.getElementById('statWorst').textContent  = fmt(Math.min(...pl));
+document.getElementById('statTrades').textContent = trades;
+document.getElementById('statWin').textContent    = (wins.length/trades*100).toFixed(1)+' %';
+document.getElementById('statAvg').textContent    = fmt(sum(pl)/trades);
+document.getElementById('statAvgWin').textContent = wins.length? fmt(sum(wins)/wins.length):'–';
+document.getElementById('statAvgLose').textContent= losses.length? fmt(sum(losses)/losses.length):'–';
+document.getElementById('statBest').textContent   = fmt(Math.max(...pl));
+document.getElementById('statWorst').textContent  = fmt(Math.min(...pl));
 })();
 
 /* ---------- auto-add <summary> “Details” to every disclosure ----- */
 document.querySelectorAll('#historyTable details').forEach(det=>{
-  if(!det.querySelector('summary')){
-    const s=document.createElement('summary');
-    s.textContent='Details';
-    det.prepend(s);
-  }
+if(!det.querySelector('summary')){
+const s=document.createElement('summary');
+s.textContent='Details';
+det.prepend(s);
+}
 });
 </script>
-
 
