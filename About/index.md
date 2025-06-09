@@ -90,8 +90,6 @@ When I’m not on the varsity soccer pitch I’m:
 ## Contact & Docs  
 
 <table>
-<tr><td><strong>📄&nbsp;CV</strong></td>
-    <td><a href="/Angus_Logan_CV.pdf">Download PDF</a></td></tr>
 <tr><td><strong>💼&nbsp;LinkedIn</strong></td>
     <td><a href="https://www.linkedin.com/in/angus-logan/">/angus-logan</a></td></tr>
 <tr><td><strong>✉️&nbsp;Email</strong></td>
