@@ -23,33 +23,47 @@ table{width:100%;border-collapse:collapse;margin-top:.6rem}
 th,td{padding:.45rem .6rem;border-bottom:1px solid var(--line);text-align:left}
 th{background:var(--bg)}
 
-/* NEW ─ details/summary fix */
+/* ─ Override any cell truncation ─ */
+table {
+  table-layout: auto;            /* let cells size to content */
+}
+
+td, th {
+  white-space: normal !important; /* allow wrapping */
+  overflow: visible   !important; /* let content expand the row */
+  text-overflow: clip !important; /* kill any ellipsis rules */
+}
+
+/* ─ Your details/summary styling ─ */
 details {
   display: block;
-  white-space: normal; /* allow full wrapping */
+  white-space: normal;   /* wrap lines normally */
+  overflow: visible;     /* show full content */
 }
 
 details summary {
   cursor: pointer;
   font-weight: 600;
   text-decoration: underline;
-  list-style: none;          /* hide default arrow in Chrome */
+  list-style: none;      /* hide default arrow in Chrome */
 }
 
 details[open] summary {
-  margin-bottom: 0.4rem;
+  margin-bottom: .4rem;  /* some breathing room */
+}
+
+/* optional: add a little indent to the expanded text */
+details > *:not(summary) {
+  margin-left: 1em;
+  margin-top: .2em;
 }
 
 /* small print */
 small {
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: .8rem;
 }
 
-
-/* small print */
-small{color:var(--muted);font-size:.8rem}
-</style>
 
 
 
