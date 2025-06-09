@@ -1,2 +1,2 @@
 index.md
-# Welcome to Thistle Point Capital 
+# Welcome to Drumoak Capital 
