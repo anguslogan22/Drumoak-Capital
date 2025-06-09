@@ -3,18 +3,41 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-:root{ --bg:#0d1117; --txt:#c9d1d9; --accent:#4db5ff; }
-body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);}
-.tpc-nav{
-  background:rgba(13,17,23,.75);
-  backdrop-filter:blur(4px);
-  padding:.75rem 1.5rem;
+:root {
+  --bg: #ffffff;   /* white background */
+  --txt: #000000;  /* black text */
+  --accent: #000000; /* black accent on hover */
 }
-.tpc-nav ul{list-style:none;margin:0;display:flex;gap:1.5rem;align-items:center}
-.tpc-nav a{color:var(--txt);text-decoration:none;font-weight:600}
-.tpc-nav a:hover{color:var(--accent)}
-.tpc-nav strong{font-size:1.15rem}
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--txt);
+}
+.tpc-nav {
+  background: var(--bg);
+  padding: 0.75rem 1.5rem;
+}
+.tpc-nav ul {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.tpc-nav a {
+  color: var(--txt);
+  text-decoration: none;
+  font-weight: 600;
+}
+.tpc-nav a:hover {
+  color: var(--accent);
+}
+.tpc-nav strong {
+  font-size: 1.15rem;
+}
 </style>
+
 
 <nav class="tpc-nav">
   <ul>
