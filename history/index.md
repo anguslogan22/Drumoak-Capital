@@ -3,19 +3,44 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-:root{ --bg:#000; --txt:#fff; --muted:#999; }
-body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);}
-.tpc-nav{background:#000;border-bottom:1px solid #333;padding:.75rem 1.5rem}
+:root{
+  --bg:#fff;          /* page background = white */
+  --txt:#000;         /* primary text    = black */
+  --muted:#555;       /* subtle grey notes */
+  --line:#000;        /* table / nav border lines */
+  font-family:'Inter',sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column}
+
+/* nav */
+.tpc-nav{
+  background:var(--bg);
+  border-bottom:1px solid var(--line);
+  padding:.75rem 1.5rem;
+}
 .tpc-nav ul{list-style:none;margin:0;display:flex;gap:1.5rem;align-items:center}
 .tpc-nav a{color:var(--txt);text-decoration:none;font-weight:600}
 .tpc-nav a:hover{text-decoration:underline}
 .tpc-nav strong{font-size:1.15rem}
 
+/* tables */
 table{width:100%;border-collapse:collapse;margin-top:.6rem}
-th,td{padding:.45rem .6rem;border-bottom:1px solid #333;text-align:left}
+th,td{
+  padding:.45rem .6rem;
+  border-bottom:1px solid var(--line);
+  text-align:left;
+}
+th{background:var(--bg);}
+
+/* details disclosure */
 details{white-space:pre-line}
+
+/* small print */
 small{color:var(--muted);font-size:.8rem}
 </style>
+
 
 <nav class="tpc-nav">
   <ul>
