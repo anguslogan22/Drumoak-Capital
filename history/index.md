@@ -23,39 +23,32 @@ table{width:100%;border-collapse:collapse;margin-top:.6rem}
 th,td{padding:.45rem .6rem;border-bottom:1px solid var(--line);text-align:left}
 th{background:var(--bg)}
 
-/* ─ Override any cell truncation ─ */
-table {
-  table-layout: auto;            /* let cells size to content */
-}
-
-td, th {
-  white-space: normal !important; /* allow wrapping */
-  overflow: visible   !important; /* let content expand the row */
-  text-overflow: clip !important; /* kill any ellipsis rules */
-}
-
-/* ─ Your details/summary styling ─ */
+/* NEW ─ details/summary fix */
 details {
   display: block;
-  white-space: normal;   /* wrap lines normally */
-  overflow: visible;     /* show full content */
+  white-space: normal;    /* wrap text normally */
+  overflow: visible;      /* let it grow */
 }
 
 details summary {
   cursor: pointer;
   font-weight: 600;
   text-decoration: underline;
-  list-style: none;      /* hide default arrow in Chrome */
+  list-style: none;
 }
 
 details[open] summary {
-  margin-bottom: .4rem;  /* some breathing room */
+  margin-bottom: .4rem;
 }
 
-/* optional: add a little indent to the expanded text */
+/* <details> toggle rules */
 details > *:not(summary) {
-  margin-left: 1em;
-  margin-top: .2em;
+  display: none;
+}
+
+details[open] > *:not(summary) {
+  display: block;
+  white-space: normal;
 }
 
 /* small print */
@@ -63,6 +56,7 @@ small {
   color: var(--muted);
   font-size: .8rem;
 }
+
 
 
 
