@@ -52,13 +52,22 @@
  </style>
  
  
--<nav class="tpc-nav">
-+<nav>
-   <ul>
-     <li><strong>Drumoak&nbsp;Capital</strong></li>
--    <li><a href="https://anguslogan22.github.io/Drumoak-Capital/About/">About</a></li>, <li><a href="https://anguslogan22.github.io/Drumoak-Capital/portfolio/">Portfolio</a></li>, <li><a href="https://anguslogan22.github.io/Drumoak-Capital/history/">History</a></li>, <li><a href="https://anguslogan22.github.io/Drumoak-Capital/CV/">CV</a></li>, <li><a href="/Drumoak-Capital/">Home</a></li>, <li><a href="/Drumoak-Capital/About/">About</a></li>, <li><a href="/Drumoak-Capital/portfolio/short-term.html">Short&nbsp;Term</a></li>, <li><a href="/Drumoak-Capital/portfolio/long-term.html">Long&nbsp;Term</a></li>, <li><a href="/Drumoak-Capital/strategy/events.html">Events</a></li>, <li><a href="/Drumoak-Capital/strategy/algorithm.html">Algorithm</a></li>, <li><a href="/Drumoak-Capital/history/">History</a></li>, <li><a href="/Drumoak-Capital/media/">Media</a></li>
-   </ul>
- </nav>
+<nav class="tpc-nav">
+  <ul style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0;">
+    <li><strong>Drumoak Capital</strong></li>
+    <li><a href="/Drumoak-Capital/">Home</a></li>
+    <li><a href="/Drumoak-Capital/About/">About</a></li>
+    <li><a href="/Drumoak-Capital/portfolio/">Portfolio</a></li>
+    <li><a href="/Drumoak-Capital/portfolio/short-term.html">Short Term</a></li>
+    <li><a href="/Drumoak-Capital/portfolio/long-term.html">Long Term</a></li>
+    <li><a href="/Drumoak-Capital/history/">History</a></li>
+    <li><a href="/Drumoak-Capital/strategy/events.html">Events</a></li>
+    <li><a href="/Drumoak-Capital/strategy/algorithm.html">Algorithm</a></li>
+    <li><a href="/Drumoak-Capital/media/">Media</a></li>
+    <li><a href="/Drumoak-Capital/CV/">CV</a></li>
+  </ul>
+</nav>
+
  <!-- ▲ header ends ──────────────────────────────────────────────── -->
  
  
