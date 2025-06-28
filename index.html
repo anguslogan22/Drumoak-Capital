@@ -1,21 +1,21 @@
-+<!doctype html>
-+<html lang="en">
-+<head>
-+<meta charset="utf-8">
-+<title>Drumoak Capital</title>
-+
-+<!-- Inter font -->
-+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-+
-+<style>
-+:root {
-+  --bg: #fff;
-+  --card: #fff;
-+  --txt: #000;
-+  --muted: #555;
-+  --line: #ddd;
-+  --accent: #4db5ff;
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Drumoak Capital</title>
+
+<!-- Inter font -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #fff;
+  --card: #fff;
+  --txt: #000;
+  --muted: #555;
+  --line: #ddd;
+  --accent: #4db5ff;
    --shadow: 0 6px 24px rgba(0,0,0,.15);
  }
  * {
@@ -78,40 +78,40 @@
    font-size: 2.35rem;
    letter-spacing: -0.025em;
  }
-+.hero p { line-height: 1.55; }
-+.btn-row {
-+  display: flex;
-+  justify-content: center;
-+  gap: 1rem;
-+  flex-wrap: wrap;
-+  margin-top: .5rem;
-+}
-+.btn {
-+  background: var(--accent);
-+  color: #002842;
+.hero p { line-height: 1.55; }
+.btn-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: .5rem;
+}
+.btn {
+  background: var(--accent);
+  color: #002842;
    font-weight: 600;
-+  padding: .55rem 1.35rem;
-+  border-radius: 8px;
-+  text-decoration: none;
-+  transition: transform .15s;
-+  box-shadow: 0 2px 6px rgba(0,0,0,.4);
+  padding: .55rem 1.35rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform .15s;
+  box-shadow: 0 2px 6px rgba(0,0,0,.4);
  }
-+.btn:hover { transform: translateY(-2px); }
-+#market-snapshot {
-+  background: var(--card);
-+  margin: 2rem 1rem;
-+  padding: 1.5rem;
-+  border-radius: 10px;
-+  box-shadow: var(--shadow);
-+}
-+#market-snapshot h2 { margin-top: 0; color: var(--txt); }
-+#market-snapshot p { color: var(--muted); margin-bottom: 1rem; font-size: .95rem; }
-+#market-table { width: 100%; border-collapse: collapse; font-family: inherit; }
-+#market-table th, #market-table td { padding: .5rem; border-bottom: 1px solid var(--line); }
-+#market-table th { text-align: left; color: var(--txt); }
-+#market-table td { color: var(--txt); }
-+#market-table td:last-child { text-align: right; }
-+#market-table span { font-weight: 600; }
+.btn:hover { transform: translateY(-2px); }
+#market-snapshot {
+  background: var(--card);
+  margin: 2rem 1rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+#market-snapshot h2 { margin-top: 0; color: var(--txt); }
+#market-snapshot p { color: var(--muted); margin-bottom: 1rem; font-size: .95rem; }
+#market-table { width: 100%; border-collapse: collapse; font-family: inherit; }
+#market-table th, #market-table td { padding: .5rem; border-bottom: 1px solid var(--line); }
+#market-table th { text-align: left; color: var(--txt); }
+#market-table td { color: var(--txt); }
+#market-table td:last-child { text-align: right; }
+#market-table span { font-weight: 600; }
  footer {
    text-align: center;
    padding: 1rem;
@@ -138,12 +138,12 @@
  <main>
    <section class="hero">
      <h1>Welcome to Drumoak Capital</h1>
-+    <p>Drumoak Capital is a <strong>personal trading lab</strong> run by Angus Logan.<br> I publish my positions, post-mortems and data-driven notes in real time—no paywalls, no marketing deck, just the numbers.</p>
-+    <p>The mandate is simple: <em>protect drawdown, compound intelligently, and write about every mistake</em>.<br> If you find the research useful, bookmark the portfolio and check back—updates happen as trades close.</p>
-+    <p style="font-size:.9rem; color:var(--muted)"><em>Educational content only—nothing here constitutes financial advice.</em></p>
+    <p>Drumoak Capital is a <strong>personal trading lab</strong> run by Angus Logan.<br> I publish my positions, post-mortems and data-driven notes in real time—no paywalls, no marketing deck, just the numbers.</p>
+    <p>The mandate is simple: <em>protect drawdown, compound intelligently, and write about every mistake</em>.<br> If you find the research useful, bookmark the portfolio and check back—updates happen as trades close.</p>
+    <p style="font-size:.9rem; color:var(--muted)"><em>Educational content only—nothing here constitutes financial advice.</em></p>
      <div class="btn-row">
-+      <a class="btn" href="/Drumoak-Capital/portfolio/">View&nbsp;Portfolio</a>
-+      <a class="btn" href="/Drumoak-Capital/history/">Trade&nbsp;History</a>
+      <a class="btn" href="/Drumoak-Capital/portfolio/">View&nbsp;Portfolio</a>
+      <a class="btn" href="/Drumoak-Capital/history/">Trade&nbsp;History</a>
      </div>
    </section>
  </main>
@@ -152,42 +152,42 @@
    <p>Today’s P&amp;L (% change) for major indices, commodities &amp; ETFs.</p>
    <table id="market-table">
      <thead>
-+      <tr><th>Ticker</th><th>Name</th><th>Today’s P&amp;L</th></tr>
+      <tr><th>Ticker</th><th>Name</th><th>Today’s P&amp;L</th></tr>
      </thead>
-+    <tbody><!-- injected via JS --></tbody>
+    <tbody><!-- injected via JS --></tbody>
    </table>
  </section>
  <footer>&copy; 2025 Angus Logan. Educational only&nbsp;&mdash; not investment advice.</footer>
 
  <script>
 
-+(function(){
-+  const apiKey = 'YOUR_API_KEY';
-+  const symbols = [
-+    { sym:'SPY',   name:'S&P 500 ETF'       },
-+    { sym:'^FTSE', name:'FTSE 100 Index'    },
-+    { sym:'GC=F',  name:'Gold (COMEX)'      },
-+    { sym:'CL=F',  name:'Crude Oil (WTI)'   },
-+    { sym:'^IXIC', name:'NASDAQ Composite'  }
-+  ];
-+  const syms = symbols.map(s=>s.sym).join(',');
-+  const url  = `https://financialmodelingprep.com/api/v3/quote/${syms}?apikey=${apiKey}`;
-+  fetch(url)
-+    .then(r => r.json())
-+    .then(data => {
-+      const tbody = document.querySelector('#market-table tbody');
-+      data.forEach(q => {
-+        const info = symbols.find(s=>s.sym===q.symbol) || {};
-+        const chg  = q.changesPercentage || 0;
-+        const pct  = (typeof chg==='string' ? parseFloat(chg) : chg).toFixed(2) + '%';
-+        const color = chg >= 0 ? 'var(--accent)' : '#e55353';
-+        const row = document.createElement('tr');
-+        row.innerHTML = `<td>${q.symbol}</td><td>${info.name}</td><td><span style="color:${color}">${pct}</span></td>`;
-+        tbody.appendChild(row);
-+      });
-+    })
-+    .catch(err => console.error('Market snapshot error:', err));
-+})();
+(function(){
+  const apiKey = 'YOUR_API_KEY';
+  const symbols = [
+    { sym:'SPY',   name:'S&P 500 ETF'       },
+    { sym:'^FTSE', name:'FTSE 100 Index'    },
+    { sym:'GC=F',  name:'Gold (COMEX)'      },
+    { sym:'CL=F',  name:'Crude Oil (WTI)'   },
+    { sym:'^IXIC', name:'NASDAQ Composite'  }
+  ];
+  const syms = symbols.map(s=>s.sym).join(',');
+  const url  = `https://financialmodelingprep.com/api/v3/quote/${syms}?apikey=${apiKey}`;
+  fetch(url)
+    .then(r => r.json())
+    .then(data => {
+      const tbody = document.querySelector('#market-table tbody');
+      data.forEach(q => {
+        const info = symbols.find(s=>s.sym===q.symbol) || {};
+        const chg  = q.changesPercentage || 0;
+        const pct  = (typeof chg==='string' ? parseFloat(chg) : chg).toFixed(2)  '%';
+        const color = chg >= 0 ? 'var(--accent)' : '#e55353';
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${q.symbol}</td><td>${info.name}</td><td><span style="color:${color}">${pct}</span></td>`;
+        tbody.appendChild(row);
+      });
+    })
+    .catch(err => console.error('Market snapshot error:', err));
+})();
  </script>
  </body>
  </html>
