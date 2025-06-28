@@ -1,100 +1,125 @@
-<!-- ▼ Drumoak Capital header (B/W) ───────────────────────────── -->
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  --bg:#fff;
-  --txt:#000;
-  --muted:#555;
-  --line:#000;
-  font-family:'Inter',sans-serif;
-}
-
-* { box-sizing:border-box; margin:0; padding:0 }
-body {
-  background:var(--bg);
-  color:var(--txt);
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-}
-
-/* nav */
-.tpc-nav {
-  background:var(--bg);
-  border-bottom:1px solid var(--line);
-  padding:.75rem 1.5rem;
-}
-.tpc-nav ul {
-  list-style:none;
-  margin:0;
-  display:flex;
-  gap:1.5rem;
-  align-items:center;
-}
-.tpc-nav a {
-  color:var(--txt);
-  text-decoration:none;
-  font-weight:600;
-}
-.tpc-nav a:hover {
-  text-decoration:underline;
-}
-.tpc-nav strong {
-  font-size:1.15rem;
-}
-
-/* tables */
-table {
-  width:100%;
-  border-collapse:collapse;
-  margin-top:.6rem;
-}
-th, td {
-  padding:.45rem .6rem;
-  border-bottom:1px solid var(--line);
-  text-align:left;
-}
-th {
-  background:var(--bg);    /* match page background */
-  color:var(--txt);        /* black text */
-  font-weight:600;         /* bold */
-}
-
-/* NEW ─ details/summary fix */
-details {
-  display:block;
-  white-space:normal;
-  overflow:visible;
-}
-details summary {
-  cursor:pointer;
-  font-weight:600;
-  text-decoration:underline;
-  list-style:none;
-}
-details[open] summary {
-  margin-bottom:.4rem;
-}
-
-/* small print */
-small {
-  color:var(--muted);
-  font-size:.8rem;
-}
-</style>
-
-<nav class="tpc-nav">
-  <ul>
-    <li><strong>Drumoak&nbsp;Capital</strong></li>
-    <li><a href="/Drumoak-Capital/About/">About</a></li>
-    <li><a href="/Drumoak-Capital/portfolio/">Portfolio</a></li>
-    <li><a href="/Drumoak-Capital/history/">History</a></li>
-    <li><a href="/Drumoak-Capital/CV/">CV</a></li>
-  </ul>
-</nav>
-<!-- ▲ header ends ─────────────────────────────────────────────── -->
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/history/index.md b/history/index.md
+index 5241dd70862415e7482a22a0cfce01df13cc3ffe..003c72837b5c5170629910c2c4e2a328ff6f1ca0 100644
+--- a/history/index.md
++++ b/history/index.md
+@@ -1,119 +1,128 @@
+ <!-- ▼ Drumoak Capital header (B/W) ───────────────────────────── -->
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+ 
+ <style>
+ :root{
+   --bg:#fff;
+   --txt:#000;
+   --muted:#555;
+   --line:#000;
+   font-family:'Inter',sans-serif;
+ }
+ 
+ * { box-sizing:border-box; margin:0; padding:0 }
+ body {
+   background:var(--bg);
+   color:var(--txt);
+   min-height:100vh;
+   display:flex;
+   flex-direction:column;
+ }
+ 
+ /* nav */
+-.tpc-nav {
+-  background:var(--bg);
++nav {
++  background:#fff;
+   border-bottom:1px solid var(--line);
+   padding:.75rem 1.5rem;
++  position:sticky;
++  top:0;
++  z-index:1000;
+ }
+-.tpc-nav ul {
++nav ul {
+   list-style:none;
+   margin:0;
+   display:flex;
+-  gap:1.5rem;
++  gap:1.25rem;
+   align-items:center;
+ }
+-.tpc-nav a {
++nav a {
+   color:var(--txt);
+   text-decoration:none;
+   font-weight:600;
+ }
+-.tpc-nav a:hover {
+-  text-decoration:underline;
++nav a:hover {
++  color:var(--accent);
+ }
+-.tpc-nav strong {
++nav strong {
+   font-size:1.15rem;
++  margin-right:1rem;
+ }
+ 
+ /* tables */
+ table {
+   width:100%;
+   border-collapse:collapse;
+   margin-top:.6rem;
+ }
+ th, td {
+   padding:.45rem .6rem;
+   border-bottom:1px solid var(--line);
+   text-align:left;
+ }
+ th {
+   background:var(--bg);    /* match page background */
+   color:var(--txt);        /* black text */
+   font-weight:600;         /* bold */
+ }
+ 
+ /* NEW ─ details/summary fix */
+ details {
+   display:block;
+   white-space:normal;
+   overflow:visible;
+ }
+ details summary {
+   cursor:pointer;
+   font-weight:600;
+   text-decoration:underline;
+   list-style:none;
+ }
+ details[open] summary {
+   margin-bottom:.4rem;
+ }
+ 
+ /* small print */
+ small {
+   color:var(--muted);
+   font-size:.8rem;
+ }
+ </style>
+ 
+ <nav class="tpc-nav">
+-  <ul>
+-    <li><strong>Drumoak&nbsp;Capital</strong></li>
++  <ul style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0;">
++    <li><strong>Drumoak Capital</strong></li>
++    <li><a href="/Drumoak-Capital/">Home</a></li>
+     <li><a href="/Drumoak-Capital/About/">About</a></li>
+     <li><a href="/Drumoak-Capital/portfolio/">Portfolio</a></li>
++    <li><a href="/Drumoak-Capital/portfolio/short-term.html">Portfolio ST</a></li>
++    <li><a href="/Drumoak-Capital/portfolio/long-term.html">Portfolio LT</a></li>
+     <li><a href="/Drumoak-Capital/history/">History</a></li>
+-    <li><a href="/Drumoak-Capital/CV/">CV</a></li>
++    <li><a href="/Drumoak-Capital/strategy/events.html">Strategy Events</a></li>
++    <li><a href="/Drumoak-Capital/strategy/algorithm.html">Strategy Algorithm</a></li>
++    <li><a href="/Drumoak-Capital/media/">Media</a></li>
+   </ul>
+ </nav>
 
 ## Trade History
 
