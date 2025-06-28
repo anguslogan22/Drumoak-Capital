@@ -1,54 +1,84 @@
-<!-- ▼ Drumoak Capital shared header ──────────────────────── -->
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --bg: #ffffff;   /* white background */
-  --txt: #000000;  /* black text */
-  --accent: #000000; /* black accent on hover */
-}
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--txt);
-}
-.tpc-nav {
-  background: var(--bg);
-  padding: 0.75rem 1.5rem;
-}
-.tpc-nav ul {
-  list-style: none;
-  margin: 0;
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-}
-.tpc-nav a {
-  color: var(--txt);
-  text-decoration: none;
-  font-weight: 600;
-}
-.tpc-nav a:hover {
-  color: var(--accent);
-}
-.tpc-nav strong {
-  font-size: 1.15rem;
-}
-</style>
-
-
-<nav class="tpc-nav">
-  <ul>
-    <li><strong>Drumoak&nbsp;Capital</strong></li>
-    <li><a href="https://anguslogan22.github.io/Drumoak-Capital/About/">About</a></li>
-    <li><a href="https://anguslogan22.github.io/Drumoak-Capital/portfolio/">Portfolio</a></li>
-    <li><a href="https://anguslogan22.github.io/Drumoak-Capital/history/">History</a></li>
-    <li><a href="https://anguslogan22.github.io/Drumoak-Capital/CV/">CV</a></li>
-  </ul>
-</nav>
-<!-- ▲ header ends ──────────────────────────────────────────────── -->
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/About/index.md b/About/index.md
+index 224ead960e5241071f53ba099fc5c8f584e6a3ce..e110b00b8de7619fb5b38c8412f448a57b7e27fb 100644
+--- a/About/index.md
++++ b/About/index.md
+@@ -1,73 +1,82 @@
+ <!-- ▼ Drumoak Capital shared header ──────────────────────── -->
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+ 
+ <style>
+ :root {
+   --bg: #ffffff;   /* white background */
+   --txt: #000000;  /* black text */
+   --accent: #000000; /* black accent on hover */
+ }
+ body {
+   margin: 0;
+   font-family: 'Inter', sans-serif;
+   background: var(--bg);
+   color: var(--txt);
+ }
+-.tpc-nav {
+-  background: var(--bg);
+-  padding: 0.75rem 1.5rem;
++nav {
++  background: #fff;
++  border-bottom: 1px solid var(--line);
++  padding: .75rem 1.5rem;
++  position: sticky;
++  top: 0;
++  z-index: 1000;
+ }
+-.tpc-nav ul {
++nav ul {
+   list-style: none;
+   margin: 0;
+   display: flex;
+-  gap: 1.5rem;
++  gap: 1.25rem;
+   align-items: center;
+ }
+-.tpc-nav a {
++nav a {
+   color: var(--txt);
+   text-decoration: none;
+   font-weight: 600;
+ }
+-.tpc-nav a:hover {
++nav a:hover {
+   color: var(--accent);
+ }
+-.tpc-nav strong {
++nav strong {
+   font-size: 1.15rem;
++  margin-right: 1rem;
+ }
+ </style>
+ 
+ 
+-<nav class="tpc-nav">
++<nav>
+   <ul>
+     <li><strong>Drumoak&nbsp;Capital</strong></li>
+-    <li><a href="https://anguslogan22.github.io/Drumoak-Capital/About/">About</a></li>
+-    <li><a href="https://anguslogan22.github.io/Drumoak-Capital/portfolio/">Portfolio</a></li>
+-    <li><a href="https://anguslogan22.github.io/Drumoak-Capital/history/">History</a></li>
+-    <li><a href="https://anguslogan22.github.io/Drumoak-Capital/CV/">CV</a></li>
++    <li><a href="/Drumoak-Capital/">Home</a></li>
++    <li><a href="/Drumoak-Capital/About/">About</a></li>
++    <li><a href="/Drumoak-Capital/portfolio/short-term.html">Short&nbsp;Term</a></li>
++    <li><a href="/Drumoak-Capital/portfolio/long-term.html">Long&nbsp;Term</a></li>
++    <li><a href="/Drumoak-Capital/strategy/events.html">Events</a></li>
++    <li><a href="/Drumoak-Capital/strategy/algorithm.html">Algorithm</a></li>
++    <li><a href="/Drumoak-Capital/history/">History</a></li>
++    <li><a href="/Drumoak-Capital/media/">Media</a></li>
+   </ul>
+ </nav>
+ <!-- ▲ header ends ──────────────────────────────────────────────── -->
+ 
+ 
 
 
 
