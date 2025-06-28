@@ -1,16 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Drumoak Capital</title>
-
-<!-- Inter font -->
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  /* swapped to light theme */
+@@ -14,70 +14,75 @@
   --bg:     #fff;      /* page background */
   --card:   #fff;      /* hero panel */
   --txt:    #000;      /* body text */
@@ -38,12 +26,19 @@ body {
 nav {
   background: rgba(255,255,255,.78);
   backdrop-filter: blur(4px);
+  background: #fff;
+  border-bottom: 1px solid var(--line);
   padding: .75rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 nav ul {
   list-style: none;
+  margin: 0;
   display: flex;
   gap: 1.5rem;
+  gap: 1.25rem;
   align-items: center;
 }
 nav a {
@@ -56,6 +51,7 @@ nav a:hover {
 }
 nav strong {
   font-size: 1.15rem;
+  margin-right: 1rem;
 }
 
 /* ── hero section ──────────────────────────────────────────────── */
@@ -81,58 +77,7 @@ main {
   letter-spacing: -0.025em;
 }
 .hero p {
-  line-height: 1.55;
-}
-.btn-row {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: .5rem;
-}
-.btn {
-  background: var(--accent);
-  color: #002842;
-  font-weight: 600;
-  padding: .55rem 1.35rem;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: transform .15s;
-  box-shadow: 0 2px 6px rgba(0,0,0,.4);
-}
-.btn:hover {
-  transform: translateY(-2px);
-}
-
-/* ── market snapshot ───────────────────────────────────────────── */
-#market-snapshot {
-  background: var(--card);
-  margin: 2rem 1rem;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: var(--shadow);
-}
-#market-snapshot h2 {
-  margin-top: 0;
-  color: var(--txt);
-}
-#market-snapshot p {
-  color: var(--muted);
-  margin-bottom: 1rem;
-  font-size: .95rem;
-}
-#market-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-family: inherit;
-}
-#market-table th,
-#market-table td {
-  padding: .5rem;
-  border-bottom: 1px solid var(--line);
-}
-#market-table th {
-  text-align: left;
+@@ -136,57 +141,62 @@ main {
   color: var(--txt);
 }
 #market-table td {
@@ -165,6 +110,18 @@ footer {
     <li><a href="https://anguslogan22.github.io/Drumoak-Capital/portfolio/">Portfolio</a></li>
     <li><a href="https://anguslogan22.github.io/Drumoak-Capital/history/">History</a></li>
     <li><a href="https://anguslogan22.github.io/Drumoak-Capital/algolab/">Algo&nbsp;Lab</a></li>
+<nav class="tpc-nav">
+  <ul style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0;">
+    <li><strong>Drumoak Capital</strong></li>
+    <li><a href="/Drumoak-Capital/">Home</a></li>
+    <li><a href="/Drumoak-Capital/About/">About</a></li>
+    <li><a href="/Drumoak-Capital/portfolio/">Portfolio</a></li>
+    <li><a href="/Drumoak-Capital/portfolio/short-term.html">Portfolio ST</a></li>
+    <li><a href="/Drumoak-Capital/portfolio/long-term.html">Portfolio LT</a></li>
+    <li><a href="/Drumoak-Capital/history/">History</a></li>
+    <li><a href="/Drumoak-Capital/strategy/events.html">Strategy Events</a></li>
+    <li><a href="/Drumoak-Capital/strategy/algorithm.html">Strategy Algorithm</a></li>
+    <li><a href="/Drumoak-Capital/media/">Media</a></li>
   </ul>
 </nav>
 
