@@ -58,13 +58,12 @@
     <li><a href="/Drumoak-Capital/">Home</a></li>
     <li><a href="/Drumoak-Capital/About/">About</a></li>
     <li><a href="/Drumoak-Capital/portfolio/">Portfolio</a></li>
-    <li><a href="/Drumoak-Capital/portfolio/short-term.html">Short Term</a></li>
-    <li><a href="/Drumoak-Capital/portfolio/long-term.html">Long Term</a></li>
+    <li><a href="/Drumoak-Capital/portfolio/short-term.html">Portfolio ST</a></li>
+    <li><a href="/Drumoak-Capital/portfolio/long-term.html">Portfolio LT</a></li>
     <li><a href="/Drumoak-Capital/history/">History</a></li>
-    <li><a href="/Drumoak-Capital/strategy/events.html">Events</a></li>
-    <li><a href="/Drumoak-Capital/strategy/algorithm.html">Algorithm</a></li>
+    <li><a href="/Drumoak-Capital/strategy/events.html">Strategy Events</a></li>
+    <li><a href="/Drumoak-Capital/strategy/algorithm.html">Strategy Algorithm</a></li>
     <li><a href="/Drumoak-Capital/media/">Media</a></li>
-    <li><a href="/Drumoak-Capital/CV/">CV</a></li>
   </ul>
 </nav>
 
@@ -102,10 +101,10 @@ When I’m not on the varsity soccer pitch I’m:
 
 | &nbsp; | Description |
 |-------|-------------|
-| **Live Portfolio** | Current holdings, weights, and risk notes (updated daily). |
+| **Portfolio** | Current short and long term holdings, weights, and risk notes. |
 | **Trade History** | Closed positions with full rationales &nbsp;→ win-rate & stats auto-calculated. |
-| **Algo Lab** *(beta)* | Python notebooks & back-tests—nothing hidden behind paywalls. |
-| **Resources** *(coming)* | Data APIs, favourite reads, and code snippets worth re-using. |
+| **Strategy** | Both event driven and algorithmic strategies used. |
+| **Media**| Great Podcasts, Books, and other resources I've consumed lately and my thoughts. |
 
 ---
 
