@@ -121,7 +121,7 @@ When I’m not on the varsity soccer pitch I’m:
 
 ## Investment Principles  
 
-1. **Drawdown first.** Survival > ego.  
+1. **Drawdown first.** First you learn, then you remove the L.   
 2. **Hypothesis → Data → Trade.** Every position has a written thesis before capital is committed.  
 3. **Post-mortem culture.** Winners and losers get the same autopsy—bias hides in silence.  
 
@@ -129,16 +129,13 @@ When I’m not on the varsity soccer pitch I’m:
 ## The Returns
 <hr>
 
-<h2 align="center">2025 Market Benchmarks vs&nbsp;DC</h2>
+<h2 align="center">2025 Market Benchmarks vs&nbsp;Drumoak Capital</h2>
 <div id="benchChart" style="height:420px"></div>
 
 <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
 <script>
 /* edit these numbers whenever rates/returns change */
 const dataPoints = [
-  { name:'Canada Overnight',   value:5.00 },
-  { name:'UK Base Rate',       value:5.25 },
-  { name:'US Fed Funds',       value:5.50 },
   { name:'S&P 500&nbsp;YTD',   value:8.0 },
   { name:'FTSE&nbsp;100&nbsp;YTD', value:2.1 },
   { name:'Drumoak Capital Avg Return',     value:72.2 }
