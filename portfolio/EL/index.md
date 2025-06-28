@@ -37,11 +37,14 @@
       background: var(--bg);
       border-bottom: 1px solid var(--line);
       padding: .75rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     nav ul {
       list-style: none;
       display: flex;
-      gap: 1.4rem;
+      gap: 1.25rem;
       align-items: center;
     }
     nav a {
@@ -50,9 +53,12 @@
       font-weight: 600;
     }
     nav a:hover {
-      text-decoration: underline;
+      color: var(--accent);
     }
-    nav strong { /* no longer used */ }
+    nav strong {
+      font-size: 1.15rem;
+      margin-right: 1rem;
+    }
 
     /* layout */
     main {
@@ -101,10 +107,15 @@
 <body>
   <nav>
     <ul>
+      <li><strong>Drumoak&nbsp;Capital</strong></li>
       <li><a href="/Drumoak-Capital/">Home</a></li>
       <li><a href="/Drumoak-Capital/About/">About</a></li>
-      <li><a href="/Drumoak-Capital/portfolio/">Portfolio</a></li>
+      <li><a href="/Drumoak-Capital/portfolio/short-term.html">Short&nbsp;Term</a></li>
+      <li><a href="/Drumoak-Capital/portfolio/long-term.html">Long&nbsp;Term</a></li>
+      <li><a href="/Drumoak-Capital/strategy/events.html">Events</a></li>
+      <li><a href="/Drumoak-Capital/strategy/algorithm.html">Algorithm</a></li>
       <li><a href="/Drumoak-Capital/history/">History</a></li>
+      <li><a href="/Drumoak-Capital/media/">Media</a></li>
     </ul>
   </nav>
 

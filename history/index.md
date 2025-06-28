@@ -21,28 +21,32 @@ body {
 }
 
 /* nav */
-.tpc-nav {
-  background:var(--bg);
+nav {
+  background:#fff;
   border-bottom:1px solid var(--line);
   padding:.75rem 1.5rem;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
-.tpc-nav ul {
+nav ul {
   list-style:none;
   margin:0;
   display:flex;
-  gap:1.5rem;
+  gap:1.25rem;
   align-items:center;
 }
-.tpc-nav a {
+nav a {
   color:var(--txt);
   text-decoration:none;
   font-weight:600;
 }
-.tpc-nav a:hover {
-  text-decoration:underline;
+nav a:hover {
+  color:var(--accent);
 }
-.tpc-nav strong {
+nav strong {
   font-size:1.15rem;
+  margin-right:1rem;
 }
 
 /* tables */
@@ -85,13 +89,17 @@ small {
 }
 </style>
 
-<nav class="tpc-nav">
+<nav>
   <ul>
     <li><strong>Drumoak&nbsp;Capital</strong></li>
+    <li><a href="/Drumoak-Capital/">Home</a></li>
     <li><a href="/Drumoak-Capital/About/">About</a></li>
-    <li><a href="/Drumoak-Capital/portfolio/">Portfolio</a></li>
+    <li><a href="/Drumoak-Capital/portfolio/short-term.html">Short&nbsp;Term</a></li>
+    <li><a href="/Drumoak-Capital/portfolio/long-term.html">Long&nbsp;Term</a></li>
+    <li><a href="/Drumoak-Capital/strategy/events.html">Events</a></li>
+    <li><a href="/Drumoak-Capital/strategy/algorithm.html">Algorithm</a></li>
     <li><a href="/Drumoak-Capital/history/">History</a></li>
-    <li><a href="/Drumoak-Capital/CV/">CV</a></li>
+    <li><a href="/Drumoak-Capital/media/">Media</a></li>
   </ul>
 </nav>
 <!-- ▲ header ends ─────────────────────────────────────────────── -->
