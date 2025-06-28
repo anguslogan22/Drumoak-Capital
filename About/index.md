@@ -1,9 +1,3 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/About/index.md b/About/index.md
-index 224ead960e5241071f53ba099fc5c8f584e6a3ce..e110b00b8de7619fb5b38c8412f448a57b7e27fb 100644
---- a/About/index.md
-+++ b/About/index.md
-@@ -1,73 +1,82 @@
  <!-- ▼ Drumoak Capital shared header ──────────────────────── -->
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -62,18 +56,7 @@ index 224ead960e5241071f53ba099fc5c8f584e6a3ce..e110b00b8de7619fb5b38c8412f448a5
 +<nav>
    <ul>
      <li><strong>Drumoak&nbsp;Capital</strong></li>
--    <li><a href="https://anguslogan22.github.io/Drumoak-Capital/About/">About</a></li>
--    <li><a href="https://anguslogan22.github.io/Drumoak-Capital/portfolio/">Portfolio</a></li>
--    <li><a href="https://anguslogan22.github.io/Drumoak-Capital/history/">History</a></li>
--    <li><a href="https://anguslogan22.github.io/Drumoak-Capital/CV/">CV</a></li>
-+    <li><a href="/Drumoak-Capital/">Home</a></li>
-+    <li><a href="/Drumoak-Capital/About/">About</a></li>
-+    <li><a href="/Drumoak-Capital/portfolio/short-term.html">Short&nbsp;Term</a></li>
-+    <li><a href="/Drumoak-Capital/portfolio/long-term.html">Long&nbsp;Term</a></li>
-+    <li><a href="/Drumoak-Capital/strategy/events.html">Events</a></li>
-+    <li><a href="/Drumoak-Capital/strategy/algorithm.html">Algorithm</a></li>
-+    <li><a href="/Drumoak-Capital/history/">History</a></li>
-+    <li><a href="/Drumoak-Capital/media/">Media</a></li>
+-    <li><a href="https://anguslogan22.github.io/Drumoak-Capital/About/">About</a></li>, <li><a href="https://anguslogan22.github.io/Drumoak-Capital/portfolio/">Portfolio</a></li>, <li><a href="https://anguslogan22.github.io/Drumoak-Capital/history/">History</a></li>, <li><a href="https://anguslogan22.github.io/Drumoak-Capital/CV/">CV</a></li>, <li><a href="/Drumoak-Capital/">Home</a></li>, <li><a href="/Drumoak-Capital/About/">About</a></li>, <li><a href="/Drumoak-Capital/portfolio/short-term.html">Short&nbsp;Term</a></li>, <li><a href="/Drumoak-Capital/portfolio/long-term.html">Long&nbsp;Term</a></li>, <li><a href="/Drumoak-Capital/strategy/events.html">Events</a></li>, <li><a href="/Drumoak-Capital/strategy/algorithm.html">Algorithm</a></li>, <li><a href="/Drumoak-Capital/history/">History</a></li>, <li><a href="/Drumoak-Capital/media/">Media</a></li>
    </ul>
  </nav>
  <!-- ▲ header ends ──────────────────────────────────────────────── -->
@@ -150,7 +133,7 @@ const dataPoints = [
   { name:'US Fed Funds',       value:5.50 },
   { name:'S&P 500&nbsp;YTD',   value:8.0 },
   { name:'FTSE&nbsp;100&nbsp;YTD', value:2.1 },
-  { name:'TPC Avg Return',     value:19.2 }
+  { name:'Drumoak Capital Avg Return',     value:72.2 }
 ];
 
 /* vertical bars → x = names, y = numbers */
