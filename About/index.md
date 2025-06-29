@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -95,7 +94,7 @@ footer {
 <main>
   <section class="hero">
     <h1>About Drumoak Capital&nbsp;🚀</h1>
-    <img src="/assets/profile.jpg" alt="Angus Logan" width="220" style="border:4px solid #4db5ff;border-radius:50%;margin:0 auto;">
+    <img src="/Drumoak-Capital/assets/profile.jpg" alt="Angus Logan" width="220" style="border:4px solid #4db5ff;border-radius:50%;margin:0 auto;">
     <p><strong>Mission:</strong> Compound intelligently, manage risk ruthlessly, and publish every step so the learning is shared.</p>
   </section>
   <section class="section">
