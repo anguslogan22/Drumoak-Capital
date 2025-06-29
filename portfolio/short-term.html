@@ -2,20 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Short-Term Portfolio | Drumoak Capital</title>
+  <title>Short Term Portfolio | Drumoak Capital</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" defer></script>
   <style>
-    :root{--bg:#fff;--txt:#000;--line:#ddd;--accent:#4db5ff;}
+    :root{--bg:#fff;--txt:#000;--line:#ddd;--shadow:0 4px 12px rgba(0,0,0,.1);}
     *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);}
     nav{background:#fff;border-bottom:1px solid var(--line);padding:.75rem 1.5rem;position:sticky;top:0;z-index:1000;}
-    nav ul{list-style:none;margin:0;display:flex;gap:1.5rem;align-items:center;}
+    nav ul{list-style:none;display:flex;gap:1.5rem;align-items:center;margin:0;}
     nav a{color:var(--txt);text-decoration:none;font-weight:600;}
-    nav a:hover{color:var(--accent);}
+    nav a:hover{text-decoration:underline;}
     nav strong{font-size:1.15rem;margin-right:1rem;}
-    main{flex:1;display:grid;place-items:center;padding:2rem 1rem;text-align:center;}
-    h1{font-size:2rem;margin-bottom:.5rem;}
+    main{padding:2rem 1rem;}
+    .grid{display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;}
+    section{flex:1 1 420px;background:#fff;border-radius:12px;box-shadow:var(--shadow);padding:1.5rem;}
+    h2{text-align:center;margin-bottom:1rem;font-size:1.4rem;}
+    .red{color:#c00;}
+    .green{color:#0a0;}
+    .chart{height:280px;}
+    table{width:100%;border-collapse:collapse;margin-top:1rem;}
+    th,td{padding:.45rem .6rem;border-bottom:1px solid var(--line);text-align:left;}
   </style>
 </head>
 <body>
@@ -34,10 +42,55 @@
   </ul>
 </nav>
 <main>
-  <div>
-    <h1>Short-Term Portfolio</h1>
-    <p>Details coming soon.</p>
+  <div class="grid">
+    <section id="short">
+      <h2><span class="red">SHORT</span> Positions</h2>
+      <div id="shortChart" class="chart"></div>
+      <table>
+        <tr><th>Current Holdings</th><td>4 positions</td></tr>
+        <tr><th>Biggest Gain</th><td>+12%</td></tr>
+        <tr><th>Biggest Loss</th><td>-8%</td></tr>
+        <tr><th>Average Return</th><td>+2%</td></tr>
+      </table>
+    </section>
+    <section id="long">
+      <h2><span class="green">LONG</span> Positions</h2>
+      <div id="longChart" class="chart"></div>
+      <table>
+        <tr><th>Current Holdings</th><td>4 positions</td></tr>
+        <tr><th>Biggest Gain</th><td>+15%</td></tr>
+        <tr><th>Biggest Loss</th><td>-5%</td></tr>
+        <tr><th>Average Return</th><td>+4%</td></tr>
+      </table>
+    </section>
   </div>
 </main>
+<script>
+const shortData=[
+  {ticker:'AAA',weight:25},
+  {ticker:'BBB',weight:25},
+  {ticker:'CCC',weight:25},
+  {ticker:'DDD',weight:25}
+];
+const longData=[
+  {ticker:'LLA',weight:25},
+  {ticker:'LLB',weight:25},
+  {ticker:'LLC',weight:25},
+  {ticker:'LLD',weight:25}
+];
+function buildChart(id,data){
+  const labels=data.map(d=>d.ticker);
+  const values=data.map(d=>d.weight);
+  Plotly.newPlot(id,[{type:'pie',labels,values,hole:0.4,textinfo:'label+percent',hovertemplate:'%{label}: %{percent}<extra></extra>'}],{showlegend:false,paper_bgcolor:'#fff',plot_bgcolor:'#fff'},{responsive:true});
+  document.getElementById(id).on('plotly_click',ev=>{
+    const t=ev.points[0].label;
+    window.location=`/Drumoak-Capital/portfolio/${t}/`;
+  });
+}
+window.addEventListener('DOMContentLoaded',()=>{
+  buildChart('shortChart',shortData);
+  buildChart('longChart',longData);
+});
+</script>
 </body>
 </html>
