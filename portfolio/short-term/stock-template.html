@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Stock Template | Drumoak Capital</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#fff;--card:#fff;--txt:#000;--muted:#555;--line:#ddd;--shadow:0 6px 24px rgba(0,0,0,.15);}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;}
+    nav{background:var(--bg);border-bottom:1px solid var(--line);padding:.75rem 1.5rem;}
+    nav ul{list-style:none;display:flex;gap:1.5rem;align-items:center;}
+    nav a{color:var(--txt);text-decoration:none;font-weight:600;}
+    nav a:hover{text-decoration:underline;}
+    main{flex:1;display:grid;place-items:center;padding:2.5rem 1rem;}
+    .card{background:var(--card);border-radius:12px;box-shadow:var(--shadow);padding:2rem 2.5rem;max-width:800px;width:100%;display:grid;gap:1.25rem;text-align:center;}
+    table{width:100%;border-collapse:collapse;margin-top:1rem;}
+    th,td{padding:.45rem .6rem;border-bottom:1px solid var(--line);text-align:center;}
+    td:first-child{font-weight:600;}
+  </style>
+</head>
+<body>
+<nav class="tpc-nav">
+  <ul style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0;">
+    <li><strong>Drumoak Capital</strong></li>
+    <li><a href="/Drumoak-Capital/">Home</a></li>
+    <li><a href="/Drumoak-Capital/About/">About</a></li>
+    <li><a href="/Drumoak-Capital/portfolio/">Portfolio</a></li>
+    <li><a href="/Drumoak-Capital/portfolio/short-term.html">Portfolio ST</a></li>
+    <li><a href="/Drumoak-Capital/portfolio/long-term.html">Portfolio LT</a></li>
+    <li><a href="/Drumoak-Capital/history/">History</a></li>
+    <li><a href="/Drumoak-Capital/strategy/events.html">Strategy Events</a></li>
+    <li><a href="/Drumoak-Capital/strategy/algorithm.html">Strategy Algorithm</a></li>
+    <li><a href="/Drumoak-Capital/media/">Media</a></li>
+  </ul>
+</nav>
+<main>
+  <section class="card">
+    <h1>Stock Name (TICKER)</h1>
+    <table>
+      <tr><td>Current P/L</td><td>--</td></tr>
+      <tr><td>Date of Entry</td><td>--</td></tr>
+      <tr><td>Average Price</td><td>--</td></tr>
+    </table>
+    <h2>Trade Rationale</h2>
+    <p>Replace this text with your reasoning behind the trade.</p>
+  </section>
+</main>
+</body>
