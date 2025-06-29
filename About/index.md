@@ -144,9 +144,9 @@ Plotly.newPlot('benchChart', [{
   marker:{color:colors},
   hovertemplate:'%{y:.2f}%<extra></extra>'
 }], {
-  paper_bgcolor:'#0d1117',
-  plot_bgcolor:'#0d1117',
-  font:{color:'#c9d1d9'},
+  paper_bgcolor:'#fff',
+  plot_bgcolor:'#fff',
+  font:{color:'#000'},
   margin:{l:50,r:20,t:10,b:80},
   yaxis:{title:'% Avg Annual Return'},
 }, {responsive:true});
