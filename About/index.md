@@ -1,3 +1,4 @@
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -38,6 +39,7 @@ nav {
 nav ul {
   list-style: none;
   margin: 0;
+  padding: 0;
   display: flex;
   gap: 1.5rem;
   align-items: center;
@@ -94,7 +96,7 @@ footer {
 <main>
   <section class="hero">
     <h1>About Drumoak Capital&nbsp;🚀</h1>
-    <img src="/Drumoak-Capital/assets/profile.jpg" alt="Angus Logan" width="220" style="border:4px solid #4db5ff;border-radius:50%;margin:0 auto;">
+    <img src="/assets/profile.jpg" alt="Angus Logan" width="220" height="220" style="display:block;margin:0 auto;border:4px solid #000;border-radius:50%;object-fit:cover;">
     <p><strong>Mission:</strong> Compound intelligently, manage risk ruthlessly, and publish every step so the learning is shared.</p>
   </section>
   <section class="section">
@@ -115,7 +117,7 @@ footer {
       <tr><td style="padding:.5rem;"> <strong>Strategy</strong> </td><td style="padding:.5rem;">Both event driven and algorithmic strategies used.</td></tr>
       <tr><td style="padding:.5rem;"> <strong>Media</strong> </td><td style="padding:.5rem;">Great Podcasts, Books, and other resources I've consumed lately and my thoughts.</td></tr>
     </table>
-    <p>Drumoak Capital began as a passion project so I could hone my web development skills and take accountability for six years of trading experience. It has allowed me to learn more about coding and website programming as well as put my financial skills and analysis to the test. It has been something I have always been inspired to do, like a mix between Kenneth Griffin of Citadel and Mark Zuckerberg of FaceBook (now Meta). Please note, it is always a work in progress and constantly being updated. </p>
+    <p>Drumoak Capital began as a passion project so I could hone my web development skills and take accountability for six years of trading experience.</p>
   </section>
   <section class="section">
     <h2>Returns Snapshot</h2>
