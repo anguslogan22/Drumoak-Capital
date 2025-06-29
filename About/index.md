@@ -1,19 +1,3 @@
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>About - Drumoak Capital</title>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg: #fff;
-  --card: #fff;
-  --txt: #000;
-  --muted: #555;
-  --line: #ddd;
-  --accent: #4db5ff;
-  --shadow: 0 6px 24px rgba(0,0,0,.15);
-}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -79,7 +63,7 @@ footer {
 </head>
 <body>
 <nav class="tpc-nav">
-  <ul>
+  <ul style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0;">
     <li><strong>Drumoak Capital</strong></li>
     <li><a href="/Drumoak-Capital/">Home</a></li>
     <li><a href="/Drumoak-Capital/About/">About</a></li>
