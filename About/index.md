@@ -96,7 +96,7 @@ footer {
 <main>
   <section class="hero">
     <h1>About Drumoak Capital&nbsp;🚀</h1>
-    <img src="/assets/profile.jpg" alt="Angus Logan" width="220" height="220" style="display:block;margin:0 auto;border:4px solid #000;border-radius:50%;object-fit:cover;">
+    <img src="/Drumoak-Capital/assets/profile.jpg" alt="Angus Logan" width="220" height="220" style="display:block;margin:0 auto;border:4px solid #000;border-radius:50%;object-fit:cover;">
     <p><strong>Mission:</strong> Compound intelligently, manage risk ruthlessly, and publish every step so the learning is shared.</p>
   </section>
   <section class="section">
