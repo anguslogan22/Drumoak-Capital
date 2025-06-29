@@ -1,3 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>About - Drumoak Capital</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fff;
+  --card: #fff;
+  --txt: #000;
+  --muted: #555;
+  --line: #ddd;
+  --accent: #4db5ff;
+  --shadow: 0 6px 24px rgba(0,0,0,.15);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--txt);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+nav {
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  padding: .75rem 1.5rem;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+nav a {
+  color: var(--txt);
+  text-decoration: none;
+  font-weight: 600;
+}
+nav a:hover { color: var(--accent); }
+nav strong { font-size: 1.15rem; margin-right: 1rem; }
+main {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 2.5rem 1rem;
+}
+.hero,
+.section {
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 2rem 3rem;
+  max-width: 900px;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.hero { text-align: center; display: grid; gap: 1rem; }
+.section h2 { margin-top: 0; margin-bottom: 1rem; text-align: center; }
+.section ul { padding-left: 1.2rem; margin-bottom: 1rem; }
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: .85rem;
+  opacity: .8;
+}
 </style>
 </head>
 <body>
