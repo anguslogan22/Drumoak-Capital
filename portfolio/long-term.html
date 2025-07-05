@@ -41,9 +41,10 @@
 <table id="lt-table">
     <thead>
       <tr>
+        <th>Name</th>
         <th>Ticker</th>
         <th>Avg Price</th>
-        <th>Weight</th>
+        <th>Shares</th>
         <th>Date Purchased</th>
         <th>Industry</th>
       </tr>
@@ -53,17 +54,16 @@
 </main>
 <script>
 const holdings=[
-  {name:'Hims and Hers Health Inc',ticker:'HIMS',avg:44.08,weight:'5.67 shares',date:'2025-06-23',industry:'Health Care'},
-  {name:'Apple',ticker:'AAPL',avg:200.03,weight:'0.6 shares',date:'2025-06-23',industry:'Technology'},
-  {name:'Saudi Arabian Oil Co',ticker:'SAOC',avg:24.74,weight:'38 shares',date:'2025-06-24',industry:'Energy'},
-  {name:'Archer Aviation Inc',ticker:'ACHR',avg:10.63,weight:'23 shares',date:'2025-06-25',industry:'Aerospace & Defence'},
-  {name:'Berkshire Hathaway Inc',ticker:'BRK.B',avg:507.14,weight:'0.98 shares',date:'2025-05-27',industry:'Financial Services'}
-
+ {name:'Hims and Hers Health Inc',ticker:'HIMS',avg:44.08,weight:'5.67 shares',industry:'Health Care'},
+  {name:'Apple',ticker:'AAPL',avg:200.03,weight:'0.6 shares',industry:'Technology'},
+  {name:'Saudi Arabian Oil Co',ticker:'SAOC',avg:24.74,weight:'38 shares',industry:'Energy'},
+  {name:'Archer Aviation Inc',ticker:'ACHR',avg:10.63,weight:'23 shares',industry:'Aerospace & Defence'},
+  {name:'Berkshire Hathaway Inc',ticker:'BRK.B',avg:507.14,weight:'0.98 shares',industry:'Financial Services'}
 ];
 const tbody=document.querySelector('#lt-table tbody');
 holdings.forEach(h=>{
   const row=document.createElement('tr');
-  row.innerHTML=`<td>${h.name}</td><td>${h.ticker}</td><td>$${h.avg.toFixed(2)}</td><td>${h.weight}</td><td>${h.date}</td><td>${h.industry}</td>`;
+  row.innerHTML=`<td>${h.name}</td><td>${h.ticker}</td><td>$${h.avg.toFixed(2)}</td><td>${h.weight}</td><td>${h.industry}</td>`;
   row.addEventListener('click',()=>{
     window.location=`/Drumoak-Capital/portfolio/long-term/${h.ticker}.html`;
   });
