@@ -1,64 +1,71 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/portfolio/long-term.html b/portfolio/long-term.html
-index cc6df12384915f9e4ce095450d670c73a797a52f..6fd53a3f9101d754494d6111db4d99a7e7eea047 100644
- b/portfolio/long-term.html
-@@ -19,56 +19,56 @@
-     th,td{padding:.75rem 1rem;border-bottom:1px solid var(--line);text-align:left;}
-     th{background:#f8f8f8;font-weight:600;}
-     tr:last-child td{border-bottom:none;}
-     tr:hover{background:#f0f4f8;cursor:pointer;}
-   </style>
- </head>
- <body>
- <nav class="tpc-nav">
-   <ul style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0;">
-     <li><strong>Drumoak Capital</strong></li>
-     <li><a href="/Drumoak-Capital/">Home</a></li>
-     <li><a href="/Drumoak-Capital/About/">About</a></li>
-     <li><a href="/Drumoak-Capital/portfolio/">Portfolio</a></li>
-     <li><a href="/Drumoak-Capital/portfolio/short-term.html">Portfolio ST</a></li>
-     <li><a href="/Drumoak-Capital/portfolio/long-term.html">Portfolio LT</a></li>
-     <li><a href="/Drumoak-Capital/history/">History</a></li>
-     <li><a href="/Drumoak-Capital/strategy/events.html">Strategy Events</a></li>
-     <li><a href="/Drumoak-Capital/strategy/algorithm.html">Strategy Algorithm</a></li>
-     <li><a href="/Drumoak-Capital/media/">Media</a></li>
-   </ul>
- </nav>
- <main>
- <table id="lt-table">
-     <thead>
-       <tr>
-         <th>Name</th>
-         <th>Ticker</th>
-         <th>Average Price</th>
-         <th>Shares</th>
-         <th>Date Purchased</th>
-         <th>Industry</th>
-       </tr>
-     </thead>
-     <tbody></tbody>
-   </table>
- </main>
- <script>
- const holdings=[
-   {name:'Hims and Hers Health Inc',ticker:'HIMS',avg:44.08,shares:'5.67 shares',date:'2025-06-23',industry:'Health Care'},
-   {name:'Apple',ticker:'AAPL',avg:200.03,shares:'0.6 shares',date:'2025-06-23',industry:'Technology'},
-   {name:'Saudi Arabian Oil Co',ticker:'SAOC',avg:24.74,shares:'38 shares',date:'2025-06-24',industry:'Energy'},
-   {name:'Archer Aviation Inc',ticker:'ACHR',avg:10.63,shares:'23 shares',date:'2025-06-25',industry:'Aerospace & Defence'},
-   {name:'Berkshire Hathaway Inc',ticker:'BRK.B',avg:507.14,shares:'0.98 shares',date:'2025-05-27',industry:'Financial Services'}
- ];
- const tbody=document.querySelector('#lt-table tbody');
- holdings.forEach(h=>{
-   const row=document.createElement('tr');
-   row.innerHTML=`<td>${h.name}</td><td>${h.ticker}</td><td>$${h.avg.toFixed(2)}</td><td>${h.shares}</td><td>${h.date}</td><td>${h.industry}</td>`;
-   row.addEventListener('click',()=>{
-     window.location=`/Drumoak-Capital/portfolio/long-term/${h.ticker}.html`;
-   });
-   tbody.appendChild(row);
- });
- </script>
- </body>
- </html>
- 
-EOF
-)
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Long-Term Portfolio | Drumoak Capital</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+     :root{--bg:#fff;--txt:#000;--line:#ddd;--accent:#4db5ff;--shadow:0 4px 12px rgba(0,0,0,.1);}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;}
+    nav{background:#fff;border-bottom:1px solid var(--line);padding:.75rem 1.5rem;position:sticky;top:0;z-index:1000;}
+    nav ul{list-style:none;margin:0;display:flex;gap:1.5rem;align-items:center;}
+    nav a{color:var(--txt);text-decoration:none;font-weight:600;}
+    nav a:hover{color:var(--accent);}
+    nav strong{font-size:1.15rem;margin-right:1rem;}
+    main{flex:1;padding:2rem 1rem;display:flex;justify-content:center;}
+    table{border-collapse:collapse;width:100%;max-width:900px;background:#fff;border-radius:12px;box-shadow:var(--shadow);overflow:hidden;font-family:inherit;}
+    th,td{padding:.75rem 1rem;border-bottom:1px solid var(--line);text-align:left;}
+    th{background:#f8f8f8;font-weight:600;}
+    tr:last-child td{border-bottom:none;}
+    tr:hover{background:#f0f4f8;}
+  </style>
+</head>
+<body>
+<nav class="tpc-nav">
+  <ul style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0;">
+    <li><strong>Drumoak Capital</strong></li>
+    <li><a href="/Drumoak-Capital/">Home</a></li>
+    <li><a href="/Drumoak-Capital/About/">About</a></li>
+    <li><a href="/Drumoak-Capital/portfolio/">Portfolio</a></li>
+    <li><a href="/Drumoak-Capital/portfolio/short-term.html">Portfolio ST</a></li>
+    <li><a href="/Drumoak-Capital/portfolio/long-term.html">Portfolio LT</a></li>
+    <li><a href="/Drumoak-Capital/history/">History</a></li>
+    <li><a href="/Drumoak-Capital/strategy/events.html">Strategy Events</a></li>
+    <li><a href="/Drumoak-Capital/strategy/algorithm.html">Strategy Algorithm</a></li>
+    <li><a href="/Drumoak-Capital/media/">Media</a></li>
+  </ul>
+</nav>
+<main>
+<p>Click on the ticker to open a page about the reasoning behind the long-term buy.</p>
+<table id="lt-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Ticker</th>
+        <th>Average Price</th>
+        <th>Date Purchased</th>
+        <th>Industry</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</main>
+<script>
+const holdings=[
+  {name:'Hims and Hers Health Inc',ticker:'HIMS',avg:44.08,date:'2025-06-23',industry:'Health Care'},
+  {name:'Apple',ticker:'AAPL',avg:200.03,date:'2025-06-23',industry:'Technology'},
+  {name:'Saudi Arabian Oil Co',ticker:'SAOC',avg:24.74,date:'2025-06-24',industry:'Energy'},
+  {name:'Archer Aviation Inc',ticker:'ACHR',avg:10.63,date:'2025-06-25',industry:'Aerospace & Defence'},
+  {name:'Berkshire Hathaway Inc',ticker:'BRK.B',avg:507.14,date:'2025-05-27',industry:'Financial Services'}
+];
+const tbody=document.querySelector('#lt-table tbody');
+holdings.forEach(h=>{
+  const row=document.createElement('tr');
+  row.innerHTML=`<td>${h.name}</td><td><a href="/Drumoak-Capital/portfolio/long-term/${h.ticker}.html">${h.ticker}</a></td><td>$${h.avg.toFixed(2)}</td><td>${h.date}</td><td>${h.industry}</td>`;
+  tbody.appendChild(row);
+});
+</script>
+</body>
+</html>
