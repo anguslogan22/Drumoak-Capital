@@ -63,7 +63,7 @@ const holdings=[
 const tbody=document.querySelector('#lt-table tbody');
 holdings.forEach(h=>{
   const row=document.createElement('tr');
-  row.innerHTML=`<td>${h.ticker}</td><td>$${h.avg.toFixed(2)}</td><td>${h.weight}</td><td>${h.date}</td><td>${h.industry}</td>`;
+  row.innerHTML=`<td>${h.name}</td><td>${h.ticker}</td><td>$${h.avg.toFixed(2)}</td><td>${h.weight}</td><td>${h.date}</td><td>${h.industry}</td>`;
   row.addEventListener('click',()=>{
     window.location=`/Drumoak-Capital/portfolio/long-term/${h.ticker}.html`;
   });
