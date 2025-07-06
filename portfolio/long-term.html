@@ -14,8 +14,10 @@
     nav a{color:var(--txt);text-decoration:none;font-weight:600;}
     nav a:hover{color:var(--accent);}
     nav strong{font-size:1.15rem;margin-right:1rem;}
-    main{flex:1;padding:2rem 1rem;display:flex;justify-content:center;}
-    table{border-collapse:collapse;width:100%;max-width:900px;background:#fff;border-radius:12px;box-shadow:var(--shadow);overflow:hidden;font-family:inherit;}
+    main{flex:1;padding:2rem 1rem;display:grid;place-items:center;}
+    .lt-wrap{display:flex;flex-direction:column;align-items:center;max-width:900px;width:100%;}
+    .lt-wrap p{text-align:center;margin-bottom:1rem;}
+    table{border-collapse:collapse;width:100%;background:#fff;border-radius:12px;box-shadow:var(--shadow);overflow:hidden;font-family:inherit;}
     th,td{padding:.75rem 1rem;border-bottom:1px solid var(--line);text-align:left;}
     th{background:#f8f8f8;font-weight:600;}
     tr:last-child td{border-bottom:none;}
@@ -38,6 +40,7 @@
   </ul>
 </nav>
 <main>
+<div class="lt-wrap">
 <p>Click on the ticker to open a page about the reasoning behind the long-term buy.</p>
 <table id="lt-table">
     <thead>
@@ -51,6 +54,7 @@
     </thead>
     <tbody></tbody>
   </table>
+</div>
 </main>
 <script>
 const holdings=[
