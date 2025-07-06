@@ -6,7 +6,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#fff;--txt:#000;--line:#ddd;--accent:#4db5ff;}
+    :root{--bg:#fff;--txt:#000;--line:#ddd;--accent:#4db5ff;--shadow:0 4px 12px rgba(0,0,0,.1);}
     *{box-sizing:border-box;margin:0;padding:0;}
     body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;}
     nav{background:#fff;border-bottom:1px solid var(--line);padding:.75rem 1.5rem;position:sticky;top:0;z-index:1000;}
@@ -14,8 +14,24 @@
     nav a{color:var(--txt);text-decoration:none;font-weight:600;}
     nav a:hover{color:var(--accent);}
     nav strong{font-size:1.15rem;margin-right:1rem;}
-    main{flex:1;display:grid;place-items:center;padding:2rem 1rem;text-align:center;}
-    h1{font-size:2rem;margin-bottom:.5rem;}
+    main{flex:1;padding:2rem 1rem;display:grid;place-items:center;}
+    h1{text-align:center;margin-bottom:1rem;font-size:2rem;}
+    #controls{margin-bottom:1rem;text-align:center;}
+    select{padding:.4rem .6rem;border:1px solid var(--line);border-radius:6px;}
+    table{width:100%;max-width:900px;border-collapse:collapse;background:#fff;border-radius:12px;box-shadow:var(--shadow);overflow:hidden;font-family:inherit;}
+    th,td{padding:.65rem 1rem;border-bottom:1px solid var(--line);text-align:left;}
+    th{background:#f8f8f8;font-weight:600;}
+    tr:last-child td{border-bottom:none;}
+    tr:hover{background:#f0f4f8;}
+    .green{color:#0a0;}
+    .red{color:#c00;}
+    /* modal */
+    .modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:2000;}
+    .modal.active{display:flex;}
+    .modal-content{background:#fff;padding:1.5rem 2rem;border-radius:12px;max-width:600px;width:100%;box-shadow:var(--shadow);overflow:auto;max-height:90vh;}
+    .modal-content h2{text-align:center;margin-bottom:.75rem;font-size:1.4rem;}
+    .modal-content h3{margin-top:1rem;font-size:1.1rem;}
+    .modal-content button{margin-top:1.5rem;padding:.4rem .8rem;border:none;background:var(--accent);color:#002842;font-weight:600;border-radius:6px;cursor:pointer;}
   </style>
 </head>
 <body>
@@ -34,10 +50,87 @@
   </ul>
 </nav>
 <main>
-  <div>
-    <h1>History</h1>
-    <p>Details coming soon.</p>
+  <div class="wrap" style="width:100%;display:flex;flex-direction:column;align-items:center;">
+    <h1>Trade History</h1>
+    <div id="controls">
+      <label for="sort">Sort by:</label>
+      <select id="sort">
+        <option value="profit">Profitability</option>
+        <option value="date">Date</option>
+        <option value="industry">Industry</option>
+      </select>
+    </div>
+    <table id="history-table">
+      <thead>
+        <tr>
+          <th>Ticker</th>
+          <th>Date</th>
+          <th>Industry</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
   </div>
 </main>
+<div id="modal" class="modal" aria-hidden="true">
+  <div class="modal-content">
+    <h2 id="modal-title"></h2>
+    <h3>Why I Took the Trade</h3>
+    <p id="modal-rationale"></p>
+    <h3>What I Learned</h3>
+    <p id="modal-lessons"></p>
+    <button id="modal-close">Close</button>
+  </div>
+</div>
+<script>
+const trades=[
+  {ticker:'AAPL',date:'2024-11-02',industry:'Technology',profit:0.35,rationale:'I believed Apple would surprise with strong iPhone demand so I bought before earnings.',lessons:'Holding through volatility paid off and reinforced patience.'},
+  {ticker:'TSLA',date:'2024-10-15',industry:'Automotive',profit:-0.15,rationale:'Entered on a breakout setup but ignored overbought signals.',lessons:'Learned to respect technical exhaustion and set tighter stops.'}
+];
+let sortBy='profit';
+const tbody=document.querySelector('#history-table tbody');
+const sortSelect=document.getElementById('sort');
+const modal=document.getElementById('modal');
+const modalTitle=document.getElementById('modal-title');
+const modalRationale=document.getElementById('modal-rationale');
+const modalLessons=document.getElementById('modal-lessons');
+const modalClose=document.getElementById('modal-close');
+function render(){
+  const sorted=[...trades].sort((a,b)=>{
+    if(sortBy==='profit')return b.profit-a.profit;
+    if(sortBy==='date')return new Date(b.date)-new Date(a.date);
+    if(sortBy==='industry')return a.industry.localeCompare(b.industry);
+    return 0;
+  });
+  tbody.innerHTML='';
+  sorted.forEach(t=>{
+    const row=document.createElement('tr');
+    const profitPct=(t.profit*100).toFixed(0)+'%';
+    const cls=t.profit>=0?'green':'red';
+    row.innerHTML=`<td><a href="#" data-ticker="${t.ticker}">${t.ticker}</a></td><td>${t.date}</td><td>${t.industry}</td><td class="${cls}">${profitPct}</td>`;
+    tbody.appendChild(row);
+  });
+}
+sortSelect.addEventListener('change',e=>{sortBy=e.target.value;render();});
+tbody.addEventListener('click',e=>{
+  const link=e.target.closest('a[data-ticker]');
+  if(!link) return;
+  e.preventDefault();
+  const t=trades.find(tr=>tr.ticker===link.dataset.ticker);
+  if(!t) return;
+  modalTitle.textContent=t.ticker;
+  modalRationale.textContent=t.rationale;
+  modalLessons.textContent=t.lessons;
+  modal.classList.add('active');
+  modal.setAttribute('aria-hidden','false');
+});
+modalClose.addEventListener('click',()=>{
+  modal.classList.remove('active');
+  modal.setAttribute('aria-hidden','true');
+});
+modal.addEventListener('click',e=>{if(e.target===modal)modalClose.click();});
+window.addEventListener('DOMContentLoaded',render);
+</script>
 </body>
 </html>
