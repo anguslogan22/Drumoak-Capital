@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Long-Term Portfolio | Drumoak Capital</title>
+  <title>Short Term Portfolio | Drumoak Capital</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" defer></script>
@@ -44,13 +44,13 @@
 <main>
   <div class="grid">
     <section id="short">
-      <h2><span class="red">SHORT</span>1 Positions</h2>
+      <h2><span class="red">SHORT</span> Positions</h2>
       <div id="shortChart" class="chart"></div>
       <table>
-        <tr><th>Current Holdings</th><td>0 positions</td></tr>
-        <tr><th>Biggest Gain</th><td>+0%</td></tr>
-        <tr><th>Biggest Loss</th><td>0%</td></tr>
-        <tr><th>Average Return</th><td>0%</td></tr>
+        <tr><th>Current Holdings</th><td>4 positions</td></tr>
+        <tr><th>Biggest Gain</th><td>+12%</td></tr>
+        <tr><th>Biggest Loss</th><td>-8%</td></tr>
+        <tr><th>Average Return</th><td>+2%</td></tr>
       </table>
     </section>
     <section id="long">
@@ -58,22 +58,25 @@
       <div id="longChart" class="chart"></div>
       <table>
         <tr><th>Current Holdings</th><td>4 positions</td></tr>
-        <tr><th>Biggest Gain</th><td>0%</td></tr>
-        <tr><th>Biggest Loss</th><td>0%</td></tr>
-        <tr><th>Average Return</th><td>0%</td></tr>
+        <tr><th>Biggest Gain</th><td>+15%</td></tr>
+        <tr><th>Biggest Loss</th><td>-5%</td></tr>
+        <tr><th>Average Return</th><td>+4%</td></tr>
       </table>
     </section>
   </div>
 </main>
 <script>
 const shortData=[
-  {ticker:'PLTR',weight:100},
+  {ticker:'AAA',weight:25},
+  {ticker:'BBB',weight:25},
+  {ticker:'CCC',weight:25},
+  {ticker:'DDD',weight:25}
 ];
 const longData=[
-  {ticker:'HIMS',weight:25},
-  {ticker:'GOOG',weight:25},
-  {ticker:'META',weight:25},
-  {ticker:'PLTR',weight:25},
+  {ticker:'LLA',weight:25},
+  {ticker:'LLB',weight:25},
+  {ticker:'LLC',weight:25},
+  {ticker:'LLD',weight:25}
 ];
 function buildChart(id,data){
   const labels=data.map(d=>d.ticker);
