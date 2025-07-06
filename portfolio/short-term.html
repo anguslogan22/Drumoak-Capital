@@ -2,26 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Long-Term Portfolio | Drumoak Capital</title>
+  <title>Short Term Portfolio | Drumoak Capital</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" defer></script>
   <style>
-     :root{--bg:#fff;--txt:#000;--line:#ddd;--accent:#4db5ff;--shadow:0 4px 12px rgba(0,0,0,.1);}
+    :root{--bg:#fff;--txt:#000;--line:#ddd;--shadow:0 4px 12px rgba(0,0,0,.1);}
     *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column;}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);}
     nav{background:#fff;border-bottom:1px solid var(--line);padding:.75rem 1.5rem;position:sticky;top:0;z-index:1000;}
-    nav ul{list-style:none;margin:0;display:flex;gap:1.5rem;align-items:center;}
+    nav ul{list-style:none;display:flex;gap:1.5rem;align-items:center;margin:0;}
     nav a{color:var(--txt);text-decoration:none;font-weight:600;}
-    nav a:hover{color:var(--accent);}
+    nav a:hover{text-decoration:underline;}
     nav strong{font-size:1.15rem;margin-right:1rem;}
-    main{flex:1;padding:2rem 1rem;display:grid;place-items:center;}
-    .lt-wrap{display:flex;flex-direction:column;align-items:center;max-width:900px;width:100%;}
-    .lt-wrap p{text-align:center;margin-bottom:1rem;}
-    table{border-collapse:collapse;width:100%;background:#fff;border-radius:12px;box-shadow:var(--shadow);overflow:hidden;font-family:inherit;}
-    th,td{padding:.75rem 1rem;border-bottom:1px solid var(--line);text-align:left;}
-    th{background:#f8f8f8;font-weight:600;}
-    tr:last-child td{border-bottom:none;}
-    tr:hover{background:#f0f4f8;}
+    main{padding:2rem 1rem;}
+    .grid{display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;}
+    section{flex:1 1 420px;background:#fff;border-radius:12px;box-shadow:var(--shadow);padding:1.5rem;}
+    h2{text-align:center;margin-bottom:1rem;font-size:1.4rem;}
+    .red{color:#c00;}
+    .green{color:#0a0;}
+    .chart{height:280px;}
+    table{width:100%;border-collapse:collapse;margin-top:1rem;}
+    th,td{padding:.45rem .6rem;border-bottom:1px solid var(--line);text-align:left;}
   </style>
 </head>
 <body>
@@ -40,36 +42,57 @@
   </ul>
 </nav>
 <main>
-<div class="lt-wrap">
-<p>Click on the ticker to open a page about the reasoning behind the long-term buy.</p>
-<table id="lt-table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Ticker</th>
-        <th>Average Price</th>
-        <th>Date Purchased</th>
-        <th>Industry</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-</div>
+  <div class="grid">
+    <section id="short">
+      <h2><span class="red">SHORT</span>1 Positions</h2>
+      <div id="shortChart" class="chart"></div>
+      <table>
+        <tr><th>Current Holdings</th><td>0 positions</td></tr>
+        <tr><th>Biggest Gain</th><td>+0%</td></tr>
+        <tr><th>Biggest Loss</th><td>0%</td></tr>
+        <tr><th>Average Return</th><td>0%</td></tr>
+      </table>
+    </section>
+    <section id="long">
+      <h2><span class="green">LONG</span> Positions</h2>
+      <div id="longChart" class="chart"></div>
+      <table>
+        <tr><th>Current Holdings</th><td>4 positions</td></tr>
+        <tr><th>Biggest Gain</th><td>0%</td></tr>
+        <tr><th>Biggest Loss</th><td>0%</td></tr>
+        <tr><th>Average Return</th><td>0%</td></tr>
+      </table>
+    </section>
+  </div>
 </main>
 <script>
-const holdings=[
-  {name:'Hims and Hers Health Inc',ticker:'HIMS',avg:44.08,date:'2025-06-23',industry:'Health Care'},
-  {name:'Apple',ticker:'AAPL',avg:200.03,date:'2025-06-23',industry:'Technology'},
-  {name:'Saudi Arabian Oil Co',ticker:'SAOC',avg:24.74,date:'2025-06-24',industry:'Energy'},
-  {name:'Archer Aviation Inc',ticker:'ACHR',avg:10.63,date:'2025-06-25',industry:'Aerospace & Defence'},
-  {name:'Berkshire Hathaway Inc',ticker:'BRK.B',avg:507.14,date:'2025-05-27',industry:'Financial Services'}
+const shortData=[
+  {ticker:'PLTR',weight:100},
 ];
-const tbody=document.querySelector('#lt-table tbody');
-holdings.forEach(h=>{
-  const row=document.createElement('tr');
-  row.innerHTML=`<td>${h.name}</td><td><a href="/Drumoak-Capital/portfolio/long-term/${h.ticker}.html">${h.ticker}</a></td><td>$${h.avg.toFixed(2)}</td><td>${h.date}</td><td>${h.industry}</td>`;
-  tbody.appendChild(row);
+const longData=[
+  {ticker:'HIMS',weight:25},
+  {ticker:'GOOG',weight:25},
+  {ticker:'META',weight:25},
+  {ticker:'PLTR',weight:25},
+];
+function buildChart(id,data){
+  const labels=data.map(d=>d.ticker);
+  const values=data.map(d=>d.weight);
+  Plotly.newPlot(id,[{type:'pie',labels,values,hole:0.4,textinfo:'label+percent',hovertemplate:'%{label}: %{percent}<extra></extra>'}],{showlegend:false,paper_bgcolor:'#fff',plot_bgcolor:'#fff'},{responsive:true});
+  document.getElementById(id).on('plotly_click',ev=>{
+    const t=ev.points[0].label;
+    window.location=`/Drumoak-Capital/portfolio/${t}/`;
+  });
+}
+window.addEventListener('DOMContentLoaded',()=>{
+  buildChart('shortChart',shortData);
+  buildChart('longChart',longData);
 });
 </script>
+<p style="margin-top:1.5rem;font-size:.9rem;text-align:center">
+  Older or closed trades can be found in the
+  <a href="/Drumoak-Capital/history/">history</a>
+  section.
+</p>
 </body>
 </html>
