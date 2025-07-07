@@ -64,7 +64,8 @@
       <thead>
         <tr>
           <th>Ticker</th>
-          <th>Date</th>
+          <th>Date Purchased</th>
+          <th>Length Held</th>
           <th>Industry</th>
           <th>Result</th>
         </tr>
@@ -106,8 +107,7 @@ function render(){
     const row=document.createElement('tr');
     const profitPct=(t.profit*100).toFixed(0)+'%';
     const cls=t.profit>=0?'green':'red';
-    row.innerHTML=`<td><a href="#" data-ticker="${t.ticker}">${t.ticker}</a></td><td>${t.date}</td><td>${t.industry}</td><td class="${cls}">${profitPct}</td>`;
-    tbody.appendChild(row);
+    row.innerHTML=`<td><a href="#" data-ticker="${t.ticker}">${t.ticker}</a></td><td>${t.date}</td><td>${t.lengthHeld}</td><td>${t.industry}</td><td class="${cls}">${profitPct}</td>`;    tbody.appendChild(row);
   });
 }
 sortSelect.addEventListener('change',e=>{sortBy=e.target.value;render();});
