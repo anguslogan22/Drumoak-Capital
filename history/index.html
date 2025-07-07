@@ -40,6 +40,7 @@
     <li><strong>Drumoak Capital</strong></li>
     <li><a href="/Drumoak-Capital/">Home</a></li>
     <li><a href="/Drumoak-Capital/About/">About</a></li>
+    <li><a href="/Drumoak-Capital/About/">About</a></li>
     <li><a href="/Drumoak-Capital/portfolio/">Portfolio</a></li>
     <li><a href="/Drumoak-Capital/portfolio/short-term.html">Portfolio ST</a></li>
     <li><a href="/Drumoak-Capital/portfolio/long-term.html">Portfolio LT</a></li>
@@ -72,6 +73,18 @@
       </thead>
       <tbody></tbody>
     </table>
+    <table id="stats-table" style="margin-top:1.5rem;">
+      <thead>
+        <tr><th colspan="2">Trade Statistics</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Average Profit per Trade</td><td id="avg-profit"></td></tr>
+        <tr><td>Biggest Win</td><td id="biggest-win"></td></tr>
+        <tr><td>Biggest Loss</td><td id="biggest-loss"></td></tr>
+        <tr><td>Number of Trades</td><td id="trade-count"></td></tr>
+        <tr><td>Number of Profitable Trades</td><td id="profitable-count"></td></tr>
+      </tbody>
+    </table>
   </div>
 </main>
 <div id="modal" class="modal" aria-hidden="true">
@@ -95,6 +108,11 @@ const modalTitle=document.getElementById('modal-title');
 const modalRationale=document.getElementById('modal-rationale');
 const modalLessons=document.getElementById('modal-lessons');
 const modalClose=document.getElementById('modal-close');
+const avgProfitEl=document.getElementById('avg-profit');
+const biggestWinEl=document.getElementById('biggest-win');
+const biggestLossEl=document.getElementById('biggest-loss');
+const tradeCountEl=document.getElementById('trade-count');
+const profitableCountEl=document.getElementById('profitable-count');
 function render(){
   const sorted=[...trades].sort((a,b)=>{
     if(sortBy==='profit')return b.profit-a.profit;
@@ -107,8 +125,23 @@ function render(){
     const row=document.createElement('tr');
     const profitPct=(t.profit*100).toFixed(0)+'%';
     const cls=t.profit>=0?'green':'red';
-    row.innerHTML=`<td><a href="#" data-ticker="${t.ticker}">${t.ticker}</a></td><td>${t.date}</td><td>${t.lengthHeld}</td><td>${t.industry}</td><td class="${cls}">${profitPct}</td>`;    tbody.appendChild(row);
+    row.innerHTML=`<td><a href="#" data-ticker="${t.ticker}">${t.ticker}</a></td><td>${t.date}</td><td>${t.lengthHeld}</td><td>${t.industry}</td><td class="${cls}">${profitPct}</td>`;
+    tbody.appendChild(row);
   });
+  updateStats();
+}
+function updateStats(){
+  const count=trades.length;
+  const sum=trades.reduce((acc,t)=>acc+t.profit,0);
+  const avg=count?sum/count:0;
+  const max=Math.max(...trades.map(t=>t.profit));
+  const min=Math.min(...trades.map(t=>t.profit));
+  const profitable=trades.filter(t=>t.profit>0).length;
+  avgProfitEl.textContent=(avg*100).toFixed(1)+'%';
+  biggestWinEl.textContent=(max*100).toFixed(1)+'%';
+  biggestLossEl.textContent=(min*100).toFixed(1)+'%';
+  tradeCountEl.textContent=count;
+  profitableCountEl.textContent=profitable;
 }
 sortSelect.addEventListener('change',e=>{sortBy=e.target.value;render();});
 tbody.addEventListener('click',e=>{
