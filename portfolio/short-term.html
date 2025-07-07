@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" defer></script>
   <style>
-    :root{--bg:#fff;--txt:#000;--line:#ddd;--shadow:0 6px 24px rgba(0,0,0,.1);} 
+    :root{--bg:#fff;--txt:#000;--line:#ddd;--shadow:0 6px 24px rgba(0,0,0,.1);--accent:#4db5ff;}
     *{box-sizing:border-box;margin:0;padding:0;}
     body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;}
     nav{background:#fff;border-bottom:1px solid var(--line);padding:.75rem 1.5rem;position:sticky;top:0;z-index:1000;}
@@ -20,7 +20,16 @@
     h2{text-align:center;margin-bottom:1rem;font-size:1.5rem;}
     .red{color:#b00020;}
     .green{color:#008000;}
-    .chart{height:300px;width:100%;}
+    .chart{height:320px;width:100%;}
+    /* modal */
+    .modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:2000;}
+    .modal.active{display:flex;}
+    .modal-content{background:#fff;padding:1.5rem 2rem;border-radius:12px;max-width:600px;width:100%;box-shadow:var(--shadow);overflow:auto;max-height:90vh;text-align:center;}
+    .modal-content h2{margin-bottom:.75rem;font-size:1.4rem;}
+    .modal-content table{width:100%;border-collapse:collapse;margin:1rem 0;}
+    .modal-content td{padding:.45rem .6rem;border-bottom:1px solid var(--line);text-align:center;}
+    .modal-content td:first-child{font-weight:600;}
+    .modal-content button{margin-top:1.25rem;padding:.4rem .8rem;border:none;background:var(--accent);color:#002842;font-weight:600;border-radius:6px;cursor:pointer;}
   </style>
 </head>
 <body>
@@ -48,31 +57,59 @@
     <div id="longChart" class="chart"></div>
   </section>
 </main>
+<div id="modal" class="modal" aria-hidden="true">
+  <div class="modal-content">
+    <h2 id="modal-title"></h2>
+    <table id="modal-info"></table>
+    <h3>Trade Rationale</h3>
+    <p id="modal-rationale"></p>
+    <button id="modal-close">Close</button>
+  </div>
+</div>
 <script>
-const shortData=[
-  {ticker:'TSLA',weight:30},
-  {ticker:'AMC',weight:25},
-  {ticker:'NVDA',weight:25},
-  {ticker:'BABA',weight:20}
+const shortPositions=[
+  {name:'Tesla Inc',ticker:'TSLA',weight:30,date:'2025-07-01',industry:'Automotive',avg:210.50,holding:'1 week',rationale:'Short squeeze risk has faded while valuation remains stretched.'},
+  {name:'AMC Entertainment',ticker:'AMC',weight:25,date:'2025-06-20',industry:'Entertainment',avg:5.20,holding:'2 months',rationale:'Declining box office revenue and high debt'},
+  {name:'NVIDIA Corporation',ticker:'NVDA',weight:25,date:'2025-06-10',industry:'Semiconductors',avg:650.75,holding:'3 weeks',rationale:'Chip demand softening while supply improving'},
+  {name:'Alibaba Group',ticker:'BABA',weight:20,date:'2025-06-15',industry:'E-commerce',avg:80.30,holding:'1 month',rationale:'Competition in China remains intense'}
 ];
-const longData=[
-  {ticker:'AAPL',weight:25},
-  {ticker:'MSFT',weight:25},
-  {ticker:'GOOGL',weight:25},
-  {ticker:'NFLX',weight:25}
+const longPositions=[
+  {name:'Apple Inc',ticker:'AAPL',weight:25,date:'2025-06-18',industry:'Technology',avg:180.00,holding:'6 months',rationale:'Brand loyalty and services growth support upside'},
+  {name:'Microsoft Corp',ticker:'MSFT',weight:25,date:'2025-06-20',industry:'Technology',avg:310.50,holding:'6 months',rationale:'Cloud momentum continues to build'},
+  {name:'Alphabet Inc',ticker:'GOOGL',weight:25,date:'2025-06-15',industry:'Technology',avg:140.25,holding:'6 months',rationale:'Search advertising remains a cash cow'},
+  {name:'Netflix Inc',ticker:'NFLX',weight:25,date:'2025-06-25',industry:'Entertainment',avg:450.00,holding:'6 months',rationale:'Subscriber growth reaccelerating'}
 ];
 function buildChart(id,data){
   const labels=data.map(d=>d.ticker);
   const values=data.map(d=>d.weight);
-  Plotly.newPlot(id,[{type:'pie',labels,values,hole:0.4,textinfo:'label+percent',hovertemplate:'%{label}: %{percent}<extra></extra>'}],{showlegend:false,paper_bgcolor:'#fff',plot_bgcolor:'#fff'},{responsive:true});
+  const colors=['#0074D9','#FF4136','#FF851B','#2ECC40'];
+  Plotly.newPlot(id,[{type:'pie',labels,values,hole:0.4,textinfo:'label+percent',textposition:'outside',automargin:true,marker:{colors}}],{showlegend:false,paper_bgcolor:'#fff',plot_bgcolor:'#fff',margin:{t:40,b:40,l:0,r:0}},{responsive:true});
   document.getElementById(id).on('plotly_click',ev=>{
     const t=ev.points[0].label;
-    window.location=`/Drumoak-Capital/portfolio/short-term/${t}.html`;
+    const pos=data.find(p=>p.ticker===t);
+    if(pos) showPosition(pos);
   });
 }
+const modal=document.getElementById('modal');
+const modalTitle=document.getElementById('modal-title');
+const modalInfo=document.getElementById('modal-info');
+const modalRationale=document.getElementById('modal-rationale');
+const modalClose=document.getElementById('modal-close');
+function showPosition(pos){
+  modalTitle.textContent=`${pos.name} (${pos.ticker})`;
+  modalInfo.innerHTML=`<tr><td>Date</td><td>${pos.date}</td></tr><tr><td>Industry</td><td>${pos.industry}</td></tr><tr><td>Average Price</td><td>$${pos.avg.toFixed(2)}</td></tr><tr><td>Estimated Holding Time</td><td>${pos.holding}</td></tr>`;
+  modalRationale.textContent=pos.rationale;
+  modal.classList.add('active');
+  modal.setAttribute('aria-hidden','false');
+}
+modalClose.addEventListener('click',()=>{
+  modal.classList.remove('active');
+  modal.setAttribute('aria-hidden','true');
+});
+modal.addEventListener('click',e=>{if(e.target===modal)modalClose.click();});
 window.addEventListener('DOMContentLoaded',()=>{
-  buildChart('shortChart',shortData);
-  buildChart('longChart',longData);
+  buildChart('shortChart',shortPositions);
+  buildChart('longChart',longPositions);
 });
 </script>
 <p style="margin-top:1.5rem;font-size:.9rem;text-align:center">
