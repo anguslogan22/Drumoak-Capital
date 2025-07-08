@@ -2,6 +2,7 @@ window.tradeHistory = [
     {
     ticker: 'TSLA',
     date: '2025-07-01',
+    lengthHeld: "6 days",
     industry: 'Automotive',
     profit: -0.5310,
     rationale: 'Recently listened to a great podcast by Cathie Wood and started to see the vision more and more with Tesla. A company which I think will be well beyond $300 in the future, revolutionising the world of AI and autonomous veichles.',
@@ -10,6 +11,7 @@ window.tradeHistory = [
   {
     ticker: 'DOCU',
     date: '2025-06-30',
+    lengthHeld: "24 days",
     industry: 'Software',
     profit: 0.0610,
     rationale: 'What can only be described as an overreaction within the market. In spite of beating both EPS (10%) AND EARNINGS (2%) company headwinds noted on conference call caused the stock to tank 40% in a day. I saw a 40% discount on a useful and still important stock.',
@@ -18,6 +20,7 @@ window.tradeHistory = [
   {
     ticker: 'PINS',
     date: '2025-06-30',
+    lengthHeld: "5 days",
     industry: 'Social Media',
     profit: 0.0045,
     rationale: 'A very short term trade, heard some hype on Twitter about the introduction of AI as well as a short squeeze. Managed to get out with some tiny profits.',
@@ -26,6 +29,7 @@ window.tradeHistory = [
   {
     ticker: 'BIDU',
     date: '2025-06-25',
+    lengthHeld: "2 days",
     industry: 'Internet Services',
     profit: 0.1520,
     rationale: 'Another market overeaction with the Trump/China politics. I saw a great undervalued stock with upside potential going into a lower tariff region.',
@@ -34,6 +38,7 @@ window.tradeHistory = [
   {
     ticker: 'USDCHF',
     date: '2025-06-24',
+    lengthHeld: "5 days",
     industry: 'Foreign Exchange',
     profit: -0.5017,
     rationale: 'I was looking to get more into Forex and saw the opportunity with the Iran-Isreal conflict as a way to diversify my earnings. Using the new 50x leverage unlocked with currency on a stable currency like the francs aimed to shield diversification amid tension.',
@@ -42,6 +47,7 @@ window.tradeHistory = [
   {
     ticker: 'TSLA',
     date: '2025-06-24',
+    lengthHeld: "1 day",
     industry: 'Automotive',
     profit: 0.1134,
     rationale: 'With the incoming release of the Autonomous Taxi in Dallas, it only made sense to join the hype train going into the 23rd of June.',
@@ -50,6 +56,7 @@ window.tradeHistory = [
   {
     ticker: 'GOLD',
     date: '2025-06-24',
+    lengthHeld: "7 days",
     industry: 'Precious Metals',
     profit: -0.5052,
     rationale: 'With the rising tensions in Iran-Isreal, I was looking to diversify some of the portfolio whilst rying out the new 25x leverage on commodities. As it looked Trump was going to get more and more involved, this was a good idea to get in as prices go up amid war scares.',
@@ -58,6 +65,7 @@ window.tradeHistory = [
   {
     ticker: 'ENPH',
     date: '2025-06-23',
+    lengthHeld: "3 days",
     industry: 'Solar Energy',
     profit: -0.1508,
     rationale: 'Looking into the correction of Bidens bill on solar energy, Trump caused a 45% correction in solar stocks. This seemed like a discount too good to be true so I bought.',
@@ -66,6 +74,7 @@ window.tradeHistory = [
   {
     ticker: 'SJM',
     date: '2025-06-23',
+    lengthHeld: "12 days",
     industry: 'Packaged Foods',
     profit: 0.0366,
     rationale: 'An overreaction from decent earnings on a solid company, looking to make a little bit on the bounce back. ',
@@ -74,6 +83,7 @@ window.tradeHistory = [
   {
     ticker: 'SE',
     date: '2025-06-17',
+    lengthHeld: "7 days",
     industry: 'E-commerce',
     profit: 0.1290,
     rationale: 'Again, a large overcorrection in the market after CEO annouced "headwinds" which for one of Singapores biggest companies means nothing. Likely backed by the government, this overreaction was a huge profit opportunity.',
@@ -90,6 +100,7 @@ window.tradeHistory = [
   {
     ticker: 'TSLA',
     date: '2025-06-13',
+    lengthHeld: "7 days",
     industry: 'Automotive',
     profit: 0.4010,
     rationale: '',
@@ -98,6 +109,7 @@ window.tradeHistory = [
   {
     ticker: 'AMD',
     date: '2025-06-13',
+    lengthHeld: "24 days",
     industry: 'Semiconductors',
     profit: 0.1087,
     rationale: '',
@@ -106,6 +118,7 @@ window.tradeHistory = [
   {
     ticker: 'EL',
     date: '2025-06-13',
+    lengthHeld: "24 days",
     industry: 'Cosmetics',
     profit: 0.0443,
     rationale: '',
@@ -114,22 +127,16 @@ window.tradeHistory = [
   {
     ticker: 'EL',
     date: '2025-06-13',
+    lengthHeld: "23 days",
     industry: 'Cosmetics',
     profit: 0.1993,
     rationale: '',
     lessons: ''
   },
   {
-    ticker: 'OIL',
-    date: '2025-06-13',
-    industry: 'Energy Commodities',
-    profit: -0.0923,
-    rationale: '',
-    lessons: ''
-  },
-  {
     ticker: 'GTLB',
     date: '2025-06-11',
+    lengthHeld: "1 day",
     industry: 'Software',
     profit: 0.1690,
     rationale: '',
@@ -138,6 +145,7 @@ window.tradeHistory = [
   {
     ticker: 'MANU',
     date: '2025-06-06',
+    lengthHeld: "14 days",
     industry: 'Sports & Entertainment',
     profit: 0.1905,
     rationale: '',
@@ -146,6 +154,7 @@ window.tradeHistory = [
   {
     ticker: 'CELH',
     date: '2025-06-06',
+    lengthHeld: "29 days",
     industry: 'Beverages',
     profit: 0.4184,
     rationale: '',
@@ -154,6 +163,7 @@ window.tradeHistory = [
   {
     ticker: 'CELH',
     date: '2025-06-06',
+    lengthHeld: "18 days",
     industry: 'Beverages',
     profit: 0.3238,
     rationale: '',
@@ -162,6 +172,7 @@ window.tradeHistory = [
   {
     ticker: 'GDX',
     date: '2025-05-27',
+    lengthHeld: "8 days",
     industry: 'ETF – Gold Miners',
     profit: 0.2795,
     rationale: '',
@@ -170,6 +181,7 @@ window.tradeHistory = [
   {
     ticker: 'VXX',
     date: '2025-05-23',
+    lengthHeld: "2 days",
     industry: 'ETN – Volatility',
     profit: 0.0677,
     rationale: '',
@@ -178,6 +190,7 @@ window.tradeHistory = [
   {
     ticker: 'AMD',
     date: '2025-05-14',
+    lengthHeld: "1 day",
     industry: 'Semiconductors',
     profit: 0.0853,
     rationale: '',
@@ -186,6 +199,7 @@ window.tradeHistory = [
   {
     ticker: 'PLTR',
     date: '2025-05-13',
+    lengthHeld: "1 day",
     industry: 'Software',
     profit: 0.0270,
     rationale: '',
@@ -194,6 +208,7 @@ window.tradeHistory = [
   {
     ticker: 'HIMS',
     date: '2025-05-12',
+    lengthHeld: "4 days",
     industry: 'Telehealth',
     profit: 0.2670,
     rationale: '',
@@ -202,6 +217,7 @@ window.tradeHistory = [
   {
     ticker: 'HMC',
     date: '2025-03-06',
+    lengthHeld: "1 day",
     industry: 'Automotive',
     profit: 0.0500,
     rationale: '',
@@ -210,6 +226,7 @@ window.tradeHistory = [
   {
     ticker: 'TXRH',
     date: '2025-03-04',
+    lengthHeld: "14 days",
     industry: 'Restaurants',
     profit: 0.3634,
     rationale: '',
@@ -218,6 +235,7 @@ window.tradeHistory = [
   {
     ticker: 'CAKE',
     date: '2025-03-04',
+    lengthHeld: "14 days",
     industry: 'Restaurants',
     profit: -0.5005,
     rationale: '',
