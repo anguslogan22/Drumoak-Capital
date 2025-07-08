@@ -92,6 +92,7 @@ window.tradeHistory = [
   {
     ticker: 'LULU',
     date: '2025-06-13',
+    lengthHeld: "7 days",
     industry: 'Apparel',
     profit: -0.5008,
     rationale: 'An overreaction again with one of the largest clothing companies in North America. ',
