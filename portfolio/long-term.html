@@ -5,6 +5,7 @@
   <title>Long-Term Portfolio | Drumoak Capital</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" defer></script>
   <style>
      :root{--bg:#fff;--txt:#000;--line:#ddd;--accent:#4db5ff;--shadow:0 4px 12px rgba(0,0,0,.1);}
     *{box-sizing:border-box;margin:0;padding:0;}
@@ -17,11 +18,21 @@
     main{flex:1;padding:2rem 1rem;display:grid;place-items:center;}
     .lt-wrap{display:flex;flex-direction:column;align-items:center;max-width:900px;width:100%;}
     .lt-wrap p{text-align:center;margin-bottom:1rem;}
+    .chart{height:320px;width:100%;margin-bottom:1.5rem;}
     table{border-collapse:collapse;width:100%;background:#fff;border-radius:12px;box-shadow:var(--shadow);overflow:hidden;font-family:inherit;}
     th,td{padding:.75rem 1rem;border-bottom:1px solid var(--line);text-align:left;}
     th{background:#f8f8f8;font-weight:600;}
     tr:last-child td{border-bottom:none;}
     tr:hover{background:#f0f4f8;}
+    /* modal */
+    .modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:2000;}
+    .modal.active{display:flex;}
+    .modal-content{background:#fff;padding:1.5rem 2rem;border-radius:12px;max-width:600px;width:100%;box-shadow:var(--shadow);overflow:auto;max-height:90vh;text-align:center;}
+    .modal-content h2{margin-bottom:.75rem;font-size:1.4rem;}
+    .modal-content table{width:100%;border-collapse:collapse;margin:1rem 0;}
+    .modal-content td{padding:.45rem .6rem;border-bottom:1px solid var(--line);text-align:center;}
+    .modal-content td:first-child{font-weight:600;}
+    .modal-content button{margin-top:1.25rem;padding:.4rem .8rem;border:none;background:var(--accent);color:#002842;font-weight:600;border-radius:6px;cursor:pointer;}
   </style>
 </head>
 <body>
@@ -41,13 +52,15 @@
 </nav>
 <main>
 <div class="lt-wrap">
-<p>Click on the ticker to open a page about the reasoning behind the long-term buy.</p>
+<p>Click a ticker to view more details about the position.</p>
+<div id="weightsChart" class="chart"></div>
 <table id="lt-table">
     <thead>
       <tr>
         <th>Name</th>
         <th>Ticker</th>
         <th>Average Price</th>
+        <th>Weight</th>
         <th>Date Purchased</th>
         <th>Industry</th>
       </tr>
@@ -56,19 +69,120 @@
   </table>
 </div>
 </main>
+<div id="modal" class="modal" aria-hidden="true">
+  <div class="modal-content">
+    <h2 id="modal-title"></h2>
+    <table id="modal-info"></table>
+    <h3>Investment Thesis</h3>
+    <p id="modal-rationale"></p>
+    <button id="modal-close">Close</button>
+  </div>
+</div>
 <script>
 const holdings=[
-  {name:'Hims and Hers Health Inc',ticker:'HIMS',avg:44.08,date:'2025-06-23',industry:'Health Care'},
-  {name:'Apple',ticker:'AAPL',avg:200.03,date:'2025-06-23',industry:'Technology'},
-  {name:'Saudi Arabian Oil Co',ticker:'SAOC',avg:24.74,date:'2025-06-24',industry:'Energy'},
-  {name:'Archer Aviation Inc',ticker:'ACHR',avg:10.63,date:'2025-06-25',industry:'Aerospace & Defence'},
-  {name:'Berkshire Hathaway Inc',ticker:'BRK.B',avg:507.14,date:'2025-05-27',industry:'Financial Services'}
+  {
+    name:'Hims and Hers Health Inc',
+    ticker:'HIMS',
+    avg:44.08,
+    date:'2025-06-23',
+    industry:'Health Care',
+    weight:20,
+    thesis:'Telemedicine adoption continues to rise, providing a long runway for growth.'
+  },
+  {
+    name:'Apple',
+    ticker:'AAPL',
+    avg:200.03,
+    date:'2025-06-23',
+    industry:'Technology',
+    weight:20,
+    thesis:'A strong balance sheet and ecosystem make Apple a reliable compounder.'
+  },
+  {
+    name:'Saudi Arabian Oil Co',
+    ticker:'SAOC',
+    avg:24.74,
+    date:'2025-06-24',
+    industry:'Energy',
+    weight:20,
+    thesis:'Exposure to global energy demand with attractive dividends.'
+  },
+  {
+    name:'Archer Aviation Inc',
+    ticker:'ACHR',
+    avg:10.63,
+    date:'2025-06-25',
+    industry:'Aerospace & Defence',
+    weight:20,
+    thesis:'Early mover in the electric air taxi space with significant growth potential.'
+  },
+  {
+    name:'Berkshire Hathaway Inc',
+    ticker:'BRK.B',
+    avg:507.14,
+    date:'2025-05-27',
+    industry:'Financial Services',
+    weight:20,
+    thesis:'Diversified holdings and proven management deliver steady long-term returns.'
+  }
 ];
 const tbody=document.querySelector('#lt-table tbody');
-holdings.forEach(h=>{
-  const row=document.createElement('tr');
-  row.innerHTML=`<td>${h.name}</td><td><a href="/Drumoak-Capital/portfolio/long-term/${h.ticker}.html">${h.ticker}</a></td><td>$${h.avg.toFixed(2)}</td><td>${h.date}</td><td>${h.industry}</td>`;
-  tbody.appendChild(row);
+function renderTable(){
+  tbody.innerHTML='';
+  holdings.forEach(h=>{
+    const row=document.createElement('tr');
+    row.innerHTML=`<td>${h.name}</td><td><a href="#" data-ticker="${h.ticker}">${h.ticker}</a></td><td>$${h.avg.toFixed(2)}</td><td>${h.weight}%</td><td>${h.date}</td><td>${h.industry}</td>`;
+    tbody.appendChild(row);
+  });
+}
+
+function buildChart(){
+  const labels=holdings.map(h=>h.ticker);
+  const values=holdings.map(h=>h.weight);
+  const colors=['#0074D9','#FF4136','#2ECC40','#FF851B','#B10DC9','#85144b'];
+  Plotly.newPlot('weightsChart',[{
+    type:'pie',labels,values,hole:0.4,textinfo:'label+percent',textposition:'outside',automargin:true,marker:{colors}
+  }],{
+    showlegend:false,paper_bgcolor:'#fff',plot_bgcolor:'#fff',margin:{t:40,b:40,l:0,r:0}
+  },{responsive:true});
+  document.getElementById('weightsChart').on('plotly_click',ev=>{
+    const t=ev.points[0].label;
+    const h=holdings.find(h=>h.ticker===t);
+    if(h) showHolding(h);
+  });
+}
+
+const modal=document.getElementById('modal');
+const modalTitle=document.getElementById('modal-title');
+const modalInfo=document.getElementById('modal-info');
+const modalRationale=document.getElementById('modal-rationale');
+const modalClose=document.getElementById('modal-close');
+
+function showHolding(h){
+  modalTitle.textContent=`${h.name} (${h.ticker})`;
+  modalInfo.innerHTML=`<tr><td>Average Price</td><td>$${h.avg.toFixed(2)}</td></tr><tr><td>Weight of Portfolio</td><td>${h.weight}%</td></tr><tr><td>Date Purchased</td><td>${h.date}</td></tr><tr><td>Industry</td><td>${h.industry}</td></tr>`;
+  modalRationale.textContent=h.thesis;
+  modal.classList.add('active');
+  modal.setAttribute('aria-hidden','false');
+}
+
+tbody.addEventListener('click',e=>{
+  const link=e.target.closest('a[data-ticker]');
+  if(!link) return;
+  e.preventDefault();
+  const h=holdings.find(h=>h.ticker===link.dataset.ticker);
+  if(h) showHolding(h);
+});
+
+modalClose.addEventListener('click',()=>{
+  modal.classList.remove('active');
+  modal.setAttribute('aria-hidden','true');
+});
+modal.addEventListener('click',e=>{if(e.target===modal)modalClose.click();});
+
+window.addEventListener('DOMContentLoaded',()=>{
+  renderTable();
+  buildChart();
 });
 </script>
 </body>
