@@ -68,16 +68,13 @@
 </div>
 <script>
 const shortPositions=[
-  {name:'Tesla Inc',ticker:'TSLA',weight:30,date:'2025-07-01',industry:'Automotive',avg:210.50,holding:'1 week',rationale:'Short squeeze risk has faded while valuation remains stretched.'},
-  {name:'AMC Entertainment',ticker:'AMC',weight:25,date:'2025-06-20',industry:'Entertainment',avg:5.20,holding:'2 months',rationale:'Declining box office revenue and high debt'},
-  {name:'NVIDIA Corporation',ticker:'NVDA',weight:25,date:'2025-06-10',industry:'Semiconductors',avg:650.75,holding:'3 weeks',rationale:'Chip demand softening while supply improving'},
-  {name:'Alibaba Group',ticker:'BABA',weight:20,date:'2025-06-15',industry:'E-commerce',avg:80.30,holding:'1 month',rationale:'Competition in China remains intense'}
+  {name:'Palantir Technologies',ticker:'PLTR',weight:100,date:'2025-07-01',industry:'Software',avg:144.25,holding:'2 months',rationale:'Stock is trading at a PE ratio of 607 (As of July 7th), without incredible revenue growth forcasted in the future, especially in this market sentiment, any slip up on growth would cause a correction.'},
 ];
 const longPositions=[
-  {name:'Apple Inc',ticker:'AAPL',weight:25,date:'2025-06-18',industry:'Technology',avg:180.00,holding:'6 months',rationale:'Brand loyalty and services growth support upside'},
-  {name:'Microsoft Corp',ticker:'MSFT',weight:25,date:'2025-06-20',industry:'Technology',avg:310.50,holding:'6 months',rationale:'Cloud momentum continues to build'},
-  {name:'Alphabet Inc',ticker:'GOOGL',weight:25,date:'2025-06-15',industry:'Technology',avg:140.25,holding:'6 months',rationale:'Search advertising remains a cash cow'},
-  {name:'Netflix Inc',ticker:'NFLX',weight:25,date:'2025-06-25',industry:'Entertainment',avg:450.00,holding:'6 months',rationale:'Subscriber growth reaccelerating'}
+  {name:'Apple Inc',ticker:'AAPL',weight:25,date:'2025-07-01',industry:'Technology',avg:200.03,holding:'2-3 months',rationale:'Anything under 200 is a great discount for such a strong company, especially as head winds from China begin to decrease. '},
+  {name:'Netflix Inc',ticker:'NFLX',weight:25,date:'2025-07-01',industry:'Technology',avg:1336.9,holding:'3-4 weeks',rationale:'With earnings coming out at the end of the month, I see strong potential for Netflix to do very well and bounce back from a shakey start of year.'},
+  {name:'META Platforms Inc',ticker:'META',weight:25,date:'2025-07-01',industry:'Technology',avg:733.36,holding:'3-4 weeks',rationale:'With earnings coming out at the end of the month, I see strong potential for META to do very well and bounce back from a shakey start of year. Additionally, as a cash cow who is starting to use that printed money into AI investment, this could be one to transfer to the long term portfolio.'},
+  {name:'Alphabet',ticker:'GOOG',weight:25,date:'2025-07-01',industry:'Technology',avg:175.92,holding:'3-4 weeks',rationale:'With earnings coming out at the end of the month, I see strong potential for Netflix to do very well and bounce back from a shakey start of year. The recent annoucment of just Google Search alone making $200 Billion in revenue this year was enough for me to buy this monster of a company.'},
 ];
 function buildChart(id,data){
   const labels=data.map(d=>d.ticker);
