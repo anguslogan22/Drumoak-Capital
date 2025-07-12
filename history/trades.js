@@ -8,6 +8,15 @@ window.tradeHistory = [
     rationale: 'Recently listened to a great podcast by Cathie Wood and started to see the vision more and more with Tesla. A company which I think will be well beyond $300 in the future, revolutionising the world of AI and autonomous veichles.',
     lessons: 'Unfortunatley caught a bad wave on this one, was meant to be a long term hold and used too much leverage and got caught out in Trump politics. Note to self: Dont use too much leverage when doing long term investments.'
   },
+    {
+    ticker: 'UAL',
+    date: '2025-07-11',
+    lengthHeld: "2 days",
+    industry: 'Transportation',
+    profit: 0.1754,
+    rationale: 'After succesful news for all aeroplane companies came out on the thursday, UAL skyrocketed 15%. I believed this was an overreaction to the news and saw it pulling back on market open on the Friday. I entered this trade near close on the Friday (not wanting to try "time the market" as I dont believe in that, and aimed to get out after open on Friday.',
+    lessons: 'This could be a new strategy for me to impliment (see in the future with NIO) but I am not a huge fan of shorting companies as stocks always go up as well as fees and margin calls. Anyways, a great profit to round off the week.'
+  },
   {
     ticker: 'DOCU',
     date: '2025-06-30',
