@@ -45,15 +45,6 @@ window.tradeHistory = [
     lessons: 'In the long term, the Trump tariff news can be profitable if read correctly.'
   },
   {
-    ticker: 'USDCHF',
-    date: '2025-06-24',
-    lengthHeld: "5 days",
-    industry: 'Foreign Exchange',
-    profit: -0.5017,
-    rationale: 'I was looking to get more into Forex and saw the opportunity with the Iran-Isreal conflict as a way to diversify my earnings. Using the new 50x leverage unlocked with currency on a stable currency like the francs aimed to shield diversification amid tension.',
-    lessons: 'This tension was short lived... More importantly, the leverage was way to heavy, only being down 1% and the stop loss triggering showed me there is money to be made (and lost) within forex. Definitely looking to learn more soon.'
-  },
-  {
     ticker: 'TSLA',
     date: '2025-06-24',
     lengthHeld: "1 day",
