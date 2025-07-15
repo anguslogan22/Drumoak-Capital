@@ -9,6 +9,24 @@ window.tradeHistory = [
     lessons: 'Unfortunatley caught a bad wave on this one, was meant to be a long term hold and used too much leverage and got caught out in Trump politics. Note to self: Dont use too much leverage when doing long term investments.'
   },
     {
+    ticker: 'RKLB',
+    date: '2025-07-15',
+    lengthHeld: "15 days",
+    industry: 'Technology',
+    profit: 0.47,
+    rationale: 'With the hype around AI increasing, this upcoming stock had a strong upward pattern and anything under 40 was a great price to get in.',
+    lessons: 'Great healthy profit on this one, although it went down slightly, holding and trusting the trade worked well.'
+  },
+    {
+    ticker: 'SPX500',
+    date: '2025-07-15',
+    lengthHeld: "2 days",
+    industry: 'Indicies',
+    profit: 0.11,
+    rationale: 'Saw no bad news in the market and with a postive last week, I thought why not put some nice lerverage down on the SPY. I am attempting a new trading streategy and it seems to be going well so far.',
+    lessons: 'Good quick upward trade on a new strategy, looking forward to continue to develop it'
+  },
+    {
     ticker: 'UAL',
     date: '2025-07-11',
     lengthHeld: "2 days",
