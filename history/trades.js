@@ -8,6 +8,24 @@ window.tradeHistory = [
     rationale: 'Recently listened to a great podcast by Cathie Wood and started to see the vision more and more with Tesla. A company which I think will be well beyond $300 in the future, revolutionising the world of AI and autonomous veichles.',
     lessons: 'Unfortunatley caught a bad wave on this one, was meant to be a long term hold and used too much leverage and got caught out in Trump politics. Note to self: Dont use too much leverage when doing long term investments.'
   },
+ {
+    ticker: 'NIO',
+    date: '2025-07-16',
+    lengthHeld: "3 days",
+    industry: 'Automotive',
+    profit: 0.210,
+    rationale: 'TBC.',
+    lessons: 'TBC.'
+  },
+ {
+    ticker: 'BABA',
+    date: '2025-07-16',
+    lengthHeld: "1 day",
+    industry: 'Consumer',
+    profit: 0.514,
+    rationale: 'TBC',
+    lessons: 'TBC.'
+  },
     {
     ticker: 'RKLB',
     date: '2025-07-15',
