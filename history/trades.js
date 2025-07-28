@@ -8,6 +8,24 @@ window.tradeHistory = [
     rationale: 'Recently listened to a great podcast by Cathie Wood and started to see the vision more and more with Tesla. A company which I think will be well beyond $300 in the future, revolutionising the world of AI and autonomous veichles.',
     lessons: 'Unfortunatley caught a bad wave on this one, was meant to be a long term hold and used too much leverage and got caught out in Trump politics. Note to self: Dont use too much leverage when doing long term investments.'
   },
+    {
+    ticker: 'VXX',
+    date: '2025-07-21',
+    lengthHeld: "6 days",
+    industry: 'Indicies',
+    profit: '0.110,
+    rationale: '',
+    lessons: ''
+  },
+    {
+    ticker: 'DECK',
+    date: '2025-07-21',
+    lengthHeld: "11 days",
+    industry: 'Clothing',
+    profit: '0.890,
+    rationale: '',
+    lessons: ''
+  },
  {
     ticker: 'NIO',
     date: '2025-07-16',
