@@ -9,6 +9,42 @@ window.tradeHistory = [
     lessons: 'Unfortunatley caught a bad wave on this one, was meant to be a long term hold and used too much leverage and got caught out in Trump politics. Note to self: Dont use too much leverage when doing long term investments.'
   },
     {
+    ticker: 'HIMS',
+    date: '2025-08-05',
+    lengthHeld: "3 Months",
+    industry: 'Health and Beauty',
+    profit: 1.351,
+    rationale: '',
+    lessons: ''
+  },
+    {
+    ticker: 'WING',
+    date: '2025-08-04',
+    lengthHeld: "2 Days",
+    industry: 'Consumer Goods',
+    profit: 0.039,
+    rationale: 'SHORT POSITION: ',
+    lessons: ''
+  },
+    {
+    ticker: 'ELF',
+    date: '2025-08-01',
+    lengthHeld: "5 Days",
+    industry: 'Healthcare',
+    profit: 0.2013,
+    rationale: '',
+    lessons: ''
+  },
+    {
+    ticker: 'SPOT',
+    date: '2025-08-04',
+    lengthHeld: "2 Days",
+    industry: 'Technology',
+    profit: 0.16,
+    rationale: '',
+    lessons: ''
+  },
+    {
     ticker: 'VXX',
     date: '2025-07-21',
     lengthHeld: "6 days",
