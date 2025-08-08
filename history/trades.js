@@ -49,7 +49,7 @@ window.tradeHistory = [
     date: '2025-07-21',
     lengthHeld: "6 days",
     industry: 'Indicies',
-    profit: '0.110,
+    profit: 0.110,
     rationale: '',
     lessons: ''
   },
@@ -58,7 +58,7 @@ window.tradeHistory = [
     date: '2025-07-21',
     lengthHeld: "11 days",
     industry: 'Clothing',
-    profit: '0.890,
+    profit: 0.890,
     rationale: '',
     lessons: ''
   },
