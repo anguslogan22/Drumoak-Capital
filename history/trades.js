@@ -22,7 +22,7 @@ window.tradeHistory = [
     date: '2025-08-13',
     lengthHeld: "3 Weeks",
     industry: 'Design',
-    profit: 0.00161,
+    profit: 0.0161,
     rationale: 'A very strong company has average earnings in this market, it seems like a great discount opportunity.',
     lessons: 'Take profits when they come, dont beat around the bush for certain companies'
   },
