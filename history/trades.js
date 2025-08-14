@@ -9,6 +9,33 @@ window.tradeHistory = [
     lessons: 'Unfortunatley caught a bad wave on this one, was meant to be a long term hold and used too much leverage and got caught out in Trump politics. Note to self: Dont use too much leverage when doing long term investments.'
   },
     {
+    ticker: 'SGX',
+    date: '2025-08-13',
+    lengthHeld: "2 Weeks",
+    industry: 'Index',
+    profit: 0.51,
+    rationale: 'The place where I grew up. A country known for its strong economic power and it is in a bear run... great time to buy and diversify the portfolio into the SEA country.',
+    lessons: 'Turn off take profits, 51% in two weeks... majulah singapura'
+  },
+    {
+    ticker: 'TXN',
+    date: '2025-08-13',
+    lengthHeld: "3 Weeks",
+    industry: 'Design',
+    profit: 0.00161,
+    rationale: 'A very strong company has average earnings in this market, it seems like a great discount opportunity.',
+    lessons: 'Take profits when they come, dont beat around the bush for certain companies'
+  },
+    {
+    ticker: 'TMO',
+    date: '2025-08-13',
+    lengthHeld: "3 Weeks",
+    industry: 'Life Sciences',
+    profit: 0.036,
+    rationale: 'After poor earnings, this life science stock seemed like a great discounted price opportunity',
+    lessons: 'A good small bit of profit, however, sold for liquidity reasons once proftiable'
+  },
+    {
     ticker: 'HIMS',
     date: '2025-08-05',
     lengthHeld: "3 Months",
