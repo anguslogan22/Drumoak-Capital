@@ -21,9 +21,6 @@
     .sub{color:var(--muted);margin:0;}
     .controls{display:grid;grid-template-columns:1fr 160px 180px 140px;gap:10px;margin:16px 0 8px;}
     .controls input,.controls select{border:1px solid var(--line);border-radius:12px;padding:10px;}
-    .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid #111;border-radius:12px;padding:10px 12px;background:#fff;cursor:pointer;}
-    .btn.secondary{border-color:var(--line);color:#111;}
-    .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 16px;}
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
     .card{border:1px solid var(--line);border-radius:16px;padding:16px;}
     .title{font-weight:600;margin:0 0 4px;font-size:16px;}
@@ -35,14 +32,7 @@
     .link{color:#111;text-decoration:none;border-bottom:1px dotted #111;}
     .stars{font-size:13px;letter-spacing:1px;color:#f59e0b;}
     .muted{color:var(--muted);}
-    dialog{border:none;border-radius:16px;padding:0;width:min(720px,92vw);}
-    .modal{padding:20px;}
-    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-    .grid1{display:grid;grid-template-columns:1fr;gap:12px;}
-    textarea{min-height:90px;resize:vertical;}
-    input,select,textarea{border:1px solid var(--line);border-radius:12px;padding:10px;width:100%;}
-    .modal .actions{display:flex;gap:8px;justify-content:flex-end;margin-top:10px;}
-    .small{font-size:12px;}
+    input,select{border:1px solid var(--line);border-radius:12px;padding:10px;width:100%;}
   </style>
 </head>
 <body>
@@ -82,52 +72,15 @@
         </select>
         <select id="tagFilter"><option value="">All tags</option></select>
       </div>
-      <div class="toolbar">
-        <button class="btn" id="addBtn">＋ Add entry</button>
-        <button class="btn secondary" id="exportBtn">Export JSON</button>
-        <label class="btn secondary" style="cursor:pointer">
-          Import JSON <input id="importInput" type="file" accept=".json" hidden>
-        </label>
-        <span class="muted small">Autosaves locally • No tracking</span>
-      </div>
     </section>
 
     <section id="list" class="grid" aria-live="polite"></section>
   </div>
 </main>
 
-<!-- Modal -->
-<dialog id="dlg">
-  <form method="dialog" class="modal">
-    <h3 style="margin:0 0 8px">New Media Entry</h3>
-    <div class="grid2">
-      <div><label class="small">Type</label><select id="f_type" required>
-        <option>Article</option><option>Video</option><option>Podcast</option><option>Book</option></select></div>
-      <div><label class="small">Date Consumed</label><input id="f_date" type="date" required></div>
-      <div><label class="small">Title</label><input id="f_title" required></div>
-      <div><label class="small">Source / Author</label><input id="f_source"></div>
-      <div><label class="small">Link</label><input id="f_link" type="url" placeholder="https://…"></div>
-      <div><label class="small">Tags (comma-sep)</label><input id="f_tags" placeholder="investing, macro, leadership"></div>
-    </div>
-    <div class="grid1" style="margin-top:12px">
-      <div><label class="small">Why it stood out</label><textarea id="f_why" required></textarea></div>
-      <div><label class="small">Notes / Key ideas</label><textarea id="f_notes"></textarea></div>
-      <div><label class="small">1–5 Rating (optional)</label><input id="f_rating" type="number" min="1" max="5" step="1" placeholder="5"></div>
-    </div>
-    <div class="actions">
-      <button class="btn secondary" value="cancel">Cancel</button>
-      <button class="btn" id="saveBtn" value="default">Save</button>
-    </div>
-  </form>
-</dialog>
-
-
 <script>
 /** --- Data model ------------------------------------------------------- */
-const STORAGE_KEY = "drumoak_media_v1";
-
-/** Example starter entries (delete if you want a blank slate) */
-const seed = [
+const data = [
   {
     id: crypto.randomUUID(),
     type: "Podcast",
@@ -154,23 +107,12 @@ const seed = [
   }
 ];
 
-function load(){
-  try{
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : seed;
-  }catch(e){ return seed; }
-}
-function save(data){ localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
-
-let data = load();
-
 /** --- UI state & helpers ---------------------------------------------- */
 const listEl = document.getElementById("list");
 const qEl = document.getElementById("q");
 const typeEl = document.getElementById("typeFilter");
 const tagEl = document.getElementById("tagFilter");
 const sortEl = document.getElementById("sort");
-const dlg = document.getElementById("dlg");
 
 function starStr(n){ if(!n) return ""; return "★".repeat(n) + "☆".repeat(5-n); }
 
@@ -220,79 +162,15 @@ function cardHTML(x){
       ${x.notes ? `<p class="notes"><strong>Notes:</strong> ${escapeHTML(x.notes)}</p>` : ""}
       <div class="row">
         <div class="chips">${tags}</div>
-        <div style="display:flex; gap:6px">
-          ${url}
-          <button class="btn secondary small" onclick="del('${x.id}')">Delete</button>
-        </div>
+        ${url}
       </div>
     </article>
   `;
 }
 function emptyHTML(){
-  return `<div class="card"><p class="muted">No entries yet. Click “Add entry” to log your first article, podcast, video, or book.</p></div>`;
+  return `<div class="card"><p class="muted">No entries yet.</p></div>`;
 }
 function escapeHTML(s){ return (s||"").replace(/[&<>"']/g,m=>({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;" }[m])); }
-
-/** --- CRUD ------------------------------------------------------------- */
-function openModal(){
-  document.getElementById("f_type").value = "Article";
-  document.getElementById("f_date").valueAsDate = new Date();
-  ["f_title","f_source","f_link","f_tags","f_why","f_notes","f_rating"].forEach(id=>document.getElementById(id).value="");
-  dlg.showModal();
-}
-function saveFromModal(e){
-  e?.preventDefault?.();
-  const entry = {
-    id: crypto.randomUUID(),
-    type: document.getElementById("f_type").value.trim(),
-    date: document.getElementById("f_date").value,
-    title: document.getElementById("f_title").value.trim(),
-    source: document.getElementById("f_source").value.trim(),
-    link: document.getElementById("f_link").value.trim(),
-    tags: document.getElementById("f_tags").value.split(",").map(s=>s.trim()).filter(Boolean),
-    why: document.getElementById("f_why").value.trim(),
-    notes: document.getElementById("f_notes").value.trim(),
-    rating: Number(document.getElementById("f_rating").value||0) || undefined
-  };
-  data.unshift(entry);
-  save(data); renderFilters(); render();
-  dlg.close();
-}
-function del(id){
-  if(!confirm("Delete this entry?")) return;
-  data = data.filter(x=>x.id!==id);
-  save(data); renderFilters(); render();
-}
-
-/** --- Export / Import -------------------------------------------------- */
-function exportJSON(){
-  const blob = new Blob([JSON.stringify(data,null,2)], {type:"application/json"});
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "media_journal.json";
-  a.click();
-  URL.revokeObjectURL(a.href);
-}
-function importJSON(file){
-  const fr = new FileReader();
-  fr.onload = () => {
-    try{
-      const obj = JSON.parse(fr.result);
-      if(!Array.isArray(obj)) throw new Error("Invalid file");
-      // normalize
-      data = obj.map(x=>({ id: x.id || crypto.randomUUID(), ...x }));
-      save(data); renderFilters(); render();
-    }catch(e){ alert("Import failed: " + e.message); }
-  };
-  fr.readAsText(file);
-}
-
-/** --- Events ----------------------------------------------------------- */
-document.getElementById("addBtn").onclick = openModal;
-document.getElementById("saveBtn").onclick = saveFromModal;
-document.getElementById("exportBtn").onclick = exportJSON;
-document.getElementById("importInput").onchange = (e)=>{ const f=e.target.files?.[0]; if(f) importJSON(f); };
-
 [qEl, typeEl, tagEl, sortEl].forEach(el => el.addEventListener("input", render));
 
 /** init */
