@@ -14,8 +14,12 @@
     nav a{color:var(--txt);text-decoration:none;font-weight:600;}
     nav a:hover{color:var(--accent);}
     nav strong{font-size:1.15rem;margin-right:1rem;}
-    main{flex:1;display:grid;place-items:center;padding:2rem 1rem;text-align:center;}
-    h1{font-size:2rem;margin-bottom:.5rem;}
+    main{flex:1;display:grid;place-items:center;padding:2rem 1rem;}
+    h1{font-size:2rem;margin-bottom:.5rem;text-align:center;}
+    .content{max-width:60ch;margin:0 auto;}
+    h2{font-size:1.5rem;margin:2rem 0 .5rem;text-align:left;}
+    p{text-align:left;line-height:1.6;}
+    pre{background:#f7f7f8;border:1px solid var(--line);padding:1rem;overflow-x:auto;margin-top:1rem;font-size:.875rem;text-align:left;}
   </style>
 </head>
 <body>
@@ -34,9 +38,24 @@
   </ul>
 </nav>
 <main>
-  <div>
+  <div class="content">
     <h1>Strategy - Algorithm</h1>
-    <p>Details coming soon.</p>
+    <section>
+      <h2>Berkshire Tracker</h2>
+      <p>An event‑driven, public‑signal approach reacting to Berkshire Hathaway’s ownership disclosures and credible news confirmations. Entries are systematic on confirmation; exits are time‑boxed with tight risk controls.</p>
+      <pre><code>// Berkshire Tracker — execution scaffold (placeholder)
+// Replace with your live strategy or backtest code.
+// Example interface:
+// function onSignal({ source, ticker, timestamp, confidence }) { /* ... */ }
+// function onCloseOfDay() { /* roll exits, risk checks, P&L */ }
+
+export const CONFIG = {
+  universe: { minMktCapUSD: 1_000_000_000, minADVUSD: 20_000_000 },
+  sizing:   { baseBps: 25, atrRiskBps: 2, maxConcurrent: 10 },
+  exits:    { holdDays: 5, stopPct: -0.04, atrStopX: 2 },
+  confirmations: ["13D", "13G", "Tier1News", "13F:new"],
+};</code></pre>
+    </section>
   </div>
 </main>
 </body>
