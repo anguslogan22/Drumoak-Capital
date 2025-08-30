@@ -16,7 +16,7 @@
     nav strong{font-size:1.15rem;margin-right:1rem;}
     main{flex:1;display:grid;place-items:center;padding:2rem 1rem;}
     h1{font-size:2rem;margin-bottom:.5rem;text-align:center;}
-    .content{max-width:60ch;margin:0 auto;}
+    .content{max-width:900px;margin:0 auto;}
     h2{font-size:1.5rem;margin:2rem 0 .5rem;text-align:left;}
     p{text-align:left;line-height:1.6;}
     pre{background:#f7f7f8;border:1px solid var(--line);padding:1rem;overflow-x:auto;margin-top:1rem;font-size:.875rem;text-align:left;}
@@ -40,9 +40,30 @@
 <main>
   <div class="content">
     <h1>Strategy - Algorithm</h1>
-    <section>
-      <h2>Berkshire Tracker</h2>
-      <p>An event‑driven, public‑signal approach reacting to Berkshire Hathaway’s ownership disclosures and credible news confirmations. Entries are systematic on confirmation; exits are time‑boxed with tight risk controls.</p>
+    <section id="buffett-bounce" style="max-width:900px;margin:40px auto;padding:24px;border:1px solid #e5e7eb;border-radius:16px;">
+      <header style="margin-bottom:16px;">
+        <h2 style="font-size:28px;line-height:1.2;margin:0 0 8px;">Introducing the “Buffett Bounce” Strategy</h2>
+        <p style="margin:0;color:#6b7280;">Live soon on Drumoak Capital</p>
+      </header>
+
+      <p><strong>Idea:</strong> When Berkshire Hathaway discloses a new equity position, the market often responds with follow-on buying. 
+        Investors anchor to Buffett’s reputation and implied cost basis, creating short-term momentum that can persist for several sessions.</p>
+
+      <h3 style="font-size:20px;margin-top:20px;margin-bottom:8px;">How it works</h3>
+      <ul style="margin:0 0 16px 18px;">
+        <li><strong>Signal:</strong> Confirmed Berkshire 13F/13G/13D filings or credible news of a new stake.</li>
+        <li><strong>Entry:</strong> Systematic triggers after confirmation (no anticipatory trades).</li>
+        <li><strong>Holding Period:</strong> ~5 trading days, targeting the initial post-disclosure momentum.</li>
+        <li><strong>Risk Controls:</strong> Tight stop-loss, fixed position sizing, and time-based exits.</li>
+      </ul>
+
+      <h3 style="font-size:20px;margin-top:20px;margin-bottom:8px;">Recent example</h3>
+      <p><em>UnitedHealth (UNH):</em> After reports of a Berkshire position, shares bounced from the mid-$200s to above $300 as capital flowed in—precisely the kind of move this strategy seeks to capture.</p>
+
+      <h3 style="font-size:20px;margin-top:20px;margin-bottom:8px;">What’s coming</h3>
+      <p>We’ll publish the full code and execution framework on the Drumoak Capital site, including signal definitions, entry/exit logic, and risk parameters.</p>
+
+      <h3 style="font-size:20px;margin-top:20px;margin-bottom:8px;">Sample code scaffold</h3>
       <pre><code>// Berkshire Tracker — execution scaffold (placeholder)
 // Replace with your live strategy or backtest code.
 // Example interface:
@@ -55,6 +76,16 @@ export const CONFIG = {
   exits:    { holdDays: 5, stopPct: -0.04, atrStopX: 2 },
   confirmations: ["13D", "13G", "Tier1News", "13F:new"],
 };</code></pre>
+
+      <p style="margin-top:16px;">
+        <a href="https://lnkd.in/eqYExvc6" style="display:inline-block;padding:10px 14px;border:1px solid #111;border-radius:10px;text-decoration:none;color:#111;">
+          View the announcement on LinkedIn
+        </a>
+      </p>
+
+      <p style="font-size:12px;color:#6b7280;margin-top:16px;">
+        Disclaimer: This is not financial advice. It’s a personal project to track and study trading strategies.
+      </p>
     </section>
   </div>
 </main>
