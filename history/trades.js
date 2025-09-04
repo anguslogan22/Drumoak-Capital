@@ -18,6 +18,15 @@ window.tradeHistory = [
     lessons: 'Turn off take profits, 51% in two weeks... majulah singapura'
   },
     {
+    ticker: 'LMT',
+    date: '2025-09-02',
+    lengthHeld: "2 Months",
+    industry: 'Defense',
+    profit: 0.347,
+    rationale: 'Looking to offload some of the higher valued parts of the portfolio, with Gold and Defensive stocks hitting ATHs, this was a little diversification of the portfolio.',
+    lessons: ''
+  },
+    {
     ticker: 'TXN',
     date: '2025-08-13',
     lengthHeld: "3 Weeks",
