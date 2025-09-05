@@ -18,6 +18,15 @@ window.tradeHistory = [
     lessons: 'Turn off take profits, 51% in two weeks... majulah singapura'
   },
     {
+    ticker: 'LULU',
+    date: '2025-09-05',
+    lengthHeld: "2 Days",
+    industry: 'Clothing',
+    profit: 0.65,
+    rationale: 'Shorted LULU ahead of earnings on signals of slowing revenue growth, rising inventory, and weakening consumer demand.',
+    lessons: 'Confirmed that aligning fundamental red flags with cautious guidance can create high-conviction event-driven opportunities.'
+  },
+    {
     ticker: 'LMT',
     date: '2025-09-02',
     lengthHeld: "2 Months",
