@@ -18,6 +18,33 @@ window.tradeHistory = [
     lessons: 'Turn off take profits, 51% in two weeks... majulah singapura'
   },
     {
+    ticker: 'VXX',
+    date: '2025-09-09',
+    lengthHeld: "7 Days",
+    industry: 'Index',
+    profit: 0.288,
+    rationale: 'After a light scare from the FED on the 2nd of September for no reason, I saw an opportunity to SHORT the VIX',
+    lessons: 'Trade more with the VXX, proftiable each time'
+  },
+    {
+    ticker: 'HOC.L',
+    date: '2025-09-09',
+    lengthHeld: "4 Days",
+    industry: 'Mining',
+    profit: 0.068,
+    rationale: 'Following good news and a UK bandwagon, wasnt a fan of this one so wanted to get out before too long.',
+    lessons: 'If it is on twitter, you are too late '
+  },
+    {
+    ticker: 'VSCO',
+    date: '2025-09-09',
+    lengthHeld: "3 Days",
+    industry: 'Clothing',
+    profit: 0.562,
+    rationale: 'Trading just before earnings, with margins increasing and market sentiment coming back, it did very well after earnings were announced.',
+    lessons: 'Would like to hold a long term position in VSCO, could see a similar play to UA'
+  },
+    {
     ticker: 'LULU',
     date: '2025-09-05',
     lengthHeld: "2 Days",
