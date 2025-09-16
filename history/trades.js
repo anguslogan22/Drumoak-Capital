@@ -17,6 +17,34 @@ window.tradeHistory = [
     rationale: 'The place where I grew up. A country known for its strong economic power and it is in a bear run... great time to buy and diversify the portfolio into the SEA country.',
     lessons: 'Turn off take profits, 51% in two weeks... majulah singapura'
   },
+{
+  ticker: 'TSLA',
+  date: '2025-07-01',
+  lengthHeld: "77 days",
+  industry: 'Automotive',
+  profit: 195.29,
+  rationale: 'After lots of research and conviction from Cathie Wood on the DOAC podcast, Tesla at ~$300 looked undervalued given its AI, autonomous driving, and energy optionality.',
+  lessons: 'Scaling into positions works. Taking a longer-term conviction stance can pay off when backed by strong research and patience.'
+},
+
+{
+  ticker: 'TSLA',
+  date: '2025-07-24',
+  lengthHeld: "54 days",
+  industry: 'Automotive',
+  profit: 178.46,
+  rationale: 'Added again near $304 to increase exposure as the $300 level continued to show strong support and momentum was building.',
+  lessons: 'Conviction adds are best made at levels of clear technical and fundamental support. Trusting the thesis paid off here.'
+},
+{
+  ticker: 'TSLA',
+  date: '2025-08-01',
+  lengthHeld: "46 days",
+  industry: 'Automotive',
+  profit: 189.05,
+  rationale: 'Final push into Tesla near $300 after further research and confidence that upside outweighed short-term volatility.',
+  lessons: 'Staggered entries provided flexibility and risk control. Holding through noise allowed capture of a bigger move.'
+},
     {
     ticker: 'VXX',
     date: '2025-09-09',
