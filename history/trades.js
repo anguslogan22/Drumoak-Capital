@@ -19,7 +19,7 @@ window.tradeHistory = [
   },
 {
   ticker: 'TSLA',
-  date: '2025-07-01',
+  date: '2025-09-16',
   lengthHeld: "77 days",
   industry: 'Automotive',
   profit: 1.9529,
@@ -29,7 +29,7 @@ window.tradeHistory = [
 
 {
   ticker: 'TSLA',
-  date: '2025-07-24',
+  date: '2025-09-16',
   lengthHeld: "54 days",
   industry: 'Automotive',
   profit: 1.7846,
@@ -38,7 +38,7 @@ window.tradeHistory = [
 },
 {
   ticker: 'TSLA',
-  date: '2025-08-01',
+  date: '2025-09-16',
   lengthHeld: "46 days",
   industry: 'Automotive',
   profit: 1.8905,
