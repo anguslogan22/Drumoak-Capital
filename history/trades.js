@@ -55,6 +55,33 @@ window.tradeHistory = [
     lessons: 'Trade more with the VXX, proftiable each time'
   },
     {
+    ticker: 'EVGO',
+    date: '2025-09-23',
+    lengthHeld: "6 Days",
+    industry: 'Energy',
+    profit: 0.10,
+    rationale: '',
+    lessons: ''
+  },
+    {
+    ticker: 'USDJPY',
+    date: '2025-09-19',
+    lengthHeld: "1 Day",
+    industry: 'Forex',
+    profit: 0.05,
+    rationale: 'Not too confident with Forex, say some intersting news and decided to place a very small trade, turned profitable.',
+    lessons: 'Keep money away from Forex for now.'
+  },
+    {
+    ticker: 'RKLB',
+    date: '2025-09-23',
+    lengthHeld: "7 Days",
+    industry: 'Technology',
+    profit: 0.17,
+    rationale: '',
+    lessons: ''
+  },
+    {
     ticker: 'HOC.L',
     date: '2025-09-09',
     lengthHeld: "4 Days",
