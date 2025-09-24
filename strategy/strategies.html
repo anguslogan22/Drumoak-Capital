@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Strategies | Drumoak Capital</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#f8fafc;
+      --txt:#0f172a;
+      --line:#e2e8f0;
+      --accent:#2563eb;
+      --accent-soft:#dbeafe;
+    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body {
+      font-family:'Inter',sans-serif;
+      background:var(--bg);
+      color:var(--txt);
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+    nav {
+      background:#fff;
+      border-bottom:1px solid var(--line);
+      padding:.75rem 1.5rem;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+    nav ul {
+      list-style:none;
+      margin:0;
+      display:flex;
+      gap:1.5rem;
+      align-items:center;
+    }
+    nav a {
+      color:var(--txt);
+      text-decoration:none;
+      font-weight:600;
+    }
+    nav a:hover { color:var(--accent); }
+    nav strong { font-size:1.15rem; margin-right:1rem; }
+    main {
+      flex:1;
+      padding:3rem 1.5rem 4rem;
+    }
+    .hero {
+      max-width:900px;
+      margin:0 auto 2rem;
+      text-align:center;
+    }
+    .hero h1 {
+      font-size:2.5rem;
+      font-weight:600;
+      margin-bottom:.75rem;
+    }
+    .hero p {
+      color:#475569;
+      font-size:1rem;
+      line-height:1.6;
+    }
+    .strategy-grid {
+      display:grid;
+      gap:2rem;
+      max-width:900px;
+      margin:0 auto;
+    }
+    .strategy-card {
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:2rem;
+      text-align:left;
+      box-shadow:0 12px 32px -20px rgba(15,23,42,.3);
+    }
+    .strategy-card header {
+      margin-bottom:1.5rem;
+    }
+    .strategy-card h2 {
+      font-size:1.85rem;
+      line-height:1.3;
+      margin-bottom:.35rem;
+    }
+    .strategy-card header p {
+      color:#64748b;
+    }
+    .strategy-card p,
+    .strategy-card li {
+      line-height:1.6;
+      color:#334155;
+    }
+    .strategy-card ul {
+      margin:0 0 1.25rem 1.25rem;
+      padding:0;
+    }
+    .strategy-card a {
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      font-weight:600;
+      color:var(--accent);
+      text-decoration:none;
+      background:var(--accent-soft);
+      padding:.6rem 1rem;
+      border-radius:999px;
+    }
+    .strategy-card a:hover {
+      background:rgba(37,99,235,.14);
+      color:#1d4ed8;
+    }
+    .disclaimer {
+      font-size:.8rem;
+      color:#64748b;
+      margin-top:1.25rem;
+    }
+  </style>
+</head>
+<body>
+<nav class="tpc-nav">
+  <ul style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0;">
+    <li><strong>Drumoak Capital</strong></li>
+    <li><a href="/Drumoak-Capital/">Home</a></li>
+    <li><a href="/Drumoak-Capital/About/">About</a></li>
+    <li><a href="/Drumoak-Capital/portfolio/">Portfolio</a></li>
+    <li><a href="/Drumoak-Capital/portfolio/short-term.html">Portfolio ST</a></li>
+    <li><a href="/Drumoak-Capital/portfolio/long-term.html">Portfolio LT</a></li>
+    <li><a href="/Drumoak-Capital/history/">History</a></li>
+    <li><a href="/Drumoak-Capital/strategy/reports.html">Reports</a></li>
+    <li><a href="/Drumoak-Capital/strategy/strategies.html">Strategies</a></li>
+    <li><a href="/Drumoak-Capital/media/">Media</a></li>
+  </ul>
+</nav>
+<main>
+  <section class="hero">
+    <h1>Strategies</h1>
+    <p>Where discretionary themes meet systematic execution. Each playbook below outlines the signal, the risk controls, and the narrative edge we are leaning into.</p>
+  </section>
+
+  <section class="strategy-grid" aria-label="Strategy playbooks">
+    <article class="strategy-card" id="buffett-bounce">
+      <header>
+        <h2>The “Buffett Bounce”</h2>
+        <p>Live soon on Drumoak Capital</p>
+      </header>
+      <p><strong>Idea:</strong> When Berkshire Hathaway discloses a new equity position, the market often responds with follow-on buying. Investors anchor to Buffett’s reputation and implied cost basis, creating short-term momentum that can persist for several sessions.</p>
+      <h3 style="font-size:1.1rem; margin:1.25rem 0 .5rem; color:#0f172a;">How it works</h3>
+      <ul>
+        <li><strong>Signal:</strong> Confirmed Berkshire 13F/13G/13D filings or credible news of a new stake.</li>
+        <li><strong>Entry:</strong> Systematic triggers after confirmation (no anticipatory trades).</li>
+        <li><strong>Holding Period:</strong> ~5 trading days, targeting the initial post-disclosure momentum.</li>
+        <li><strong>Risk Controls:</strong> Tight stop-loss, fixed position sizing, and time-based exits.</li>
+      </ul>
+      <h3 style="font-size:1.1rem; margin:1.25rem 0 .5rem; color:#0f172a;">Recent example</h3>
+      <p><em>UnitedHealth (UNH):</em> After reports of a Berkshire position, shares bounced from the mid-$200s to above $300 as capital flowed in — precisely the kind of move this strategy seeks to capture.</p>
+      <h3 style="font-size:1.1rem; margin:1.25rem 0 .5rem; color:#0f172a;">What’s coming</h3>
+      <p>We’ll publish the full code and execution framework on the Drumoak Capital site, including signal definitions, entry/exit logic, and risk parameters.</p>
+      <h3 style="font-size:1.1rem; margin:1.25rem 0 .5rem; color:#0f172a;">Sample code scaffold</h3>
+      <pre style="background:#0f172a; color:#e2e8f0; padding:1.2rem; border-radius:12px; overflow-x:auto; font-size:.85rem; line-height:1.5;">
+// Berkshire Tracker — execution scaffold (placeholder)
+// Replace with your live strategy or backtest code.
+// Example interface:
+// function onSignal({ source, ticker, timestamp, confidence }) { /* ... */ }
+// function onCloseOfDay() { /* roll exits, risk checks, P&L */ }
+
+export const CONFIG = {
+  universe: { minMktCapUSD: 1_000_000_000, minADVUSD: 20_000_000 },
+  sizing:   { baseBps: 25, atrRiskBps: 2, maxConcurrent: 10 },
+  exits:    { holdDays: 5, stopPct: -0.04, atrStopX: 2 },
+  confirmations: ["13D", "13G", "Tier1News", "13F:new"],
+};
+      </pre>
+      <p style="margin-top:1.25rem;">
+        <a href="https://lnkd.in/eqYExvc6" target="_blank" rel="noopener">
+          View the announcement on LinkedIn
+        </a>
+      </p>
+      <p class="disclaimer">Disclaimer: This is not financial advice. It’s a personal project to track and study trading strategies.</p>
+    </article>
+
+    <article class="strategy-card" id="carnival-trade">
+      <header>
+        <h2>Carnival Corp (NYSE: CCL) Idea</h2>
+        <p>(Not financial advice — just sharing an idea I’m following)</p>
+      </header>
+      <h3 style="font-size:1.1rem; margin:0 0 .5rem; color:#0f172a;">Key points</h3>
+      <ul>
+        <li>42% of global cruise industry passengers</li>
+        <li>104% occupancy in the first six months of FY2025</li>
+        <li>+9% revenue growth with only +3% cost increase</li>
+        <li>+$609M YoY net income gain in the first two quarters</li>
+        <li>P/E ~17, cheaper than competitors</li>
+        <li>Plans to expand fleet in 2026</li>
+        <li>FY2024 = first profitable year since 2019, similar turnaround to CELH (where Drumoak booked +42%)</li>
+        <li>EBITDA per ALBD set to hit 2026 target one year early</li>
+      </ul>
+      <h3 style="font-size:1.1rem; margin:1.25rem 0 .5rem; color:#0f172a;">Upside</h3>
+      <ul>
+        <li>Occupancy and pricing power driving stronger yields</li>
+        <li>Operating leverage as revenue growth outpaces costs</li>
+        <li>Deleveraging + lower interest expense creating equity upside</li>
+        <li>Growth optionality from new fleet and exclusive destinations</li>
+      </ul>
+      <h3 style="font-size:1.1rem; margin:1.25rem 0 .5rem; color:#0f172a;">Downside</h3>
+      <ul>
+        <li>High debt: $27.5B still an overhang</li>
+        <li>Macro risks: slower-than-expected rate cuts (though less likely after recent Fed signals)</li>
+        <li>Fuel exposure: spikes could squeeze margins</li>
+      </ul>
+      <h3 style="font-size:1.1rem; margin:1.25rem 0 .5rem; color:#0f172a;">Drumoak take</h3>
+      <p>Carnival looks like a classic recovery trade: market leader, back to profitability, trading at a discount. With debt still the key risk, execution on bookings, yields, and refinancing will decide how much upside is unlocked.</p>
+      <p style="margin-top:1.25rem;">
+        <a href="https://www.linkedin.com/posts/drumoak-capital_drumoak-capital-idea-carnival-corp-nyse-activity-7367658860054061056-Zo-k?utm_source=share&utm_medium=member_desktop&rcm=ACoAACA4tpkBnGoq-SJJXtmquKg0Re_7ttK9_L4" target="_blank" rel="noopener">
+          View this position on the Drumoak Capital LinkedIn
+        </a>
+      </p>
+    </article>
+  </section>
+</main>
+</body>
+</html>
