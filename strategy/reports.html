@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Reports | Drumoak Capital</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#f8fafc;
+      --txt:#0f172a;
+      --line:#e2e8f0;
+      --accent:#2563eb;
+      --accent-soft:#dbeafe;
+    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body {
+      font-family:'Inter',sans-serif;
+      background:var(--bg);
+      color:var(--txt);
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+    nav {
+      background:#fff;
+      border-bottom:1px solid var(--line);
+      padding:.75rem 1.5rem;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+    nav ul {
+      list-style:none;
+      margin:0;
+      display:flex;
+      gap:1.5rem;
+      align-items:center;
+    }
+    nav a {
+      color:var(--txt);
+      text-decoration:none;
+      font-weight:600;
+    }
+    nav a:hover { color:var(--accent); }
+    nav strong { font-size:1.15rem; margin-right:1rem; }
+    main {
+      flex:1;
+      padding:3rem 1.5rem 4rem;
+    }
+    .hero {
+      max-width:900px;
+      margin:0 auto 2rem;
+      text-align:center;
+    }
+    .hero h1 {
+      font-size:2.5rem;
+      font-weight:600;
+      margin-bottom:.75rem;
+    }
+    .hero p {
+      color:#475569;
+      font-size:1rem;
+      line-height:1.6;
+    }
+    .intro {
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:1.75rem;
+      max-width:900px;
+      margin:0 auto 2.5rem;
+      text-align:left;
+      line-height:1.7;
+      box-shadow:0 10px 30px -18px rgba(15,23,42,.25);
+    }
+    .intro code {
+      background:var(--accent-soft);
+      color:var(--accent);
+      padding:.15rem .4rem;
+      border-radius:6px;
+      font-size:.9rem;
+    }
+    .report-grid {
+      display:grid;
+      gap:1.5rem;
+      max-width:900px;
+      margin:0 auto;
+    }
+    .report-card {
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:1.75rem;
+      text-align:left;
+      box-shadow:0 12px 32px -20px rgba(15,23,42,.3);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .report-card:hover {
+      transform:translateY(-4px);
+      box-shadow:0 18px 40px -24px rgba(15,23,42,.35);
+    }
+    .report-card h3 {
+      font-size:1.35rem;
+      margin-bottom:.75rem;
+    }
+    .report-card p {
+      color:#475569;
+      line-height:1.6;
+      margin-bottom:1.25rem;
+    }
+    .report-card a {
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      font-weight:600;
+      color:var(--accent);
+      text-decoration:none;
+      background:var(--accent-soft);
+      padding:.6rem 1rem;
+      border-radius:999px;
+    }
+    .report-card a:hover {
+      background:rgba(37,99,235,.14);
+      color:#1d4ed8;
+    }
+    .report-card a span {
+      font-size:.85rem;
+      color:#1d4ed8;
+    }
+    .report-empty {
+      font-style:italic;
+      color:#64748b;
+    }
+  </style>
+</head>
+<body>
+<nav class="tpc-nav">
+  <ul style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0;">
+    <li><strong>Drumoak Capital</strong></li>
+    <li><a href="/Drumoak-Capital/">Home</a></li>
+    <li><a href="/Drumoak-Capital/About/">About</a></li>
+    <li><a href="/Drumoak-Capital/portfolio/">Portfolio</a></li>
+    <li><a href="/Drumoak-Capital/portfolio/short-term.html">Portfolio ST</a></li>
+    <li><a href="/Drumoak-Capital/portfolio/long-term.html">Portfolio LT</a></li>
+    <li><a href="/Drumoak-Capital/history/">History</a></li>
+    <li><a href="/Drumoak-Capital/strategy/reports.html">Reports</a></li>
+    <li><a href="/Drumoak-Capital/strategy/strategies.html">Strategies</a></li>
+    <li><a href="/Drumoak-Capital/media/">Media</a></li>
+  </ul>
+</nav>
+<main>
+  <section class="hero">
+    <h1>Monthly Reports</h1>
+    <p class="page-subtitle">A running archive of Drumoak Capital updates — performance commentary, positioning notes, and the key data points behind each move.</p>
+  </section>
+
+  <section class="intro">
+    <p>
+      Upload each PDF report to <code>assets/reports/</code> in this project (or your preferred hosting location) and update the link below.
+      Keep the short summary to highlight what changed during the month, then label the download button with the month and year so visitors can quickly scan the archive.
+    </p>
+  </section>
+
+  <section class="report-grid" aria-label="Monthly reports">
+    <article class="report-card">
+      <h3>September 2025</h3>
+      <p>
+        Positioning shifts into quality compounders, a review of the “Buffett Bounce” launch playbook, and a look at how macro volatility is feeding the short-term book.
+      </p>
+      <a href="/Drumoak-Capital/assets/reports/2025-09-investor-update.pdf" target="_blank" rel="noopener">
+        <span>Open report</span>
+      </a>
+    </article>
+
+    <article class="report-card">
+      <h3>August 2025</h3>
+      <p class="report-empty">Add your August 2025 commentary and PDF link here.</p>
+      <a href="/Drumoak-Capital/assets/reports/2025-08-investor-update.pdf" target="_blank" rel="noopener">
+        <span>Open report</span>
+      </a>
+    </article>
+
+    <!--
+      Duplicate the <article> block above for each additional month.
+      Update the heading, summary, and link so the archive stays current.
+    -->
+  </section>
+</main>
+</body>
+</html>
