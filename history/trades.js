@@ -26,7 +26,6 @@ window.tradeHistory = [
   rationale: 'After lots of research and conviction from Cathie Wood on the DOAC podcast, Tesla at ~$300 looked undervalued given its AI, autonomous driving, and energy optionality.',
   lessons: 'Scaling into positions works. Taking a longer-term conviction stance can pay off when backed by strong research and patience.'
 },
-
 {
   ticker: 'TSLA',
   date: '2025-09-16',
@@ -60,6 +59,42 @@ window.tradeHistory = [
     lengthHeld: "6 Days",
     industry: 'Energy',
     profit: 0.10,
+    rationale: '',
+    lessons: ''
+  },
+    {
+    ticker: 'VXX',
+    date: '2025-10-02',
+    lengthHeld: "12 Days",
+    industry: 'Index',
+    profit: 0.13,
+    rationale: '',
+    lessons: ''
+  },
+    {
+    ticker: 'TGT',
+    date: '2025-10-02',
+    lengthHeld: "8 Days",
+    industry: 'Consumer',
+    profit: 0.04,
+    rationale: '',
+    lessons: ''
+  },
+    {
+    ticker: 'UK100',
+    date: '2025-10-02',
+    lengthHeld: "8 Days",
+    industry: 'Index',
+    profit: 0.51,
+    rationale: 'After Starmer reshuffled his economic team, the UK took a hit, I didnt think it was justified',
+    lessons: ''
+  },
+    {
+    ticker: 'LLY',
+    date: '2025-10-01',
+    lengthHeld: "3 Weeks",
+    industry: 'Pharmaceutical',
+    profit: 0.36,
     rationale: '',
     lessons: ''
   },
