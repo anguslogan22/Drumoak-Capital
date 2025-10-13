@@ -86,6 +86,7 @@
       gap:1.5rem;
       max-width:900px;
       margin:0 auto;
+     justify-items:center;
     }
     .report-card {
       background:#fff;
@@ -95,6 +96,8 @@
       text-align:left;
       box-shadow:0 12px 32px -20px rgba(15,23,42,.3);
       transition:transform .2s ease, box-shadow .2s ease;
+      width:100%;
+      max-width:640px;
     }
     .report-card:hover {
       transform:translateY(-4px);
@@ -120,17 +123,7 @@
       padding:.6rem 1rem;
       border-radius:999px;
     }
-    .report-card a:hover {
-      background:rgba(37,99,235,.14);
-      color:#1d4ed8;
-    }
-    .report-card a span {
-      font-size:.85rem;
-      color:#1d4ed8;
-    }
-    .report-empty {
-      font-style:italic;
-      color:#64748b;
+@@ -134,43 +137,53 @@
     }
   </style>
 </head>
@@ -155,12 +148,13 @@
     <p class="page-subtitle">A running archive of Drumoak Capital updates — performance commentary, positioning notes, and the key data points behind each move.</p>
   </section>
 
+  <section class="report-grid" aria-label="Monthly reports">
     <article class="report-card">
       <h3>October 2025</h3>
       <p>
         October’s buying sprint doubled down on durable cash-flow compounders, recycling capital from cyclical trims into AI infrastructure, energy transition, and other high-conviction secular growth themes.
       </p>
-      <a href="/Drumoak-Capital/assets/Drumoak Capital - October Buying Report.pdf" target="_blank" rel="noopener">
+      <a href="/Drumoak-Capital/assets/2025-10-buying-report.pdf" target="_blank" rel="noopener">
         <span>Open Report</span>
       </a>
     </article>
