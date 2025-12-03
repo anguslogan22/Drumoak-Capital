@@ -67,26 +67,33 @@
   </div>
 </div>
 <script>
-const shortPositions=[
-  {name:'Vix',ticker:'VXX',weight:100,date:'2025-09-01',industry:'Consumer',avg:39.8,holding:'—',rationale:''},
+const shortPositions = [
+  {name:'Rigetti Computing Inc', ticker:'RGTI', weight:1.24, date:'2025-12-02', industry:'Technology', avg:24.10, holding:'-', rationale:''},
+  {name:'Lululemon Athletica Inc', ticker:'LULU', weight:1.24, date:'2025-12-02', industry:'Consumer', avg:182.48, holding:'-', rationale:''},
+  {name:'SL Green Realty Corp', ticker:'SLG', weight:0.74, date:'2025-12-02', industry:'Real Estate', avg:47.03, holding:'-', rationale:''},
+  {name:'Opendoor Technologies Inc', ticker:'OPEN', weight:0.25, date:'2025-12-02', industry:'Real Estate', avg:7.04, holding:'-', rationale:''}
 ];
 
-const longPositions=[
-  {name:'Sales Force',ticker:'CRM',weight:8,date:'2025-09-08',industry:'Technology',avg:250.24,holding:'—',rationale:''},
-  {name:'Apple',ticker:'AAPL',weight:8,date:'2025-06-23',industry:'Technology',avg:200.03,holding:'—',rationale:''},
-  {name:'Nike Inc',ticker:'NKE',weight:8,date:'2025-09-09',industry:'Fashion',avg:73.44,holding:'—',rationale:''},
-  {name:'Amazon.com Inc',ticker:'AMZN',weight:8,date:'2025-08-01',industry:'Technology',avg:218.30,holding:'—',rationale:''},
-  {name:'NVIDIA Corp',ticker:'NVDA',weight:8,date:'2025-07-14',industry:'Semiconductors',avg:165.09,holding:'—',rationale:''},
-  {name:'META Platforms Inc',ticker:'META',weight:8,date:'2025-07-14',industry:'Technology',avg:646.13,holding:'—',rationale:''},
-  {name:'Alphabet Inc (Google)',ticker:'GOOG',weight:8,date:'2025-07-01',industry:'Technology',avg:175.92,holding:'—',rationale:''},
-  {name:'Advanced Micro Devices',ticker:'AMD',weight:8,date:'2025-08-19',industry:'Semiconductors',avg:166.73,holding:'—',rationale:''},
-  {name:'Estee Lauder Companies',ticker:'EL',weight:8,date:'2025-08-14',industry:'Consumer',avg:90.70,holding:'—',rationale:''},
-  {name:'Adobe Inc',ticker:'ADBE',weight:8,date:'2025-07-14',industry:'Software',avg:364.86,holding:'—',rationale:''},
-  {name:'Celcius Inc',ticker:'CELH',weight:8,date:'2025-09-09',industry:'Consumer Good',avg:56.2,holding:'—',rationale:''},
-  {name:'Carnival Corp',ticker:'CCL',weight:8,date:'2025-08-30',industry:'Travel & Leisure',avg:31.89,holding:'—',rationale:''},
-  {name:'Eli Lily & Co',ticker:'LLY',weight:8,date:'2025-09-08',industry:'Health',avg:746.81,holding:'—',rationale:''},
-
+const longPositions = [
+  {name:'Meta Platforms Inc', ticker:'META', weight:18.11, date:'2025-12-02', industry:'Technology', avg:646.79, holding:'-', rationale:''},
+  {name:'Celsius Holdings Inc', ticker:'CELH', weight:8.29, date:'2025-12-02', industry:'Consumer', avg:40.83, holding:'-', rationale:''},
+  {name:'American Express Co', ticker:'AXP', weight:6.53, date:'2025-12-02', industry:'Financials', avg:361.48, holding:'-', rationale:''},
+  {name:'PayPal Holdings', ticker:'PYPL', weight:6.95, date:'2025-12-02', industry:'Technology', avg:63.12, holding:'-', rationale:''},
+  {name:'Adobe Systems Inc', ticker:'ADBE', weight:5.53, date:'2025-12-02', industry:'Software', avg:323.27, holding:'-', rationale:''},
+  {name:'Advanced Micro Devices', ticker:'AMD', weight:5.58, date:'2025-12-02', industry:'Semiconductors', avg:216.11, holding:'-', rationale:''},
+  {name:'SPDR S&P 500 ETF', ticker:'SPY', weight:4.96, date:'2025-12-02', industry:'ETF', avg:682.63, holding:'-', rationale:''},
+  {name:'Estee Lauder Companies', ticker:'EL', weight:3.47, date:'2025-12-02', industry:'Consumer', avg:99.97, holding:'-', rationale:''},
+  {name:'The Cheesecake Factory Inc', ticker:'CAKE', weight:3.72, date:'2025-12-02', industry:'Consumer', avg:47.86, holding:'-', rationale:''},
+  {name:'Salesforce Inc', ticker:'CRM', weight:2.93, date:'2025-12-02', industry:'Technology', avg:236.57, holding:'-', rationale:''},
+  {name:'Nike Inc', ticker:'NKE', weight:2.36, date:'2025-12-02', industry:'Fashion', avg:65.02, holding:'-', rationale:''},
+  {name:'Amazon.com Inc', ticker:'AMZN', weight:1.81, date:'2025-12-02', industry:'Technology', avg:235.02, holding:'-', rationale:''},
+  {name:'FuboTV Inc', ticker:'FUBO', weight:1.49, date:'2025-12-02', industry:'Entertainment', avg:2.89, holding:'-', rationale:''},
+  {name:'SPDR Bloomberg UK Gilt UCITS ETF', ticker:'SYBG.DE', weight:1.12, date:'2025-12-02', industry:'ETF', avg:48.98, holding:'-', rationale:''},
+  {name:'Unilever PLC', ticker:'ULVR.L', weight:1.05, date:'2025-12-02', industry:'Consumer', avg:4486.00, holding:'-', rationale:''},
+  {name:'SoFi Technologies Inc', ticker:'SOFI', weight:0.74, date:'2025-12-02', industry:'Financials', avg:29.69, holding:'-', rationale:''},
+  {name:'Honest Co Inc/The', ticker:'HNST', weight:0.74, date:'2025-12-02', industry:'Consumer', avg:2.68, holding:'-', rationale:''}
 ];
+
 function buildChart(id,data){
   const labels=data.map(d=>d.ticker);
   const values=data.map(d=>d.weight);
