@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research — Drumoak Capital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">DRUMOAK CAPITAL</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html" class="active">Research</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+  </nav>
+
+  <section class="page-header">
+    <div class="page-header-inner">
+      <div class="hero-label">Published Research</div>
+      <h1 class="page-title">Research <em>Archive</em></h1>
+      <p class="page-sub">Fundamental equity research covering public companies. Each report includes an investment thesis, financial analysis, and a monitoring framework for tracking the thesis over time.</p>
+    </div>
+  </section>
+
+  <section class="section reports-section">
+
+    <div class="reports-filter">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="equity-research">Equity Research</button>
+      <button class="filter-btn" data-filter="consumer">Consumer</button>
+    </div>
+
+    <div class="reports-grid">
+
+      <!-- CELH REPORT -->
+      <article class="report-card" data-category="equity-research consumer">
+        <div class="report-card-header">
+          <div class="report-card-meta">
+            <span class="tag">Consumer Staples</span>
+            <span class="tag">Beverages</span>
+          </div>
+          <span class="report-rating buy">Buy</span>
+        </div>
+        <div class="report-card-body">
+          <div class="report-ticker-row">
+            <span class="report-ticker">CELH</span>
+            <span class="report-exchange">NYSE</span>
+          </div>
+          <h2 class="report-name">Celsius Holdings</h2>
+          <p class="report-summary">Three-brand energy platform thesis. Covers Celsius, Alani Nu, and Rockstar (NA) portfolio transition, PepsiCo distribution dynamics, and 2026–2029 earnings power under Base vs Bull execution.</p>
+          <div class="report-kpis">
+            <div class="kpi">
+              <span class="kpi-val">$70.00</span>
+              <span class="kpi-label">Target</span>
+            </div>
+            <div class="kpi">
+              <span class="kpi-val">$45.74</span>
+              <span class="kpi-label">Entry</span>
+            </div>
+            <div class="kpi">
+              <span class="kpi-val">+53%</span>
+              <span class="kpi-label">Upside</span>
+            </div>
+          </div>
+        </div>
+        <div class="report-card-footer">
+          <span class="report-date">January 2026</span>
+          <a href="assets/Drumoak Capital Celsius Holdings (CELH) Equity Research Report January 2026.pdf" target="_blank" class="report-link">Read Report →</a>
+        </div>
+      </article>
+
+      <!-- PLACEHOLDER — next report -->
+      <article class="report-card report-card--coming">
+        <div class="report-card-header">
+          <div class="report-card-meta">
+            <span class="tag tag--muted">Coming Soon</span>
+          </div>
+        </div>
+        <div class="report-card-body">
+          <div class="report-ticker-row">
+            <span class="report-ticker" style="opacity:0.3;">—</span>
+          </div>
+          <h2 class="report-name" style="opacity:0.35;">Next Report</h2>
+          <p class="report-summary" style="opacity:0.35;">The next Drumoak Capital equity research report is in progress. Follow on LinkedIn for updates.</p>
+        </div>
+        <div class="report-card-footer">
+          <span class="report-date" style="opacity:0.3;">2026</span>
+          <a href="contact.html" class="report-link" style="opacity:0.45;">Stay updated →</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">DRUMOAK CAPITAL</span>
+      <span class="footer-disc">Educational content only — nothing here constitutes financial advice or investment solicitation.</span>
+      <span class="footer-copy">© 2026 Angus Logan</span>
+    </div>
+  </footer>
+
+  <script src="assets/nav.js"></script>
+  <script>
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.report-card').forEach(card => {
+          if (filter === 'all' || card.dataset.category.includes(filter)) {
+            card.style.opacity = '1';
+            card.style.pointerEvents = 'auto';
+          } else {
+            card.style.opacity = '0.25';
+            card.style.pointerEvents = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
