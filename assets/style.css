@@ -539,7 +539,10 @@ nav {
   color: var(--navy);
   border: 1px solid rgba(13,27,42,0.15);
 }
-
+.report-rating.sell {
+  background-color: #8B1A1A;
+  color: #fff;
+}
 .report-card-body {
   padding: 28px;
   flex: 1;
