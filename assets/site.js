@@ -187,19 +187,19 @@
         '<text x="0" y="' + (y + 28) + '" font-size="10.5" fill="#6b7078">' + r.sub + "</text>";
       var tip = r.label + ": " + (r.lo === r.hi ? fmt(r.lo) + "p" : fmt(r.lo) + "p to " + fmt(r.hi) + "p");
       if (r.lo === r.hi) {
-        s += '<g><title>' + tip + '</title><rect x="' + (x(r.lo) - 3) + '" y="' + (y + 6) + '" width="6" height="18" rx="2" fill="' + (r.ref ? "#b9b4a8" : "#1f4a3a") + '"/>' +
+        s += '<g><title>' + tip + '</title><rect x="' + (x(r.lo) - 3) + '" y="' + (y + 6) + '" width="6" height="18" rx="2" fill="' + (r.ref ? "#b9b4a8" : "#1a2e45") + '"/>' +
           '<text x="' + (x(r.lo) + 9) + '" y="' + (y + 19) + '" font-size="11" fill="#3a3f47">' + fmt(r.lo) + "p</text></g>";
       } else {
-        s += '<g><title>' + tip + '</title><rect x="' + x(r.lo) + '" y="' + (y + 6) + '" width="' + (x(r.hi) - x(r.lo)) + '" height="18" rx="2" fill="#1f4a3a" opacity="' + (i === 0 ? 1 : 0.78) + '"/>' +
+        s += '<g><title>' + tip + '</title><rect x="' + x(r.lo) + '" y="' + (y + 6) + '" width="' + (x(r.hi) - x(r.lo)) + '" height="18" rx="2" fill="#1a2e45" opacity="' + (i === 0 ? 1 : 0.78) + '"/>' +
           '<text x="' + (x(r.lo) - 5) + '" y="' + (y + 19) + '" font-size="11" fill="#3a3f47" text-anchor="end">' + fmt(r.lo) + "</text>" +
           '<text x="' + (x(r.hi) + 5) + '" y="' + (y + 19) + '" font-size="11" fill="#3a3f47">' + fmt(r.hi) + "</text></g>";
       }
     });
     var yb = H - 22;
-    s += '<line x1="' + x(M.price) + '" x2="' + x(M.price) + '" y1="' + (top - 8) + '" y2="' + yb + '" stroke="#15181d" stroke-dasharray="3 3"/>' +
-      '<text x="' + x(M.price) + '" y="' + (top - 12) + '" font-size="10.5" fill="#15181d" text-anchor="middle">Price ' + fmt(M.price) + "p</text>" +
-      '<line x1="' + x(target) + '" x2="' + x(target) + '" y1="' + (top - 8) + '" y2="' + yb + '" stroke="#1f6b48" stroke-width="2"/>' +
-      '<text x="' + x(target) + '" y="' + (top - 12) + '" font-size="10.5" fill="#1f6b48" font-weight="600" text-anchor="middle">Target ' + fmt(target) + "p</text>";
+    s += '<line x1="' + x(M.price) + '" x2="' + x(M.price) + '" y1="' + (top - 8) + '" y2="' + yb + '" stroke="#0d1b2a" stroke-dasharray="3 3"/>' +
+      '<text x="' + x(M.price) + '" y="' + (top - 12) + '" font-size="10.5" fill="#0d1b2a" text-anchor="middle">Price ' + fmt(M.price) + "p</text>" +
+      '<line x1="' + x(target) + '" x2="' + x(target) + '" y1="' + (top - 8) + '" y2="' + yb + '" stroke="#b8964a" stroke-width="2"/>' +
+      '<text x="' + x(target) + '" y="' + (top - 12) + '" font-size="10.5" fill="#8c6f2f" font-weight="600" text-anchor="middle">Target ' + fmt(target) + "p</text>";
     s += "</svg>";
     el.innerHTML = s;
   }
@@ -212,7 +212,7 @@
     var wI = $("#in-wacc"), gI = $("#in-g");
     var waccs = [6.5, 7.0, 7.5, 8.0, 8.5], gs = [1.5, 2.0, 2.5, 3.0, 3.5];
     // sequential single-hue ramp, light to dark, for value per share
-    var ramp = ["#e6eee9", "#c6dccf", "#9fc2b3", "#74a58f", "#4d876f", "#2f6b54"];
+    var ramp = ["#e4e9f0", "#c3cfde", "#9cb0c8", "#7290b0", "#4d7096", "#2f527a"];
     var vals = [];
     waccs.forEach(function (w) { gs.forEach(function (g) { vals.push(dcf(w, g).ps); }); });
     var vmin = Math.min.apply(null, vals), vmax = Math.max.apply(null, vals);
