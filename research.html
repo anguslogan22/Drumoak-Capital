@@ -1,446 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Research — Drumoak Capital</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research | Drumoak Capital</title>
+  <meta name="description" content="Archive of Drumoak Capital long, short and credit research notes.">
+  <meta property="og:title" content="Research | Drumoak Capital">
+  <meta property="og:description" content="Archive of Drumoak Capital long, short and credit research notes.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#f6f4ef">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231f4a3a'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='white' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="index.html" class="brand" aria-label="Drumoak Capital home">
+        <span class="brand-mark">D</span>
+        <span class="brand-name">DRUMOAK CAPITAL<span>Independent Equity Research</span></span>
+      </a>
+      <nav aria-label="Main">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research.html" class="active" aria-current="page">Research</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+  <div class="tape" aria-label="Coverage at publication">
+    <div class="wrap tape-inner">
+      <span class="tape-label">Coverage</span>
+      <div class="tape-track" id="tape"></div>
+    </div>
+  </div>
 
-  <nav>
-    <a href="index.html" class="nav-logo">DRUMOAK CAPITAL</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="research.html" class="active">Research</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
-  </nav>
-
-  <section class="page-header">
-    <div class="page-header-inner">
-      <div class="hero-label">Published Research</div>
-      <h1 class="page-title">Research <em>Archive</em></h1>
-      <p class="page-sub">Fundamental equity research covering public companies. Each report includes an investment thesis, financial analysis, and a monitoring framework for tracking the thesis over time.</p>
+  <main>
+  <section class="page-head">
+    <div class="wrap">
+      <div class="eyebrow">Published research</div>
+      <h1>Research archive</h1>
+      <p class="lede">Fundamental long, short and credit notes. Each includes the investment debate, the model, explicit catalysts and risks, and a monitoring framework.</p>
+      <div class="stats-row">
+        <div class="fact"><div class="fact-val num" data-count="all">8</div><div class="fact-label">Notes</div></div>
+        <div class="fact"><div class="fact-val num" data-count="long">5</div><div class="fact-label">Long</div></div>
+        <div class="fact"><div class="fact-val num" data-count="short">2</div><div class="fact-label">Short</div></div>
+        <div class="fact"><div class="fact-val num" data-count="credit">1</div><div class="fact-label">Credit</div></div>
+      </div>
     </div>
   </section>
-
-  <section class="section reports-section">
-
-    <div class="reports-filter">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="equity-research">Equity Research</button>
-      <button class="filter-btn" data-filter="consumer">Consumer</button>
-    </div>
-
-    <div class="reports-grid">
-
-    
-<!-- CHRT REPORT -->
-<article class="report-card" data-category="equity-research defence-electronics">
-  <div class="report-card-header">
-    <div class="report-card-meta">
-      <span class="tag">Defence Electronics</span>
-      <span class="tag">Aerospace & Defence</span>
-    </div>
-    <span class="report-rating buy">Buy</span>
-  </div>
-
-  <div class="report-card-body">
-    <div class="report-ticker-row">
-      <span class="report-ticker">CHRT</span>
-      <span class="report-exchange">AIM</span>
-    </div>
-    <h2 class="report-name">Cohort PLC</h2>
-    <p class="report-summary">
-      Structural NATO and UK rearmament thesis across sonar, electronic warfare and secure communications. Covers a 6.8% revenue CAGR to FY34E, adjusted EBIT margin expansion from 11.8% to 15.0%, and a net cash build to £247.2m against an unjustified 28% EV/EBITDA discount to peers.
-    </p>
-
-    <div class="report-kpis">
-      <div class="kpi">
-        <span class="kpi-val">1,839p</span>
-        <span class="kpi-label">Target</span>
-      </div>
-      <div class="kpi">
-        <span class="kpi-val">1,150p–1,220p</span>
-        <span class="kpi-label">Entry</span>
-      </div>
-      <div class="kpi">
-        <span class="kpi-val">+54%</span>
-        <span class="kpi-label">Upside</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="report-card-footer">
-    <span class="report-date">September 2026</span>
-    <a href="assets/Angus Logan Drumoak Capital Cohort PLC (LON-CHRT) Equity Research Report.pdf" target="_blank" class="report-link">Read Report →</a>
-  </div>
-</article>
-
-      
-<!-- RNWH REPORT -->
-<article class="report-card" data-category="equity-research industrials">
-  <div class="report-card-header">
-    <div class="report-card-meta">
-      <span class="tag">Engineering Services</span>
-      <span class="tag">Infrastructure</span>
-    </div>
-    <span class="report-rating buy">Buy</span>
-  </div>
-
-  <div class="report-card-body">
-    <div class="report-ticker-row">
-      <span class="report-ticker">RNWH</span>
-      <span class="report-exchange">LSE</span>
-    </div>
-    <h2 class="report-name">Renew Holdings PLC</h2>
-    <p class="report-summary">
-      Non-discretionary infrastructure maintenance thesis[cite: 1]. Covers asset-light CP7/AMP8 regulatory framework tailwinds[cite: 1], high ROCE capital efficiency[cite: 1], disciplined programmatic M&A[cite: 1], and the complete elimination of legacy contract risk[cite: 1].
-    </p>
-
-    <div class="report-kpis">
-      <div class="kpi">
-        <span class="kpi-val">1,343.5p</span>
-        <span class="kpi-label">Target</span>
-      </div>
-      <div class="kpi">
-        <span class="kpi-val">900p–920p</span>
-        <span class="kpi-label">Entry</span>
-      </div>
-      <div class="kpi">
-        <span class="kpi-val">+46%</span>
-        <span class="kpi-label">Upside</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="report-card-footer">
-    <span class="report-date">August 2026</span>
-    <a href="assets/Drumoak Capital Renew Holdings PLC (RNWH) Equity Research Report August 2026.pdf" target="_blank" class="report-link">Read Report →</a>
-  </div>
-</article>
-
-      
-<!-- SNBR DEBT RESTRUCTURING NOTE -->
-<article class="report-card" data-category="debt-restructuring consumer">
-  <div class="report-card-header">
-    <div class="report-card-meta">
-      <span class="tag">Debt Restructuring</span>
-      <span class="tag">Consumer Discretionary</span>
-    </div>
-    <span class="report-rating restructuring">Chapter 11</span>
-  </div>
-
-  <div class="report-card-body">
-    <div class="report-ticker-row">
-      <span class="report-ticker">SNBR</span>
-      <span class="report-exchange">NASDAQ — Delisted</span>
-    </div>
-
-    <h2 class="report-name">Sleep Number Debt Restructuring Note</h2>
-
-    <p class="report-summary">
-      Chapter 11 restructuring analysis covering Sleep Number’s lender-supervised
-      Section 363 sale, DIP financing and roll-up mechanics, the fulcrum within the
-      secured creditor class, estimated recoveries across the capital structure, and
-      the proposed sale to a Sleep Country Canada affiliate.
-    </p>
-
-    <div class="report-kpis">
-      <div class="kpi">
-        <span class="kpi-val">~$672.5M</span>
-        <span class="kpi-label">Funded Debt</span>
-      </div>
-
-      <div class="kpi">
-        <span class="kpi-val">Up to $260M</span>
-        <span class="kpi-label">DIP Facility</span>
-      </div>
-
-      <div class="kpi">
-        <span class="kpi-val">~$415M</span>
-        <span class="kpi-label">Sale Price</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="report-card-footer">
-    <span class="report-date">July 2026</span>
-    <a
-      href="assets/Drumoak Capital SNBR Debt Restructuring Report July 2026.pdf"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="report-link"
-    >
-      Read Debt Note →
-    </a>
-  </div>
-</article>
-      
-<!-- MDA REPORT -->
-<article class="report-card" data-category="equity-research industrials">
-  <div class="report-card-header">
-    <div class="report-card-meta">
-      <span class="tag">Industrials</span>
-      <span class="tag">Space / Defence</span>
-    </div>
-    <span class="report-rating sell">Sell</span>
-  </div>
-
-  <div class="report-card-body">
-    <div class="report-ticker-row">
-      <span class="report-ticker">MDA</span>
-      <span class="report-exchange">TSX / NYSE</span>
-    </div>
-
-    <h2 class="report-name">MDA Space Ltd</h2>
-
-    <p class="report-summary">
-      Space-tech valuation mismatch thesis. Covers MDA’s shift toward lower-margin
-      sovereign defence contracts, structural margin pressure, backlog conversion risk,
-      institutional selling following its NYSE listing, and the potential loss of its
-      premium valuation multiple.
-    </p>
-
-    <div class="report-kpis">
-      <div class="kpi">
-        <span class="kpi-val">C$25.08</span>
-        <span class="kpi-label">Target</span>
-      </div>
-
-      <div class="kpi">
-        <span class="kpi-val">C$47.57</span>
-        <span class="kpi-label">Entry</span>
-      </div>
-
-      <div class="kpi">
-        <span class="kpi-val">−47.3%</span>
-        <span class="kpi-label">Downside</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="report-card-footer">
-    <span class="report-date">April 2026</span>
-    <a
-      href="assets/Angus Logan Equity Research MDA Space Ltd (MDA) .pdf"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="report-link"
-    >
-      Read Report →
-    </a>
-  </div>
-</article>
-      
-<!-- CDRE REPORT -->
-<article class="report-card" data-category="equity-research industrials">
-  <div class="report-card-header">
-    <div class="report-card-meta">
-      <span class="tag">Industrials</span>
-      <span class="tag">Aerospace &amp; Defence</span>
-    </div>
-    <span class="report-rating buy">Buy</span>
-  </div>
-
-  <div class="report-card-body">
-    <div class="report-ticker-row">
-      <span class="report-ticker">CDRE</span>
-      <span class="report-exchange">NYSE</span>
-    </div>
-
-    <h2 class="report-name">Cadre Holdings Inc</h2>
-
-    <p class="report-summary">
-      Mission-critical safety equipment compounder thesis. Covers Cadre’s disciplined
-      M&amp;A platform, certification-driven replacement demand, TYR Tactical integration,
-      European defence exposure, nuclear safety growth, and a valuation discount to
-      higher-quality industrial peers.
-    </p>
-
-    <div class="report-kpis">
-      <div class="kpi">
-        <span class="kpi-val">$38.78</span>
-        <span class="kpi-label">Target</span>
-      </div>
-
-      <div class="kpi">
-        <span class="kpi-val">$29.85</span>
-        <span class="kpi-label">Entry</span>
-      </div>
-
-      <div class="kpi">
-        <span class="kpi-val">+29.9%</span>
-        <span class="kpi-label">Upside</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="report-card-footer">
-    <span class="report-date">May 2026</span>
-    <a
-      href="assets/Angus Logan Equity Research Cadre Holdings Inc (CDRE) .pdf"
-      class="report-link"
-    >
-      Read Report →
-    </a>
-  </div>
-</article>
-      
-      <!-- GAW REPORT -->
-<article class="report-card" data-category="equity-research consumer">
-  <div class="report-card-header">
-    <div class="report-card-meta">
-      <span class="tag">Consumer Discretionary</span>
-      <span class="tag">Gaming / IP</span>
-    </div>
-    <span class="report-rating buy">Buy</span>
-  </div>
-
-  <div class="report-card-body">
-    <div class="report-ticker-row">
-      <span class="report-ticker">GAW</span>
-      <span class="report-exchange">LSE</span>
-    </div>
-    <h2 class="report-name">Games Workshop Group PLC</h2>
-    <p class="report-summary">
-      Warhammer IP flywheel thesis. Covers structural core growth, Space Marine 2 conversion, Amazon optionality, pricing power, and alternative data signals supporting upside not fully reflected in consensus.
-    </p>
-
-    <div class="report-kpis">
-      <div class="kpi">
-        <span class="kpi-val">21,000–22,500p</span>
-        <span class="kpi-label">Target</span>
-      </div>
-      <div class="kpi">
-        <span class="kpi-val">17,260p</span>
-        <span class="kpi-label">Entry</span>
-      </div>
-      <div class="kpi">
-        <span class="kpi-val">+22% to +30%</span>
-        <span class="kpi-label">Upside</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="report-card-footer">
-    <span class="report-date">March 2026</span>
-    <a href="assets/Drumoak Capital Games Workshop Group PLC (GAW) Equity Research Report March 2026.pdf" target="_blank" class="report-link">Read Report →</a>
-  </div>
-</article>
-      
-      <!-- SBUX REPORT -->
-      <article class="report-card" data-category="equity-research consumer">
-        <div class="report-card-header">
-          <div class="report-card-meta">
-            <span class="tag">Consumer Discretionary</span>
-            <span class="tag">Beverages</span>
-          </div>
-          <span class="report-rating sell">Sell</span>
-        </div>
-        <div class="report-card-body">
-          <div class="report-ticker-row">
-            <span class="report-ticker">SBUX</span>
-            <span class="report-exchange">NASDAQ</span>
-          </div>
-          <h2 class="report-name">Starbucks Corporation</h2>
-          <p class="report-summary">Short thesis on Starbucks. The market is paying 40x forward earnings for a turnaround the numbers cannot yet support. Covers arabica commodity headwinds at 50-year highs, structural US market share erosion, $21.9B net debt, and a three-scenario DCF implying 43–54% downside.</p>
-          <div class="report-kpis">
-            <div class="kpi">
-              <span class="kpi-val">$45–55</span>
-              <span class="kpi-label">Target</span>
-            </div>
-            <div class="kpi">
-              <span class="kpi-val">$97.15</span>
-              <span class="kpi-label">Price</span>
-            </div>
-            <div class="kpi">
-              <span class="kpi-val">–43–54%</span>
-              <span class="kpi-label">Downside</span>
-            </div>
-          </div>
-        </div>
-        <div class="report-card-footer">
-          <span class="report-date">March 2026</span>
-          <a href="assets/Drumoak Capital Starbucks Corporation (SBUX) Equity Research Report March 2026.pdf" target="_blank" class="report-link">Read Report →</a>
-        </div>
-      </article>
-
-      
-
-      <!-- CELH REPORT -->
-      <article class="report-card" data-category="equity-research consumer">
-        <div class="report-card-header">
-          <div class="report-card-meta">
-            <span class="tag">Consumer Staples</span>
-            <span class="tag">Beverages</span>
-          </div>
-          <span class="report-rating buy">Buy</span>
-        </div>
-        <div class="report-card-body">
-          <div class="report-ticker-row">
-            <span class="report-ticker">CELH</span>
-            <span class="report-exchange">NYSE</span>
-          </div>
-          <h2 class="report-name">Celsius Holdings</h2>
-          <p class="report-summary">Three-brand energy platform thesis. Covers Celsius, Alani Nu, and Rockstar (NA) portfolio transition, PepsiCo distribution dynamics, and 2026–2029 earnings power under Base vs Bull execution.</p>
-          <div class="report-kpis">
-            <div class="kpi">
-              <span class="kpi-val">$70.00</span>
-              <span class="kpi-label">Target</span>
-            </div>
-            <div class="kpi">
-              <span class="kpi-val">$45.74</span>
-              <span class="kpi-label">Entry</span>
-            </div>
-            <div class="kpi">
-              <span class="kpi-val">+53%</span>
-              <span class="kpi-label">Upside</span>
-            </div>
-          </div>
-        </div>
-        <div class="report-card-footer">
-          <span class="report-date">January 2026</span>
-          <a href="assets/Drumoak Capital Celsius Holdings (CELH) Equity Research Report January 2026.pdf" target="_blank" class="report-link">Read Report →</a>
-        </div>
-      </article>
-
-
+  <section class="section" style="padding-top:48px">
+    <div class="wrap">
+      <div data-coverage data-tools></div>
+      <p class="table-note">Sort by date, company, sector or implied move. Reference prices and targets are as at publication and are not updated.</p>
     </div>
   </section>
-
-  <footer>
-    <div class="footer-inner">
-      <span class="footer-logo">DRUMOAK CAPITAL</span>
-      <span class="footer-disc">Educational content only — nothing here constitutes financial advice or investment solicitation.</span>
-      <span class="footer-copy">© 2026 Angus Logan</span>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-col">
+          <a href="index.html" class="brand"><span class="brand-mark">D</span><span class="brand-name">DRUMOAK CAPITAL<span>Independent Equity Research</span></span></a>
+          <p>Research by Angus Logan, McGill University, Desautels Faculty of Management. Montreal and London.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Site</h4>
+          <a href="research.html">Research archive</a>
+          <a href="about.html">About and methodology</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Elsewhere</h4>
+          <a href="https://www.linkedin.com/in/angus-logan/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:angus.logan@mail.mcgill.ca">angus.logan@mail.mcgill.ca</a>
+          <a href="https://github.com/anguslogan22" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Educational research only. Nothing on this site is investment advice or a solicitation to buy or sell any security. Prices and ratings are as at the date of each report and are not updated.</span>
+        <span>© <span id="yr">2026</span> Angus Logan</span>
+      </div>
     </div>
   </footer>
-
-  <script src="assets/nav.js"></script>
-  <script>
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        document.querySelectorAll('.report-card').forEach(card => {
-          if (filter === 'all' || card.dataset.category.includes(filter)) {
-            card.style.opacity = '1';
-            card.style.pointerEvents = 'auto';
-          } else {
-            card.style.opacity = '0.25';
-            card.style.pointerEvents = 'none';
-          }
-        });
-      });
-    });
-  </script>
+  <script src="assets/data.js"></script>
+  <script src="assets/site.js"></script>
 </body>
 </html>
