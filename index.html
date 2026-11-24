@@ -8,16 +8,19 @@
   <meta property="og:title" content="Drumoak Capital | Independent Equity Research">
   <meta property="og:description" content="Independent long, short and credit equity research by Angus Logan, with full DCF and comps models.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://anguslogan22.github.io/Drumoak-Capital/assets/covers/chrt-og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#0d1b2a">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@85..100,400;85..100,500;85..100,600;85..100,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
+<body data-root="">
   <header class="site-header">
     <div class="wrap header-inner">
       <a href="index.html" class="nav-logo">DRUMOAK CAPITAL</a>
+      <div class="nav-right">
       <nav aria-label="Main">
       <ul class="nav-links">
         <li><a href="index.html" class="active" aria-current="page">Home</a></li>
@@ -26,7 +29,9 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
       </nav>
+      <button class="search-btn" type="button" aria-label="Search reports">Search <kbd>⌘K</kbd></button>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+      </div>
     </div>
   </header>
   <div class="tape" aria-label="Coverage at publication">
@@ -74,7 +79,7 @@
         </div>
         <div class="panel-foot">
           <span class="small">Blend: 50% DCF, 30% comps, 20% residual income</span>
-          <a class="link" href="assets/Angus Logan Drumoak Capital Cohort PLC (LON-CHRT) Equity Research Report.pdf" target="_blank" rel="noopener">Read report →</a>
+          <a class="link" href="reports/chrt.html">Open the note →</a>
         </div>
       </article>
     </div>
@@ -114,52 +119,17 @@
           <p class="muted">The explicit FY27E to FY34E unlevered free cash flows from the report, discounted live. Move WACC and terminal growth, or click any cell in the sensitivity grid, and the equity bridge and blended target update.</p>
         </div>
       </div>
-      <div class="model-grid reveal">
-        <div class="model-controls">
-          <div class="ctrl">
-            <div class="ctrl-top"><label for="in-wacc">WACC</label><output id="o-wacc">7.26%</output></div>
-            <input id="in-wacc" type="range" min="6.5" max="8.5" step="0.01" value="7.26">
-            <div class="ctrl-scale"><span>6.5%</span><span>Base 7.26%</span><span>8.5%</span></div>
-          </div>
-          <div class="ctrl">
-            <div class="ctrl-top"><label for="in-g">Terminal growth</label><output id="o-g">2.5%</output></div>
-            <input id="in-g" type="range" min="1.5" max="3.5" step="0.1" value="2.5">
-            <div class="ctrl-scale"><span>1.5%</span><span>Base 2.5%</span><span>3.5%</span></div>
-          </div>
-          <div class="eyebrow" style="margin-top:6px">Equity bridge</div>
-          <table class="bridge">
-            <tr><td>PV of FCF, FY27E to FY34E</td><td id="b-pv">£276.2m</td></tr>
-            <tr><td>PV of terminal value</td><td id="b-tv">£678.0m</td></tr>
-            <tr class="total"><td>Enterprise value</td><td id="b-ev">£954.3m</td></tr>
-            <tr><td>Plus cash</td><td>£49.6m</td></tr>
-            <tr><td>Less borrowings</td><td>(£47.4m)</td></tr>
-            <tr><td>Less non-controlling interests</td><td>(£1.8m)</td></tr>
-            <tr class="total"><td>Equity value</td><td id="b-eq">£954.7m</td></tr>
-            <tr><td>Diluted shares</td><td>46.6m</td></tr>
-            <tr class="total"><td>DCF value per share</td><td id="b-ps">2,049p</td></tr>
-          </table>
-          <button class="reset" id="reset" type="button">Reset to base case</button>
-        </div>
-        <div class="model-out">
-          <div class="out-top">
-            <div class="out"><div class="out-label">DCF value</div><div class="out-val num" id="v-dcf">2,049p</div><div class="out-sub" id="v-dcf-up"></div></div>
-            <div class="out"><div class="out-label">Blended target</div><div class="out-val num" id="v-tgt">1,839p</div><div class="out-sub" id="v-tgt-up"></div></div>
-            <div class="out"><div class="out-label">TV share of EV</div><div class="out-val num" id="v-tv">71.0%</div><div class="out-sub">Report base case 71.0%</div></div>
-          </div>
-          <div class="sens-head"><div class="eyebrow">Sensitivity · DCF value per share (p)</div><span>Click a cell to load it</span></div>
-          <table class="sens" id="sens" aria-label="WACC and terminal growth sensitivity"></table>
-          <div class="legend"><span><i style="background:#e4e9f0"></i>Lower value</span><span><i style="background:#2f527a"></i>Higher value</span><span>Reference price 1,194p</span></div>
-          <div class="blend">
-            <div class="eyebrow">Blended target build</div>
-            <div class="blend-bar">
-              <div id="bl-dcf" style="background:#2f527a"></div>
-              <div id="bl-comps" style="background:#4d7096;border-left:2px solid #0d1b2a"></div>
-              <div id="bl-rim" style="background:#6b7d92;border-left:2px solid #0d1b2a"></div>
-            </div>
-            <p class="small" style="margin-top:12px">Comps (1,812p) and residual income (1,355p) are held at report values. The DDM (624p) is shown for reference and excluded from the blend because of Cohort's 30% to 32% payout ratio.</p>
-          </div>
-        </div>
+      <div class="reveal" id="model-root"></div>
+    </div>
+  </section>
+
+  <section class="section surface">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><div class="eyebrow">Research library</div><h2 class="h2">Every note, in full</h2><p>Each report has its own page with the debate, thesis, valuation, catalysts and risks, and the full PDF.</p></div>
+        <a class="link" href="research.html">Browse the archive →</a>
       </div>
+      <div class="library reveal" id="library"></div>
     </div>
   </section>
 
@@ -174,7 +144,7 @@
     </div>
   </section>
 
-  <section class="section surface">
+  <section class="section">
     <div class="wrap">
       <div class="section-head reveal"><div><div class="eyebrow">Process</div><h2 class="h2">How each note is built</h2></div><a class="link" href="about.html#method">Full methodology →</a></div>
       <div class="steps reveal">
